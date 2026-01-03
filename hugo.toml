@@ -1,13 +1,13 @@
 baseURL = 'https://ilderajmi.github.io/'
 languageCode = 'zh-cn'
-title = 'My Blog'
+title = "I'm Jared Li"
 
 theme = 'paper'
 
 [params]
   color = 'linen'
   avatar = ''
-  name = 'Your Name'
+  name = 'Jared Li'
   bio = 'Welcome to my blog'
 
 [markup]
