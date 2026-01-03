@@ -1,0 +1,27 @@
+baseURL = 'https://ilderajmi.github.io/'
+languageCode = 'zh-cn'
+title = 'My Blog'
+
+theme = 'paper'
+
+[params]
+  color = 'linen'
+  avatar = ''
+  name = 'Your Name'
+  bio = 'Welcome to my blog'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
