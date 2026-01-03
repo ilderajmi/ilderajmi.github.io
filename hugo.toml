@@ -4,11 +4,25 @@ title = 'My Blog'
 
 theme = 'paper'
 
+# SEO 配置
 [params]
   color = 'linen'
   avatar = ''
   name = 'Jared'
-  bio = 'Welcome to my blog'
+  bio = '分享技术、开发和生活中的思考'
+
+  # SEO Meta
+  description = "Jared 的个人博客，分享编程开发、AI 工具、技术思考等内容"
+  keywords = ["博客", "编程", "开发", "AI", "技术"]
+  author = "Jared"
+
+  # Open Graph / Facebook
+  images = ['']
+  ogLocale = "zh_CN"
+
+  # Twitter Cards
+  twitterSite = ""
+  twitterCreator = ""
 
 [markup]
   [markup.goldmark]
@@ -25,3 +39,17 @@ theme = 'paper'
 [taxonomies]
   category = "categories"
   tag = "tags"
+  series = "series"
+
+# sitemap 配置
+[sitemap]
+  changefreq = 'weekly'
+  filename = 'sitemap.xml'
+  priority = 0.5
+
+# robots.txt 配置
+enableRobotsTXT = true
+
+# Google Analytics (需要替换为实际的 Measurement ID)
+# [services.googleAnalytics]
+#   ID = 'G-XXXXXXXXXX'
