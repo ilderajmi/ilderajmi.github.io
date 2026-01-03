@@ -23,7 +23,7 @@
     "@type": "WebPage",
     "@id": {{ .Permalink | jsonify }}
   },
-  "keywords": {{ delimit .Params.tags ", " | jsonify }}
+  {{- with .Params.tags -}}"keywords": {{ delimit . ", " | jsonify }}{{- end -}}
 }
 </script>
 {{- else if .IsHome -}}
