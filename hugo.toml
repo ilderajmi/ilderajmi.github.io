@@ -10,6 +10,7 @@ theme = 'paper'
   avatar = ''
   name = 'Jared'
   bio = '分享技术、开发和生活中的思考'
+  mainSections = ['posts']
 
   # SEO Meta
   description = "Jared 的个人博客，分享编程开发、AI 工具、技术思考等内容"
