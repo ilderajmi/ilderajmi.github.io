@@ -1,0 +1,32 @@
+{
+  "files.associations": {
+    "*.html": "html"
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "strings": "on",
+      "other": "on"
+    }
+  },
+  // Hugo 相关设置
+  "emmet.includeLanguages": {
+    "hugo": "html"
+  },
+  // SEO 提醒
+  "todo-tree.general.tags": [
+    "TODO",
+    "FIXME",
+    "SEO",
+    "NOTE"
+  ],
+  "todo-tree.highlights.customHighlight": {
+    "SEO": {
+      "icon": "search",
+      "foreground": "#4CAF50"
+    }
+  }
+}

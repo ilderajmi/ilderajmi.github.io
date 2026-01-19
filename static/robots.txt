@@ -1,0 +1,25 @@
+# 这是一个备用的 robots.txt 文件
+# 注意: layouts/robots.txt 模板会在 GitHub Actions 部署时自动生成动态版本
+
+User-agent: *
+Allow: /
+
+# 禁止爬取静态资源和主题文件（这些在public目录中通常不存在）
+Disallow: /themes/
+Disallow: /layouts/
+Disallow: /data/
+Disallow: /assets/
+Disallow: /resources/
+
+# 禁止爬取分页页面（避免重复内容）
+Disallow: /page/
+Disallow: /*/page/
+
+# 隐私政策页面允许索引，但优先级较低
+Allow: /policies/
+
+# 禁止爬取草稿和未发布内容
+Disallow: /drafts/
+
+# Sitemap位置
+Sitemap: https://blog.paymond.me/sitemap.xml

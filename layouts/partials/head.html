@@ -117,5 +117,16 @@
 
   <!-- canonical -->
   <link rel="canonical" href="{{- .Permalink -}}" />
+  
+  <!-- 语言版本 -->
+  <link rel="alternate" hreflang="zh-CN" href="{{- .Permalink -}}" />
+  
+  <!-- robots meta -->
+  {{- if .Params.noindex -}}
+  <meta name="robots" content="noindex, nofollow" />
+  {{- else -}}
+  <meta name="robots" content="index, follow" />
+  {{- end -}}
+  
   {{- end -}}
 </head>

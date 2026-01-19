@@ -1,15 +1,22 @@
 User-agent: *
 Allow: /
 
-# 禁止爬取静态资源和主题文件
+# 禁止爬取静态资源和主题文件（这些在public目录中通常不存在）
 Disallow: /themes/
 Disallow: /layouts/
 Disallow: /data/
 Disallow: /assets/
 Disallow: /resources/
 
-# 隐私政策页面（仅直接访问，不索引）
-Disallow: /policies/
+# 禁止爬取分页页面（避免重复内容）
+Disallow: /page/
+Disallow: /*/page/
 
-# Sitemap
+# 隐私政策页面允许索引，但优先级较低
+Allow: /policies/
+
+# 禁止爬取草稿和未发布内容
+Disallow: /drafts/
+
+# Sitemap位置
 Sitemap: {{ .Site.BaseURL }}sitemap.xml

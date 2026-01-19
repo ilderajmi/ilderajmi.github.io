@@ -2,6 +2,8 @@
 date = '2026-01-03T23:15:14+08:00'
 draft = false
 title = 'First Post'
+description = '欢迎来到 Jared 的技术博客！这是使用 Hugo 静态网站生成器搭建的第一篇文章，分享关于编程、开发工具和技术思考的内容。'
+tags = ['Hugo', '博客']
 +++
 
 # 我的第一篇博客

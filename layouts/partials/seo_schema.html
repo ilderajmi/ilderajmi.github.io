@@ -10,11 +10,20 @@
   "author": {
     "@type": "Person",
     "name": {{ site.Params.author | default site.Params.name | jsonify }}
+    {{- with site.Params.authorUrl -}},
+    "url": {{ . | jsonify }}
+    {{- end -}}
   },
   "publisher": {
     "@type": "Organization",
     "name": {{ site.Title | jsonify }},
     "url": {{ site.BaseURL | jsonify }}
+    {{- with site.Params.logo -}},
+    "logo": {
+      "@type": "ImageObject",
+      "url": {{ (. | absURL) | jsonify }}
+    }
+    {{- end -}}
   },
   "datePublished": {{ .PublishDate.Format "2006-01-02T15:04:05-07:00" | jsonify }},
   "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05-07:00" | jsonify }},
@@ -23,7 +32,14 @@
     "@type": "WebPage",
     "@id": {{ .Permalink | jsonify }}
   },
-  {{- with .Params.tags -}}"keywords": {{ delimit . ", " | jsonify }}{{- end -}}
+  {{- with .Params.tags -}}
+  "keywords": {{ delimit . ", " | jsonify }},
+  {{- end -}}
+  {{- with .Params.image -}}
+  "image": {{ (. | absURL) | jsonify }},
+  {{- end -}}
+  "inLanguage": "zh-CN",
+  "wordCount": {{ .WordCount }}
 }
 </script>
 {{- else if .IsHome -}}
@@ -34,15 +50,42 @@
   "name": {{ site.Title | jsonify }},
   "description": {{ site.Params.description | jsonify }},
   "url": {{ site.BaseURL | jsonify }},
+  "inLanguage": "zh-CN",
   "author": {
     "@type": "Person",
     "name": {{ site.Params.author | default site.Params.name | jsonify }}
+    {{- with site.Params.authorUrl -}},
+    "url": {{ . | jsonify }}
+    {{- end -}}
   },
   "publisher": {
     "@type": "Organization",
     "name": {{ site.Title | jsonify }},
     "url": {{ site.BaseURL | jsonify }}
+    {{- with site.Params.logo -}},
+    "logo": {
+      "@type": "ImageObject",
+      "url": {{ (. | absURL) | jsonify }}
+    }
+    {{- end -}}
   }
 }
 </script>
+{{- if site.Params.searchEnabled -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": {{ site.BaseURL | jsonify }},
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": {{ printf "%s/search/?q={search_term_string}" site.BaseURL | jsonify }}
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+{{- end -}}
 {{- end -}}

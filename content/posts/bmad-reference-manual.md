@@ -2,6 +2,7 @@
 date = '2026-01-04T00:00:00+08:00'
 draft = false
 title = '用 BMAD 打造你的 AI 开发团队'
+description = 'BMAD (Build Me A Dream) 是一个 AI 代理框架，可以在 Cursor 中创建虚拟开发团队。了解如何使用 BMAD 的各种代理角色来提升开发效率。'
 tags = ['BMAD', 'AI代理', '开发工具']
 +++
 
