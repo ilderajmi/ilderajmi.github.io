@@ -1,4 +1,4 @@
-baseURL = 'https://ilderajmi.github.io/'
+baseURL = 'https://blog.paymond.me/'
 languageCode = 'zh-cn'
 title = 'My Blog'
 
@@ -14,16 +14,26 @@ theme = 'paper'
 
   # SEO Meta
   description = "Jared 的个人博客，分享编程开发、AI 工具、技术思考等内容"
-  keywords = ["博客", "编程", "开发", "AI", "技术"]
+  keywords = ["博客", "编程", "开发", "AI", "技术", "Hugo", "GitHub Pages"]
   author = "Jared"
+  authorUrl = "https://ilderajmi.github.io/"
+  
+  # 网站Logo（用于结构化数据）
+  logo = "/apple-touch-icon.png"
 
   # Open Graph / Facebook
-  images = ['']
+  images = ['/apple-touch-icon.png']
   ogLocale = "zh_CN"
 
   # Twitter Cards
   twitterSite = ""
   twitterCreator = ""
+  
+  # 性能优化
+  env = "production"
+  
+  # Google Search Console 验证（添加你的验证码）
+  # googleSiteVerification = "your-verification-code"
 
 [markup]
   [markup.goldmark]
@@ -47,6 +57,16 @@ theme = 'paper'
   changefreq = 'weekly'
   filename = 'sitemap.xml'
   priority = 0.5
+
+# 性能优化 - 生产环境压缩
+[minify]
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepWhitespace = false
+    [minify.tdewolff.css]
+      precision = 2
+    [minify.tdewolff.js]
+      precision = 2
 
 # robots.txt 配置
 enableRobotsTXT = true
