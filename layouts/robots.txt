@@ -8,5 +8,8 @@ Disallow: /data/
 Disallow: /assets/
 Disallow: /resources/
 
+# 隐私政策页面（仅直接访问，不索引）
+Disallow: /policies/
+
 # Sitemap
 Sitemap: {{ .Site.BaseURL }}sitemap.xml
