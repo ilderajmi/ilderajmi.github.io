@@ -6,8 +6,6 @@ description = '460万美元训练成本 vs 10亿美元，6倍价格差距，174%
 tags = ['AI代理', '开发工具', '大模型']
 +++
 
-# 国产大模型的2025：Kimi、MiniMax、智谱的不同路径
-
 ![Chinese AI Models Global Impact](https://www.chathamhouse.org/sites/default/files/styles/12_6_media_huge/public/2025-11/2025-11-20-jensen-huang-2247490231.jpg?h=2816537b&itok=uEcw-cSJ)
 *Nvidia CEO 黄仁勋曾表示"中国将在AI领域获胜"——这句话背后是国产模型的成本效率优势（来源：Chatham House / AFP via Getty Images）*
 
