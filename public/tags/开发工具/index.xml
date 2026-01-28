@@ -6,8 +6,15 @@
     <description>Recent content in 开发工具 on My Blog</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 04 Jan 2026 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 28 Jan 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.paymond.me/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>国产大模型的2025：Kimi、MiniMax、智谱的不同路径</title>
+      <link>https://blog.paymond.me/posts/chinese-llm-2025/</link>
+      <pubDate>Wed, 28 Jan 2026 00:00:00 +0800</pubDate>
+      <guid>https://blog.paymond.me/posts/chinese-llm-2025/</guid>
+      <description>&lt;h1 id=&#34;国产大模型的2025kimiminimax智谱的不同路径&#34;&gt;国产大模型的2025：Kimi、MiniMax、智谱的不同路径&lt;/h1&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://www.chathamhouse.org/sites/default/files/styles/12_6_media_huge/public/2025-11/2025-11-20-jensen-huang-2247490231.jpg?h=2816537b&amp;amp;itok=uEcw-cSJ&#34; alt=&#34;Chinese AI Models Global Impact&#34;&gt;&#xA;&lt;em&gt;Nvidia CEO 黄仁勋曾表示&amp;quot;中国将在AI领域获胜&amp;quot;——这句话背后是国产模型的成本效率优势（来源：Chatham House / AFP via Getty Images）&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;2025年底，一个数据让硅谷坐不住了：月之暗面的 Kimi K2 训练成本约460万美元，而 Claude Sonnet 4.5 超过10亿美元。两者在多项基准测试中性能相当。&lt;/p&gt;&#xA;&lt;p&gt;这不是孤例。Social Capital 的 Chamath Palihapitiya 公开表示他们已经转向 Kimi K2，原因很直接：&amp;ldquo;性能更好，成本低得多。&amp;rdquo; Airbnb CEO Brian Chesky 说他们&amp;quot;重度依赖&amp;quot;阿里的 Qwen，因为&amp;quot;又快又便宜&amp;quot;。&lt;/p&gt;&#xA;&lt;p&gt;国产大模型正在用一种出乎意料的方式进入全球市场——不是靠政策保护，而是靠成本效率。&lt;/p&gt;&#xA;&lt;h2 id=&#34;kimi460万美元的挑战&#34;&gt;Kimi：460万美元的挑战&lt;/h2&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://statics.moonshot.cn/kimi-blog/assets/workflow-Cqznd7Jl.png&#34; alt=&#34;Kimi K2 Agentic Pipeline&#34;&gt;&#xA;&lt;em&gt;Kimi K2 的 Agentic 数据合成流程：通过大规模工具使用场景模拟训练 Agent 能力（来源：Moonshot AI）&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;月之暗面的 Kimi K2 Thinking 在 MATH-500 测试中拿到97.4%，超过 GPT-4o 和 Claude 3.5 Sonnet。这个成绩本身没什么稀奇，真正让人关注的是实现路径：&lt;/p&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;模型&lt;/th&gt;&#xA;          &lt;th&gt;训练成本&lt;/th&gt;&#xA;          &lt;th&gt;API价格（每百万Token）&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Kimi K2 Thinking&lt;/td&gt;&#xA;          &lt;td&gt;约460万美元&lt;/td&gt;&#xA;          &lt;td&gt;2.5美元&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Claude Sonnet 4.5&lt;/td&gt;&#xA;          &lt;td&gt;超过10亿美元&lt;/td&gt;&#xA;          &lt;td&gt;15美元&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;p&gt;6倍的价格差距意味着什么？对于一个每天调用百万次API的应用来说，这是每月数十万美元的成本差异。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>用 BMAD 打造你的 AI 开发团队</title>
       <link>https://blog.paymond.me/posts/bmad-reference-manual/</link>
