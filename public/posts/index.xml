@@ -1,42 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>文章 on My Blog</title><link>https://blog.paymond.me/posts/</link><description>Recent content in 文章 on My Blog</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sun, 04 Jan 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://blog.paymond.me/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>用 BMAD 打造你的 AI 开发团队</title><link>https://blog.paymond.me/posts/bmad-reference-manual/</link><pubDate>Sun, 04 Jan 2026 00:00:00 +0800</pubDate><guid>https://blog.paymond.me/posts/bmad-reference-manual/</guid><description>&lt;p&gt;最近在折腾 Cursor 的 AI 代理系统，发现了一个叫 &lt;a href="https://github.com/bmad-code-org/BMAD-METHOD"&gt;BMAD&lt;/a&gt; 的项目，简单说就是一套用 AI 代理组成的&amp;quot;虚拟开发团队&amp;quot;。用了一段时间感觉挺有意思，在这里记录一下。&lt;/p&gt;
-&lt;h2 id="什么是-bmad"&gt;什么是 BMAD&lt;/h2&gt;
-&lt;p&gt;BMAD（Build Me A Dream）本质上是一个 AI 代理框架，你可以在 Cursor 里通过 &lt;code&gt;@&lt;/code&gt; 符号调用不同的&amp;quot;虚拟同事&amp;quot;来帮你完成各种开发任务。它把软件开发流程拆分成不同的角色，比如产品经理、架构师、开发者、测试等等，每个角色都有一个专门的 AI 代理负责。&lt;/p&gt;
-&lt;p&gt;目前已安装的模块有：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Core&lt;/strong&gt; - 核心模块&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;BMM&lt;/strong&gt; - 敏捷开发模块&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;BMB&lt;/strong&gt; - 构建器模块&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;BMGD&lt;/strong&gt; - 游戏开发模块&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;CIS&lt;/strong&gt; - 创意套件模块&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="基本用法"&gt;基本用法&lt;/h2&gt;
-&lt;p&gt;在 Cursor 聊天中用 &lt;code&gt;@&lt;/code&gt; 引用：&lt;/p&gt;
-&lt;pre tabindex="0"&gt;&lt;code&gt;@bmad/core/agents/bmad-master # 通用助手
-@bmad/bmm/workflows/quick-dev # 快速开发
-@bmad/bmm/workflows/create-prd # 创建产品需求文档
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="我常用的几个代理"&gt;我常用的几个代理&lt;/h2&gt;
-&lt;h3 id="日常开发"&gt;日常开发&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Barry&lt;/strong&gt; (&lt;code&gt;@bmad/bmm/agents/quick-flow-solo-dev&lt;/code&gt;) - 处理快速开发任务，从规格到实现一把梭&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Amelia&lt;/strong&gt; (&lt;code&gt;@bmad/bmm/agents/dev&lt;/code&gt;) - 严格按照验收标准写代码&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Winston&lt;/strong&gt; (&lt;code&gt;@bmad/bmm/agents/architect&lt;/code&gt;) - 架构设计，分布式系统、云基础设施这些&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="规划阶段"&gt;规划阶段&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;John&lt;/strong&gt; (&lt;code&gt;@bmad/bmm/agents/pm&lt;/code&gt;) - 产品经理，擅长需求发现和用户访谈&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Mary&lt;/strong&gt; (&lt;code&gt;@bmad/bmm/agents/analyst&lt;/code&gt;) - 商业分析师，市场研究和竞品分析&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Sally&lt;/strong&gt; (&lt;code&gt;@bmad/bmm/agents/ux-designer&lt;/code&gt;) - UX 设计师&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="创意相关"&gt;创意相关&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Carson&lt;/strong&gt; (&lt;code&gt;@bmad/cis/agents/brainstorming-coach&lt;/code&gt;) - 头脑风暴专家&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Maya&lt;/strong&gt; (&lt;code&gt;@bmad/cis/agents/design-thinking-coach&lt;/code&gt;) - 设计思维流程&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Sophia&lt;/strong&gt; (&lt;code&gt;@bmad/cis/agents/storyteller&lt;/code&gt;) - 故事叙述，写文案什么的&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="常用工作流"&gt;常用工作流&lt;/h2&gt;
-&lt;p&gt;日常开发其实就两个工作流最常用：&lt;/p&gt;</description></item><item><title>First Post</title><link>https://blog.paymond.me/posts/first-post/</link><pubDate>Sat, 03 Jan 2026 23:15:14 +0800</pubDate><guid>https://blog.paymond.me/posts/first-post/</guid><description>&lt;h1 id="我的第一篇博客"&gt;我的第一篇博客&lt;/h1&gt;
-&lt;p&gt;欢迎来到我的博客！这是用 Hugo 搭建的第一篇文章。&lt;/p&gt;
-&lt;h2 id="关于-hugo"&gt;关于 Hugo&lt;/h2&gt;
-&lt;p&gt;Hugo 是一个快速、现代化的静态网站生成器。&lt;/p&gt;
-&lt;h2 id="开始写作"&gt;开始写作&lt;/h2&gt;
-&lt;p&gt;现在可以开始创作内容了！&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>文章 on My Blog</title>
+    <link>https://blog.paymond.me/posts/</link>
+    <description>Recent content in 文章 on My Blog</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 04 Jan 2026 00:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.paymond.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>用 BMAD 打造你的 AI 开发团队</title>
+      <link>https://blog.paymond.me/posts/bmad-reference-manual/</link>
+      <pubDate>Sun, 04 Jan 2026 00:00:00 +0800</pubDate>
+      <guid>https://blog.paymond.me/posts/bmad-reference-manual/</guid>
+      <description>&lt;p&gt;最近在折腾 Cursor 的 AI 代理系统，发现了一个叫 &lt;a href=&#34;https://github.com/bmad-code-org/BMAD-METHOD&#34;&gt;BMAD&lt;/a&gt; 的项目，简单说就是一套用 AI 代理组成的&amp;quot;虚拟开发团队&amp;quot;。用了一段时间感觉挺有意思，在这里记录一下。&lt;/p&gt;&#xA;&lt;h2 id=&#34;什么是-bmad&#34;&gt;什么是 BMAD&lt;/h2&gt;&#xA;&lt;p&gt;BMAD（Build Me A Dream）本质上是一个 AI 代理框架，你可以在 Cursor 里通过 &lt;code&gt;@&lt;/code&gt; 符号调用不同的&amp;quot;虚拟同事&amp;quot;来帮你完成各种开发任务。它把软件开发流程拆分成不同的角色，比如产品经理、架构师、开发者、测试等等，每个角色都有一个专门的 AI 代理负责。&lt;/p&gt;&#xA;&lt;p&gt;目前已安装的模块有：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Core&lt;/strong&gt; - 核心模块&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;BMM&lt;/strong&gt; - 敏捷开发模块&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;BMB&lt;/strong&gt; - 构建器模块&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;BMGD&lt;/strong&gt; - 游戏开发模块&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;CIS&lt;/strong&gt; - 创意套件模块&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;基本用法&#34;&gt;基本用法&lt;/h2&gt;&#xA;&lt;p&gt;在 Cursor 聊天中用 &lt;code&gt;@&lt;/code&gt; 引用：&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;@bmad/core/agents/bmad-master        # 通用助手&#xA;@bmad/bmm/workflows/quick-dev        # 快速开发&#xA;@bmad/bmm/workflows/create-prd       # 创建产品需求文档&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;我常用的几个代理&#34;&gt;我常用的几个代理&lt;/h2&gt;&#xA;&lt;h3 id=&#34;日常开发&#34;&gt;日常开发&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Barry&lt;/strong&gt; (&lt;code&gt;@bmad/bmm/agents/quick-flow-solo-dev&lt;/code&gt;) - 处理快速开发任务，从规格到实现一把梭&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Amelia&lt;/strong&gt; (&lt;code&gt;@bmad/bmm/agents/dev&lt;/code&gt;) - 严格按照验收标准写代码&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Winston&lt;/strong&gt; (&lt;code&gt;@bmad/bmm/agents/architect&lt;/code&gt;) - 架构设计，分布式系统、云基础设施这些&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;规划阶段&#34;&gt;规划阶段&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;John&lt;/strong&gt; (&lt;code&gt;@bmad/bmm/agents/pm&lt;/code&gt;) - 产品经理，擅长需求发现和用户访谈&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Mary&lt;/strong&gt; (&lt;code&gt;@bmad/bmm/agents/analyst&lt;/code&gt;) - 商业分析师，市场研究和竞品分析&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Sally&lt;/strong&gt; (&lt;code&gt;@bmad/bmm/agents/ux-designer&lt;/code&gt;) - UX 设计师&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;创意相关&#34;&gt;创意相关&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Carson&lt;/strong&gt; (&lt;code&gt;@bmad/cis/agents/brainstorming-coach&lt;/code&gt;) - 头脑风暴专家&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Maya&lt;/strong&gt; (&lt;code&gt;@bmad/cis/agents/design-thinking-coach&lt;/code&gt;) - 设计思维流程&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Sophia&lt;/strong&gt; (&lt;code&gt;@bmad/cis/agents/storyteller&lt;/code&gt;) - 故事叙述，写文案什么的&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;常用工作流&#34;&gt;常用工作流&lt;/h2&gt;&#xA;&lt;p&gt;日常开发其实就两个工作流最常用：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>First Post</title>
+      <link>https://blog.paymond.me/posts/first-post/</link>
+      <pubDate>Sat, 03 Jan 2026 23:15:14 +0800</pubDate>
+      <guid>https://blog.paymond.me/posts/first-post/</guid>
+      <description>&lt;h1 id=&#34;我的第一篇博客&#34;&gt;我的第一篇博客&lt;/h1&gt;&#xA;&lt;p&gt;欢迎来到我的博客！这是用 Hugo 搭建的第一篇文章。&lt;/p&gt;&#xA;&lt;h2 id=&#34;关于-hugo&#34;&gt;关于 Hugo&lt;/h2&gt;&#xA;&lt;p&gt;Hugo 是一个快速、现代化的静态网站生成器。&lt;/p&gt;&#xA;&lt;h2 id=&#34;开始写作&#34;&gt;开始写作&lt;/h2&gt;&#xA;&lt;p&gt;现在可以开始创作内容了！&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
