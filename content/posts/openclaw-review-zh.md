@@ -6,7 +6,7 @@ description = '一个开源AI助手项目在GitHub收获13万stars，让我看�
 tags = ['AI代理', '开发工具']
 +++
 
-![龙虾](image/openclaw-review-zh/techcrunch-lobster.jpg)
+![龙虾](/posts/image/openclaw-review-zh/techcrunch-lobster.jpg)
 
 2026年1月底，Cloudflare股价盘前涨了14%。不是财报，不是新产品。是因为开发者们在用Cloudflare的基础设施跑一个叫OpenClaw的开源项目，社交媒体上传疯了。
 
@@ -28,7 +28,7 @@ Peter Steinberger是个奥地利开发者，之前做了个PDF工具公司PSPDFK
 
 ## 它到底能干什么
 
-![OpenClaw通过Telegram交互](image/openclaw-review-zh/macstories-telegram.png)
+![OpenClaw通过Telegram交互](/posts/image/openclaw-review-zh/macstories-telegram.png)
 *MacStories的Federico Viticci用Telegram控制他的OpenClaw（图源：MacStories）*
 
 忘掉ChatGPT和Claude的聊天界面。OpenClaw不是聊天机器人，它是一个跑在你电脑上的Agent，能执行shell命令、发消息、控制智能家居、管理邮件日程。你通过Telegram、WhatsApp、Discord跟它对话，它在后台干活。
@@ -45,7 +45,7 @@ Federico Viticci在MacStories写了篇[长评测](https://www.macstories.net/sto
 
 还有人让它在天气好的时候自动拍天空的照片——它自己写了个skill来实现这个功能。
 
-![OpenClaw本地架构](image/openclaw-review-zh/macstories-architecture.png)
+![OpenClaw本地架构](/posts/image/openclaw-review-zh/macstories-architecture.png)
 *OpenClaw的本地文件结构，所有配置和记忆都存在Markdown文件里（图源：MacStories）*
 
 ## 安全问题让我睡不着

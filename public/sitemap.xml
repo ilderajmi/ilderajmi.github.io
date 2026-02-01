@@ -3,17 +3,32 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.paymond.me/tags/ai%E4%BB%A3%E7%90%86/</loc>
-    <lastmod>2026-01-28T00:00:00+08:00</lastmod>
+    <lastmod>2026-02-01T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://blog.paymond.me/</loc>
-    <lastmod>2026-01-28T00:00:00+08:00</lastmod>
+    <lastmod>2026-02-01T00:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://blog.paymond.me/posts/openclaw-review-zh/</loc>
+    <lastmod>2026-02-01T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://blog.paymond.me/tags/</loc>
-    <lastmod>2026-01-28T00:00:00+08:00</lastmod>
+    <lastmod>2026-02-01T00:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://blog.paymond.me/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2026-02-01T00:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://blog.paymond.me/posts/</loc>
+    <lastmod>2026-02-01T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -23,16 +38,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://blog.paymond.me/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/</loc>
-    <lastmod>2026-01-28T00:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://blog.paymond.me/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2026-01-28T00:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://blog.paymond.me/posts/</loc>
     <lastmod>2026-01-28T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
