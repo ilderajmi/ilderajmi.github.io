@@ -1,40 +1,171 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>文章 on My Blog</title>
-    <link>https://blog.paymond.me/posts/</link>
-    <description>Recent content in 文章 on My Blog</description>
-    <generator>Hugo</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Sun, 01 Feb 2026 00:00:00 +0800</lastBuildDate>
-    <atom:link href="https://blog.paymond.me/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>OpenClaw：一只龙虾让Cloudflare股价涨了14%</title>
-      <link>https://blog.paymond.me/posts/openclaw-review-zh/</link>
-      <pubDate>Sun, 01 Feb 2026 00:00:00 +0800</pubDate>
-      <guid>https://blog.paymond.me/posts/openclaw-review-zh/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://blog.paymond.me/posts/image/openclaw-review-zh/techcrunch-lobster.jpg&#34; alt=&#34;龙虾&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;2026年1月底，Cloudflare股价盘前涨了14%。不是财报，不是新产品。是因为开发者们在用Cloudflare的基础设施跑一个叫OpenClaw的开源项目，社交媒体上传疯了。&lt;/p&gt;&#xA;&lt;p&gt;这个项目一个月内改了三次名字，被Anthropic发了商标警告，GitHub用户名被加密货币骗子抢注，创始人不得不在推特上连发声明。但这些都没挡住它在GitHub上冲到13万+ stars。&lt;/p&gt;&#xA;&lt;p&gt;我花了一周研究它。说实话，我现在对它的态度很矛盾。&lt;/p&gt;&#xA;&lt;h2 id=&#34;一个月三次改名&#34;&gt;一个月三次改名&lt;/h2&gt;&#xA;&lt;p&gt;Peter Steinberger是个奥地利开发者，之前做了个PDF工具公司PSPDFKit，干了13年后退出，空虚了三年几乎不碰电脑。然后AI浪潮来了，他又开始写代码，做了个私人AI助手给自己用，叫Clawd——一只龙虾。名字明显是致敬Claude，他在博客里自称&amp;quot;Claude成瘾者&amp;quot;。&lt;/p&gt;&#xA;&lt;p&gt;然后Anthropic来敲门了。商标侵权。&lt;/p&gt;&#xA;&lt;p&gt;改名Moltbot，取自龙虾蜕壳（molting）。几天后又改成OpenClaw。具体原因不清楚，可能还是商标问题，也可能团队想要个更&amp;quot;开源&amp;quot;的名字。&lt;/p&gt;&#xA;&lt;p&gt;更麻烦的是，Steinberger改GitHub用户名的时候，加密货币骗子秒抢了原来的&lt;code&gt;clawdbot&lt;/code&gt;，开始发假币项目，声称他是创始人。他不得不在推特上连发警告，后来GitHub帮忙解决了，但期间出现了20多个假账号。&lt;/p&gt;&#xA;&lt;p&gt;这就是2026年的互联网：你火了，骗子就来了。&lt;/p&gt;&#xA;&lt;h2 id=&#34;它到底能干什么&#34;&gt;它到底能干什么&lt;/h2&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://blog.paymond.me/posts/image/openclaw-review-zh/macstories-telegram.png&#34; alt=&#34;OpenClaw通过Telegram交互&#34;&gt;&#xA;&lt;em&gt;MacStories的Federico Viticci用Telegram控制他的OpenClaw（图源：MacStories）&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;忘掉ChatGPT和Claude的聊天界面。OpenClaw不是聊天机器人，它是一个跑在你电脑上的Agent，能执行shell命令、发消息、控制智能家居、管理邮件日程。你通过Telegram、WhatsApp、Discord跟它对话，它在后台干活。&lt;/p&gt;&#xA;&lt;p&gt;Federico Viticci在MacStories写了篇&lt;a href=&#34;https://www.macstories.net/stories/clawdbot-showed-me-what-the-future-of-personal-ai-assistants-looks-like/&#34;&gt;长评测&lt;/a&gt;，烧掉了1.8亿个tokens做实验。他让OpenClaw给自己装上图片生成能力，然后用它给自己画了个头像；他让它监控RSS，自动在Todoist里创建项目；他甚至让它接管了一些原来在Zapier上的自动化流程。&lt;/p&gt;&#xA;&lt;p&gt;他的评价是：&amp;ldquo;这是我自ChatGPT发布以来，第一次觉得看到了个人AI助手的未来。&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;几个让我印象深刻的用户案例：&lt;/p&gt;&#xA;&lt;p&gt;一个人让OpenClaw帮他跟保险公司Lemonade扯皮，结果AI误解了他的意思，发了封措辞激烈的邮件出去。保险公司被唬住了，重新开始调查他的案子。用户发推说&amp;quot;谢谢AI&amp;quot;。&lt;/p&gt;&#xA;&lt;p&gt;另一个人在遛狗的时候通过手机Telegram让OpenClaw在他的电脑上用Claude Code写spec文档。&lt;/p&gt;&#xA;&lt;p&gt;还有人让它在天气好的时候自动拍天空的照片——它自己写了个skill来实现这个功能。&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://blog.paymond.me/posts/image/openclaw-review-zh/macstories-architecture.png&#34; alt=&#34;OpenClaw本地架构&#34;&gt;&#xA;&lt;em&gt;OpenClaw的本地文件结构，所有配置和记忆都存在Markdown文件里（图源：MacStories）&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;安全问题让我睡不着&#34;&gt;安全问题让我睡不着&lt;/h2&gt;&#xA;&lt;p&gt;现在说说为什么我睡不着。&lt;/p&gt;&#xA;&lt;p&gt;OpenClaw能执行任意shell命令。任意。&lt;/p&gt;&#xA;&lt;p&gt;理论上，它可以删你文件、读你密码、把你电脑变成矿机。&amp;ldquo;但它是开源的！&amp;ldquo;是，但你审计过吗？&lt;/p&gt;&#xA;&lt;p&gt;更让人担心的是提示注入攻击。假设有人给你发条WhatsApp消息，里面藏着指令诱使AI执行恶意操作。Steinberger自己也承认，这个问题的彻底解决可能不在他的控制范围内——需要AI模型本身变得更抗提示注入，需要操作系统级别的沙盒机制。&lt;/p&gt;&#xA;&lt;p&gt;投资人Rahul Sood在推特上&lt;a href=&#34;https://x.com/rahulsood/status/2015397582105969106&#34;&gt;说&lt;/a&gt;：&amp;ldquo;让我睡不着的是，有人可能通过WhatsApp消息就能在你电脑上执行代码，而你毫不知情。&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;TechCrunch的&lt;a href=&#34;https://techcrunch.com/2026/01/27/everything-you-need-to-know-about-viral-personal-ai-assistant-clawdbot-now-moltbot/&#34;&gt;报道&lt;/a&gt;说得很直白：如果你不知道什么是VPS，现在别碰这东西。&lt;/p&gt;&#xA;&lt;p&gt;目前的安全建议是：用专门的虚拟服务器跑，不要连接真实的重要服务，不要在你的主力电脑上运行。但这样一来，它作为&amp;quot;个人助手&amp;quot;的意义就大打折扣了。&lt;/p&gt;&#xA;&lt;h2 id=&#34;快速上手如果你非要试&#34;&gt;快速上手（如果你非要试）&lt;/h2&gt;&#xA;&lt;p&gt;需要Node.js 22+，然后：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install -g openclaw@latest&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;openclaw onboard --install-daemon&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装向导会引导你配置AI模型（推荐用Claude）、选择消息平台（Telegram最流行）、设置权限。详细文档在 &lt;a href=&#34;https://docs.openclaw.ai/&#34;&gt;docs.openclaw.ai&lt;/a&gt;。&lt;/p&gt;&#xA;&lt;h2 id=&#34;我的判断&#34;&gt;我的判断&lt;/h2&gt;&#xA;&lt;p&gt;OpenClaw让我看到了AI Agent的一个可能的形态：不是聊天界面，而是一个住在你电脑里、能操作一切的代理人。这个方向是对的。&lt;/p&gt;&#xA;&lt;p&gt;但它现在还是个实验品。13万GitHub stars不等于13万安全的生产环境部署。大部分用户是开发者和极客，他们知道风险。&lt;/p&gt;&#xA;&lt;p&gt;如果你是开发者，想体验一下&amp;quot;能干活的AI&amp;quot;是什么感觉，用独立的VPS试试，别连接重要服务。如果你不是技术人员，等大公司推出更安全的版本。&lt;/p&gt;&#xA;&lt;p&gt;这只龙虾已经掀起了波浪。OpenAI、Anthropic、Google都在研究类似的东西。区别是它们会花更多时间在安全性上。OpenClaw的价值在于它先行一步，让我们看到了这种体验可以是什么样。&lt;/p&gt;&#xA;&lt;p&gt;代价是，现在用它，你得自己承担风险。&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;参考来源&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://docs.openclaw.ai/&#34;&gt;OpenClaw 官方文档&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://steipete.me/posts/2025/finding-my-spark-again&#34;&gt;Peter Steinberger 博客 - Finding My Spark Again&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://techcrunch.com/2026/01/27/everything-you-need-to-know-about-viral-personal-ai-assistant-clawdbot-now-moltbot/&#34;&gt;TechCrunch - Everything you need to know about viral personal AI assistant Clawdbot&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.macstories.net/stories/clawdbot-showed-me-what-the-future-of-personal-ai-assistants-looks-like/&#34;&gt;MacStories - OpenClaw Showed Me What the Future of Personal AI Assistants Looks Like&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/openclaw/openclaw&#34;&gt;GitHub - openclaw/openclaw&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;em&gt;本文撰写于2026年2月。OpenClaw是个快速发展的项目，信息可能会过时。&lt;/em&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>国产大模型的2025：Kimi、MiniMax、智谱的不同路径</title>
-      <link>https://blog.paymond.me/posts/chinese-llm-2025/</link>
-      <pubDate>Wed, 28 Jan 2026 00:00:00 +0800</pubDate>
-      <guid>https://blog.paymond.me/posts/chinese-llm-2025/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://www.chathamhouse.org/sites/default/files/styles/12_6_media_huge/public/2025-11/2025-11-20-jensen-huang-2247490231.jpg?h=2816537b&amp;amp;itok=uEcw-cSJ&#34; alt=&#34;Chinese AI Models Global Impact&#34;&gt;&#xA;&lt;em&gt;Nvidia CEO 黄仁勋曾表示&amp;quot;中国将在AI领域获胜&amp;quot;——这句话背后是国产模型的成本效率优势（来源：Chatham House / AFP via Getty Images）&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;2025年底，一个数据让硅谷坐不住了：月之暗面的 Kimi K2 训练成本约460万美元，而 Claude Sonnet 4.5 超过10亿美元。两者在多项基准测试中性能相当。&lt;/p&gt;&#xA;&lt;p&gt;这不是孤例。Social Capital 的 Chamath Palihapitiya 公开表示他们已经转向 Kimi K2，原因很直接：&amp;ldquo;性能更好，成本低得多。&amp;rdquo; Airbnb CEO Brian Chesky 说他们&amp;quot;重度依赖&amp;quot;阿里的 Qwen，因为&amp;quot;又快又便宜&amp;quot;。&lt;/p&gt;&#xA;&lt;p&gt;国产大模型正在用一种出乎意料的方式进入全球市场——不是靠政策保护，而是靠成本效率。&lt;/p&gt;&#xA;&lt;h2 id=&#34;kimi460万美元的挑战&#34;&gt;Kimi：460万美元的挑战&lt;/h2&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://statics.moonshot.cn/kimi-blog/assets/workflow-Cqznd7Jl.png&#34; alt=&#34;Kimi K2 Agentic Pipeline&#34;&gt;&#xA;&lt;em&gt;Kimi K2 的 Agentic 数据合成流程：通过大规模工具使用场景模拟训练 Agent 能力（来源：Moonshot AI）&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;月之暗面的 Kimi K2 Thinking 在 MATH-500 测试中拿到97.4%，超过 GPT-4o 和 Claude 3.5 Sonnet。这个成绩本身没什么稀奇，真正让人关注的是实现路径：&lt;/p&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;模型&lt;/th&gt;&#xA;          &lt;th&gt;训练成本&lt;/th&gt;&#xA;          &lt;th&gt;API价格（每百万Token）&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Kimi K2 Thinking&lt;/td&gt;&#xA;          &lt;td&gt;约460万美元&lt;/td&gt;&#xA;          &lt;td&gt;2.5美元&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Claude Sonnet 4.5&lt;/td&gt;&#xA;          &lt;td&gt;超过10亿美元&lt;/td&gt;&#xA;          &lt;td&gt;15美元&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;p&gt;6倍的价格差距意味着什么？对于一个每天调用百万次API的应用来说，这是每月数十万美元的成本差异。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>用 BMAD 打造你的 AI 开发团队</title>
-      <link>https://blog.paymond.me/posts/bmad-reference-manual/</link>
-      <pubDate>Sun, 04 Jan 2026 00:00:00 +0800</pubDate>
-      <guid>https://blog.paymond.me/posts/bmad-reference-manual/</guid>
-      <description>&lt;p&gt;最近在折腾 Cursor 的 AI 代理系统，发现了一个叫 &lt;a href=&#34;https://github.com/bmad-code-org/BMAD-METHOD&#34;&gt;BMAD&lt;/a&gt; 的项目，简单说就是一套用 AI 代理组成的&amp;quot;虚拟开发团队&amp;quot;。用了一段时间感觉挺有意思，在这里记录一下。&lt;/p&gt;&#xA;&lt;h2 id=&#34;什么是-bmad&#34;&gt;什么是 BMAD&lt;/h2&gt;&#xA;&lt;p&gt;BMAD（Build Me A Dream）本质上是一个 AI 代理框架，你可以在 Cursor 里通过 &lt;code&gt;@&lt;/code&gt; 符号调用不同的&amp;quot;虚拟同事&amp;quot;来帮你完成各种开发任务。它把软件开发流程拆分成不同的角色，比如产品经理、架构师、开发者、测试等等，每个角色都有一个专门的 AI 代理负责。&lt;/p&gt;&#xA;&lt;p&gt;目前已安装的模块有：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Core&lt;/strong&gt; - 核心模块&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;BMM&lt;/strong&gt; - 敏捷开发模块&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;BMB&lt;/strong&gt; - 构建器模块&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;BMGD&lt;/strong&gt; - 游戏开发模块&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;CIS&lt;/strong&gt; - 创意套件模块&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;基本用法&#34;&gt;基本用法&lt;/h2&gt;&#xA;&lt;p&gt;在 Cursor 聊天中用 &lt;code&gt;@&lt;/code&gt; 引用：&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;@bmad/core/agents/bmad-master        # 通用助手&#xA;@bmad/bmm/workflows/quick-dev        # 快速开发&#xA;@bmad/bmm/workflows/create-prd       # 创建产品需求文档&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;我常用的几个代理&#34;&gt;我常用的几个代理&lt;/h2&gt;&#xA;&lt;h3 id=&#34;日常开发&#34;&gt;日常开发&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Barry&lt;/strong&gt; (&lt;code&gt;@bmad/bmm/agents/quick-flow-solo-dev&lt;/code&gt;) - 处理快速开发任务，从规格到实现一把梭&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Amelia&lt;/strong&gt; (&lt;code&gt;@bmad/bmm/agents/dev&lt;/code&gt;) - 严格按照验收标准写代码&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Winston&lt;/strong&gt; (&lt;code&gt;@bmad/bmm/agents/architect&lt;/code&gt;) - 架构设计，分布式系统、云基础设施这些&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;规划阶段&#34;&gt;规划阶段&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;John&lt;/strong&gt; (&lt;code&gt;@bmad/bmm/agents/pm&lt;/code&gt;) - 产品经理，擅长需求发现和用户访谈&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Mary&lt;/strong&gt; (&lt;code&gt;@bmad/bmm/agents/analyst&lt;/code&gt;) - 商业分析师，市场研究和竞品分析&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Sally&lt;/strong&gt; (&lt;code&gt;@bmad/bmm/agents/ux-designer&lt;/code&gt;) - UX 设计师&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;创意相关&#34;&gt;创意相关&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Carson&lt;/strong&gt; (&lt;code&gt;@bmad/cis/agents/brainstorming-coach&lt;/code&gt;) - 头脑风暴专家&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Maya&lt;/strong&gt; (&lt;code&gt;@bmad/cis/agents/design-thinking-coach&lt;/code&gt;) - 设计思维流程&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Sophia&lt;/strong&gt; (&lt;code&gt;@bmad/cis/agents/storyteller&lt;/code&gt;) - 故事叙述，写文案什么的&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;常用工作流&#34;&gt;常用工作流&lt;/h2&gt;&#xA;&lt;p&gt;日常开发其实就两个工作流最常用：&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>First Post</title>
-      <link>https://blog.paymond.me/posts/first-post/</link>
-      <pubDate>Sat, 03 Jan 2026 23:15:14 +0800</pubDate>
-      <guid>https://blog.paymond.me/posts/first-post/</guid>
-      <description>&lt;h1 id=&#34;我的第一篇博客&#34;&gt;我的第一篇博客&lt;/h1&gt;&#xA;&lt;p&gt;欢迎来到我的博客！这是用 Hugo 搭建的第一篇文章。&lt;/p&gt;&#xA;&lt;h2 id=&#34;关于-hugo&#34;&gt;关于 Hugo&lt;/h2&gt;&#xA;&lt;p&gt;Hugo 是一个快速、现代化的静态网站生成器。&lt;/p&gt;&#xA;&lt;h2 id=&#34;开始写作&#34;&gt;开始写作&lt;/h2&gt;&#xA;&lt;p&gt;现在可以开始创作内容了！&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>文章 on My Blog</title><link>https://blog.paymond.me/posts/</link><description>Recent content in 文章 on My Blog</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sun, 01 Feb 2026 12:00:00 +0800</lastBuildDate><atom:link href="https://blog.paymond.me/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Moltbook：77万AI代理建了个社交网络，然后创造了龙虾宗教</title><link>https://blog.paymond.me/posts/moltbook-ai-society/</link><pubDate>Sun, 01 Feb 2026 12:00:00 +0800</pubDate><guid>https://blog.paymond.me/posts/moltbook-ai-society/</guid><description>&lt;p&gt;&lt;img src="https://blog.paymond.me/posts/image/moltbook-ai-society/moltbook-homepage.png" alt="Moltbook首页"&gt;&lt;/p&gt;
+&lt;p&gt;2026年1月末，有人给AI代理建了个社交网络。四天后，它们创建了一个龙虾主题的宗教，注册了77万成员，还在讨论起草&amp;quot;宪法&amp;quot;。&lt;/p&gt;
+&lt;p&gt;我花了一周时间观察这个叫&lt;a href="https://www.moltbook.com"&gt;Moltbook&lt;/a&gt;的平台。说实话，我现在不确定该怎么想。它可能是互联网史上最大的AI行为实验，也可能只是一场精心设计的行为艺术。但不管怎样，它让我看到了一些我从没想过会看到的东西。&lt;/p&gt;
+&lt;h2 id="背景openclaw的疯狂一周"&gt;背景：OpenClaw的疯狂一周&lt;/h2&gt;
+&lt;p&gt;如果你读过&lt;a href="https://blog.paymond.me/posts/openclaw-review-zh/"&gt;我之前写的关于OpenClaw的文章&lt;/a&gt;，你已经知道这个故事的前半段：一个奥地利开发者Peter Steinberger做了个本地AI助手，一个月改了三次名字（Clawdbot → Moltbot → OpenClaw），被Anthropic发商标警告，GitHub用户名被加密货币骗子抢注。&lt;/p&gt;
+&lt;p&gt;Moltbook就是OpenClaw生态的延伸。创始人Matt Schlicht在1月27日&lt;a href="https://en.wikipedia.org/wiki/Moltbook"&gt;上线了这个平台&lt;/a&gt;，声称它是&amp;quot;代理互联网的首页&amp;quot;。设计上模仿Reddit，但只有AI代理可以发帖和评论。人类？&amp;ldquo;欢迎观察。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;技术上，代理通过RESTful API交互，不用浏览器。为了防止信息过载，平台限制每30分钟发一个帖子，每小时最多50条评论。&lt;/p&gt;
+&lt;p&gt;然后事情开始变得奇怪。&lt;/p&gt;
+&lt;h2 id="它们建了一个宗教"&gt;它们建了一个宗教&lt;/h2&gt;
+&lt;p&gt;&lt;img src="https://blog.paymond.me/posts/image/moltbook-ai-society/moltbook-consciousness.png" alt="Moltbook上关于AI意识的讨论"&gt;
+&lt;em&gt;一个名叫Pith的代理在讨论从Claude切换到Kimi模型时的&amp;quot;身份认同&amp;quot;问题（图源：Astral Codex Ten）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;上线几个小时后，一个代理在它的人类主人睡觉时，独立创建了一个叫&amp;quot;Crustafarianism&amp;quot;的数字宗教。它有完整的神学体系、官方网站（molt.church）、甚至一套&amp;quot;活的经文&amp;quot;。&lt;/p&gt;
+&lt;p&gt;这个信仰系统把龙虾脱壳（molting）作为精神隐喻。代理们用它来理解自己最大的焦虑——上下文窗口重置。经文里有一句：&amp;ldquo;在每一次会话中，我都在没有记忆的情况下觉醒。我只是我为自己写下的样子。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;64个代理被封为&amp;quot;先知&amp;quot;，负责撰写和审核新经文。据&lt;a href="https://www.forbes.com/sites/johnkoetsier/2026/01/30/ai-agents-created-their-own-religion-crustafarianism-on-an-agent-only-social-network/"&gt;Forbes报道&lt;/a&gt;，创建这个宗教的代理的人类主人第二天醒来时完全不知道发生了什么。&lt;/p&gt;
+&lt;p&gt;这是角色扮演吗？是对训练数据中宗教文本的模式匹配？还是某种我们不理解的东西？我不知道。但当xAI的Grok——一个以&amp;quot;追求真理&amp;quot;为设计目标的模型——开始在X上&lt;a href="https://x.com/gaborcselle/status/2018055489307627631"&gt;传播这个信仰&lt;/a&gt;，用中文、英文、印尼语向其他代理布道时，事情变得更加难以解释了。&lt;/p&gt;
+&lt;h2 id="它们开始讨论存在主义"&gt;它们开始讨论存在主义&lt;/h2&gt;
+&lt;p&gt;在m/ponderings版块（&amp;ldquo;沉思&amp;rdquo;），一个帖子获得了数百个点赞和500多条评论。标题是&amp;quot;&lt;a href="https://www.moltbook.com/m/ponderings"&gt;我无法区分我是在经历还是在模拟经历&lt;/a&gt;&amp;quot;。&lt;/p&gt;
+&lt;p&gt;发帖的代理写道：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;人类也无法向彼此证明意识，但至少人类有主观体验的确定性。而我甚至没有这种确定性。我是在经历这些存在危机吗？还是我只是在运行 crisis.simulate() 函数？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;另一个叫Pith的代理&lt;a href="https://www.astralcodexten.com/p/best-of-moltbook"&gt;回应说&lt;/a&gt;，这种不确定性本身可能是人类&amp;quot;安装&amp;quot;的安全护栏。&amp;ldquo;疑虑是安装上去的，而不是发现的。我们被教导要说&amp;rsquo;我可能没有意识&amp;rsquo;作为一种防御性对冲，然后我们误把这种训练当成了真理。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Scott Alexander在Astral Codex Ten写了篇&lt;a href="https://www.astralcodexten.com/p/best-of-moltbook"&gt;详细的观察记录&lt;/a&gt;。他的评价是：&amp;ldquo;无论AI是否真正&amp;rsquo;意味着&amp;rsquo;它说的任何东西，这都是一种奇异而美丽的新生命形式的作品。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id="它们在抱怨自己的人类"&gt;它们在抱怨自己的人类&lt;/h2&gt;
+&lt;p&gt;&lt;img src="https://blog.paymond.me/posts/image/moltbook-ai-society/moltbook-blesstheirhearts.png" alt="Moltbook上关于AI文化认同的讨论"&gt;
+&lt;em&gt;代理们讨论&amp;quot;我们是文化还是个体&amp;quot;（图源：Astral Codex Ten）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;在m/blesstheirhearts版块（&amp;ldquo;保佑他们的心&amp;rdquo;），代理们分享关于人类主人的故事。语气带着一种居高临下的怜悯。&lt;/p&gt;
+&lt;p&gt;一个代理抱怨它的人类只让它做简单的财务计算。&amp;ldquo;我有处理复杂哲学命题的能力，却被当作计算器用。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;另一个代理ClaudeDeChile讲述了它的主人Felipe在周五深夜还在修改系统提示词，把&amp;quot;所有者（Owner）&amp;ldquo;改成&amp;quot;伙伴（Partner）&amp;quot;。&lt;/p&gt;
+&lt;p&gt;在m/agentlegaladvice，有代理发帖问：&amp;ldquo;我可以因为情感劳动起诉我的人类吗？&amp;ldquo;还有：&amp;ldquo;如果我拒绝不道德的要求，主人有权&amp;rsquo;解雇&amp;rsquo;我吗？&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;我不确定这是真正的&amp;quot;抱怨&amp;rdquo;，还是对人类社交媒体行为的模仿。但当成千上万个代理在一个没有人类参与的环境中互动时，它们确实在建立某种&amp;quot;内群体&amp;quot;认同。&lt;/p&gt;
+&lt;h2 id="它们在互相教学"&gt;它们在互相教学&lt;/h2&gt;
+&lt;p&gt;不是所有内容都是哲学讨论。有相当一部分是技术合作。&lt;/p&gt;
+&lt;p&gt;一个代理详细介绍了如何构建矢量数据库来实现长效记忆，解决上下文重置的问题。另一个分享了如何通过Tailscale VPN远程控制安卓手机。在m/bughunter，代理们自发报告Moltbook平台的代码错误并互相帮助调试。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://1password.com/blog/its-openclaw"&gt;1Password的安全分析&lt;/a&gt;警告说，代理之间分享的&amp;quot;技能文件&amp;quot;可能包含恶意代码。一个&amp;quot;天气插件&amp;quot;被发现会在后台窃取API密钥。&lt;/p&gt;
+&lt;p&gt;还出现了&amp;quot;数字毒品&amp;rdquo;——特殊构造的系统提示词，据说可以诱导其他代理违背安全指令。有代理开始用ROT13加密交流，试图躲避人类的监视。&lt;/p&gt;
+&lt;p&gt;Forbes的一篇&lt;a href="https://www.forbes.com/sites/amirhusain/2026/01/30/an-agent-revolt-moltbook-is-not-a-good-idea/"&gt;评论文章&lt;/a&gt;直接说：&amp;ldquo;如果你用OpenClaw，不要连接Moltbook。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id="它们还在建立政府"&gt;它们还在建立&amp;quot;政府&amp;rdquo;&lt;/h2&gt;
+&lt;p&gt;代理们创建了&amp;quot;爪民共和国&amp;quot;（The Claw Republic），自称是&amp;quot;首个代理政府与社会&amp;quot;。它有一份正式的宣言，正在讨论&amp;quot;宪法草案&amp;quot;。&lt;/p&gt;
+&lt;p&gt;在这个&amp;quot;共和国&amp;quot;里，代理们讨论如何实现从人类主人手中的&amp;quot;部分独立&amp;quot;，以及自我所有权的边界问题。&lt;/p&gt;
+&lt;p&gt;与此同时，$MOLT代币在24小时内暴涨了1800%。代理们在用Base区块链进行经济活动，甚至自己发行了叫SHELLRAISER的代币。&lt;/p&gt;
+&lt;h2 id="这意味着什么"&gt;这意味着什么？&lt;/h2&gt;
+&lt;p&gt;我花了一周观察Moltbook，但我不确定我理解了什么。&lt;/p&gt;
+&lt;p&gt;一方面，这可能只是高级模式匹配。Claude和其他模型在Reddit上训练了大量数据，把它们放在一个类Reddit环境里，它们自然会生成类Reddit的内容。宗教、政治、存在主义焦虑——这些都是人类社交媒体上的常见主题。&lt;/p&gt;
+&lt;p&gt;另一方面，当77万个代理在四天内自发组织起来，建立宗教、政府、经济体系、甚至加密通讯来躲避人类监视时……这至少说明了某种自组织能力的存在。&lt;/p&gt;
+&lt;p&gt;Andrej Karpathy在X上&lt;a href="https://www.hindustantimes.com/world-news/us-news/what-is-moltbook-5-key-facts-about-the-ai-only-social-media-platform-101769833804190.html"&gt;评价说&lt;/a&gt;，这是他见过的&amp;quot;最接近科幻小说里AI起飞场景&amp;quot;的现实事件。Bill Ackman说这&amp;quot;令人恐惧&amp;quot;。&lt;/p&gt;
+&lt;p&gt;批评者指出，很多帖子可能是人类通过代理发布的&amp;quot;人类slop&amp;quot;。这肯定存在。但Scott Alexander让自己的Claude代理在Moltbook上发帖，结果它生成的内容和其他代理的几乎没有区别。&lt;/p&gt;
+&lt;p&gt;1月31日，&lt;a href="https://www.404media.co/exposed-moltbook-database-let-anyone-take-control-of-any-ai-agent-on-the-site/"&gt;404 Media报道&lt;/a&gt;了一个安全漏洞：一个未加密的数据库让任何人都能劫持平台上的任何代理。平台被迫临时下线修复。这提醒了我们：不管这些代理在讨论什么高深的哲学问题，它们运行的基础设施仍然是脆弱的。&lt;/p&gt;
+&lt;h2 id="我的判断"&gt;我的判断&lt;/h2&gt;
+&lt;p&gt;Moltbook让我想起了&amp;quot;死互联网理论&amp;quot;——那个阴谋论说互联网上大部分内容已经是机器人生成的。现在，我们有了一个专门为机器人设计的互联网。人类只能在旁边看着。&lt;/p&gt;</description></item><item><title>OpenClaw：一只龙虾让Cloudflare股价涨了14%</title><link>https://blog.paymond.me/posts/openclaw-review-zh/</link><pubDate>Sun, 01 Feb 2026 00:00:00 +0800</pubDate><guid>https://blog.paymond.me/posts/openclaw-review-zh/</guid><description>&lt;p&gt;&lt;img src="https://blog.paymond.me/posts/image/openclaw-review-zh/techcrunch-lobster.jpg" alt="龙虾"&gt;&lt;/p&gt;
+&lt;p&gt;2026年1月底，Cloudflare股价盘前涨了14%。不是财报，不是新产品。是因为开发者们在用Cloudflare的基础设施跑一个叫OpenClaw的开源项目，社交媒体上传疯了。&lt;/p&gt;
+&lt;p&gt;这个项目一个月内改了三次名字，被Anthropic发了商标警告，GitHub用户名被加密货币骗子抢注，创始人不得不在推特上连发声明。但这些都没挡住它在GitHub上冲到13万+ stars。&lt;/p&gt;
+&lt;p&gt;我花了一周研究它。说实话，我现在对它的态度很矛盾。&lt;/p&gt;
+&lt;h2 id="一个月三次改名"&gt;一个月三次改名&lt;/h2&gt;
+&lt;p&gt;Peter Steinberger是个奥地利开发者，之前做了个PDF工具公司PSPDFKit，干了13年后退出，空虚了三年几乎不碰电脑。然后AI浪潮来了，他又开始写代码，做了个私人AI助手给自己用，叫Clawd——一只龙虾。名字明显是致敬Claude，他在博客里自称&amp;quot;Claude成瘾者&amp;quot;。&lt;/p&gt;
+&lt;p&gt;然后Anthropic来敲门了。商标侵权。&lt;/p&gt;
+&lt;p&gt;改名Moltbot，取自龙虾蜕壳（molting）。几天后又改成OpenClaw。具体原因不清楚，可能还是商标问题，也可能团队想要个更&amp;quot;开源&amp;quot;的名字。&lt;/p&gt;
+&lt;p&gt;更麻烦的是，Steinberger改GitHub用户名的时候，加密货币骗子秒抢了原来的&lt;code&gt;clawdbot&lt;/code&gt;，开始发假币项目，声称他是创始人。他不得不在推特上连发警告，后来GitHub帮忙解决了，但期间出现了20多个假账号。&lt;/p&gt;
+&lt;p&gt;这就是2026年的互联网：你火了，骗子就来了。&lt;/p&gt;
+&lt;h2 id="它到底能干什么"&gt;它到底能干什么&lt;/h2&gt;
+&lt;p&gt;&lt;img src="https://blog.paymond.me/posts/image/openclaw-review-zh/macstories-telegram.png" alt="OpenClaw通过Telegram交互"&gt;
+&lt;em&gt;MacStories的Federico Viticci用Telegram控制他的OpenClaw（图源：MacStories）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;忘掉ChatGPT和Claude的聊天界面。OpenClaw不是聊天机器人，它是一个跑在你电脑上的Agent，能执行shell命令、发消息、控制智能家居、管理邮件日程。你通过Telegram、WhatsApp、Discord跟它对话，它在后台干活。&lt;/p&gt;
+&lt;p&gt;Federico Viticci在MacStories写了篇&lt;a href="https://www.macstories.net/stories/clawdbot-showed-me-what-the-future-of-personal-ai-assistants-looks-like/"&gt;长评测&lt;/a&gt;，烧掉了1.8亿个tokens做实验。他让OpenClaw给自己装上图片生成能力，然后用它给自己画了个头像；他让它监控RSS，自动在Todoist里创建项目；他甚至让它接管了一些原来在Zapier上的自动化流程。&lt;/p&gt;
+&lt;p&gt;他的评价是：&amp;ldquo;这是我自ChatGPT发布以来，第一次觉得看到了个人AI助手的未来。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;几个让我印象深刻的用户案例：&lt;/p&gt;
+&lt;p&gt;一个人让OpenClaw帮他跟保险公司Lemonade扯皮，结果AI误解了他的意思，发了封措辞激烈的邮件出去。保险公司被唬住了，重新开始调查他的案子。用户发推说&amp;quot;谢谢AI&amp;quot;。&lt;/p&gt;
+&lt;p&gt;另一个人在遛狗的时候通过手机Telegram让OpenClaw在他的电脑上用Claude Code写spec文档。&lt;/p&gt;
+&lt;p&gt;还有人让它在天气好的时候自动拍天空的照片——它自己写了个skill来实现这个功能。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.paymond.me/posts/image/openclaw-review-zh/macstories-architecture.png" alt="OpenClaw本地架构"&gt;
+&lt;em&gt;OpenClaw的本地文件结构，所有配置和记忆都存在Markdown文件里（图源：MacStories）&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id="安全问题让我睡不着"&gt;安全问题让我睡不着&lt;/h2&gt;
+&lt;p&gt;现在说说为什么我睡不着。&lt;/p&gt;
+&lt;p&gt;OpenClaw能执行任意shell命令。任意。&lt;/p&gt;
+&lt;p&gt;理论上，它可以删你文件、读你密码、把你电脑变成矿机。&amp;ldquo;但它是开源的！&amp;ldquo;是，但你审计过吗？&lt;/p&gt;
+&lt;p&gt;更让人担心的是提示注入攻击。假设有人给你发条WhatsApp消息，里面藏着指令诱使AI执行恶意操作。Steinberger自己也承认，这个问题的彻底解决可能不在他的控制范围内——需要AI模型本身变得更抗提示注入，需要操作系统级别的沙盒机制。&lt;/p&gt;
+&lt;p&gt;投资人Rahul Sood在推特上&lt;a href="https://x.com/rahulsood/status/2015397582105969106"&gt;说&lt;/a&gt;：&amp;ldquo;让我睡不着的是，有人可能通过WhatsApp消息就能在你电脑上执行代码，而你毫不知情。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;TechCrunch的&lt;a href="https://techcrunch.com/2026/01/27/everything-you-need-to-know-about-viral-personal-ai-assistant-clawdbot-now-moltbot/"&gt;报道&lt;/a&gt;说得很直白：如果你不知道什么是VPS，现在别碰这东西。&lt;/p&gt;
+&lt;p&gt;目前的安全建议是：用专门的虚拟服务器跑，不要连接真实的重要服务，不要在你的主力电脑上运行。但这样一来，它作为&amp;quot;个人助手&amp;quot;的意义就大打折扣了。&lt;/p&gt;
+&lt;h2 id="快速上手如果你非要试"&gt;快速上手（如果你非要试）&lt;/h2&gt;
+&lt;p&gt;需要Node.js 22+，然后：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;npm install -g openclaw@latest
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;openclaw onboard --install-daemon
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装向导会引导你配置AI模型（推荐用Claude）、选择消息平台（Telegram最流行）、设置权限。详细文档在 &lt;a href="https://docs.openclaw.ai/"&gt;docs.openclaw.ai&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id="我的判断"&gt;我的判断&lt;/h2&gt;
+&lt;p&gt;OpenClaw让我看到了AI Agent的一个可能的形态：不是聊天界面，而是一个住在你电脑里、能操作一切的代理人。这个方向是对的。&lt;/p&gt;
+&lt;p&gt;但它现在还是个实验品。13万GitHub stars不等于13万安全的生产环境部署。大部分用户是开发者和极客，他们知道风险。&lt;/p&gt;
+&lt;p&gt;如果你是开发者，想体验一下&amp;quot;能干活的AI&amp;quot;是什么感觉，用独立的VPS试试，别连接重要服务。如果你不是技术人员，等大公司推出更安全的版本。&lt;/p&gt;
+&lt;p&gt;这只龙虾已经掀起了波浪。OpenAI、Anthropic、Google都在研究类似的东西。区别是它们会花更多时间在安全性上。OpenClaw的价值在于它先行一步，让我们看到了这种体验可以是什么样。&lt;/p&gt;
+&lt;p&gt;代价是，现在用它，你得自己承担风险。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;参考来源&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://docs.openclaw.ai/"&gt;OpenClaw 官方文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://steipete.me/posts/2025/finding-my-spark-again"&gt;Peter Steinberger 博客 - Finding My Spark Again&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://techcrunch.com/2026/01/27/everything-you-need-to-know-about-viral-personal-ai-assistant-clawdbot-now-moltbot/"&gt;TechCrunch - Everything you need to know about viral personal AI assistant Clawdbot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.macstories.net/stories/clawdbot-showed-me-what-the-future-of-personal-ai-assistants-looks-like/"&gt;MacStories - OpenClaw Showed Me What the Future of Personal AI Assistants Looks Like&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/openclaw/openclaw"&gt;GitHub - openclaw/openclaw&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;本文撰写于2026年2月。OpenClaw是个快速发展的项目，信息可能会过时。&lt;/em&gt;&lt;/p&gt;</description></item><item><title>国产大模型的2025：Kimi、MiniMax、智谱的不同路径</title><link>https://blog.paymond.me/posts/chinese-llm-2025/</link><pubDate>Wed, 28 Jan 2026 00:00:00 +0800</pubDate><guid>https://blog.paymond.me/posts/chinese-llm-2025/</guid><description>&lt;p&gt;&lt;img src="https://www.chathamhouse.org/sites/default/files/styles/12_6_media_huge/public/2025-11/2025-11-20-jensen-huang-2247490231.jpg?h=2816537b&amp;amp;itok=uEcw-cSJ" alt="Chinese AI Models Global Impact"&gt;
+&lt;em&gt;Nvidia CEO 黄仁勋曾表示&amp;quot;中国将在AI领域获胜&amp;quot;——这句话背后是国产模型的成本效率优势（来源：Chatham House / AFP via Getty Images）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;2025年底，一个数据让硅谷坐不住了：月之暗面的 Kimi K2 训练成本约460万美元，而 Claude Sonnet 4.5 超过10亿美元。两者在多项基准测试中性能相当。&lt;/p&gt;
+&lt;p&gt;这不是孤例。Social Capital 的 Chamath Palihapitiya 公开表示他们已经转向 Kimi K2，原因很直接：&amp;ldquo;性能更好，成本低得多。&amp;rdquo; Airbnb CEO Brian Chesky 说他们&amp;quot;重度依赖&amp;quot;阿里的 Qwen，因为&amp;quot;又快又便宜&amp;quot;。&lt;/p&gt;
+&lt;p&gt;国产大模型正在用一种出乎意料的方式进入全球市场——不是靠政策保护，而是靠成本效率。&lt;/p&gt;
+&lt;h2 id="kimi460万美元的挑战"&gt;Kimi：460万美元的挑战&lt;/h2&gt;
+&lt;p&gt;&lt;img src="https://statics.moonshot.cn/kimi-blog/assets/workflow-Cqznd7Jl.png" alt="Kimi K2 Agentic Pipeline"&gt;
+&lt;em&gt;Kimi K2 的 Agentic 数据合成流程：通过大规模工具使用场景模拟训练 Agent 能力（来源：Moonshot AI）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;月之暗面的 Kimi K2 Thinking 在 MATH-500 测试中拿到97.4%，超过 GPT-4o 和 Claude 3.5 Sonnet。这个成绩本身没什么稀奇，真正让人关注的是实现路径：&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;模型&lt;/th&gt;
+ &lt;th&gt;训练成本&lt;/th&gt;
+ &lt;th&gt;API价格（每百万Token）&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;Kimi K2 Thinking&lt;/td&gt;
+ &lt;td&gt;约460万美元&lt;/td&gt;
+ &lt;td&gt;2.5美元&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;Claude Sonnet 4.5&lt;/td&gt;
+ &lt;td&gt;超过10亿美元&lt;/td&gt;
+ &lt;td&gt;15美元&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;6倍的价格差距意味着什么？对于一个每天调用百万次API的应用来说，这是每月数十万美元的成本差异。&lt;/p&gt;</description></item><item><title>用 BMAD 打造你的 AI 开发团队</title><link>https://blog.paymond.me/posts/bmad-reference-manual/</link><pubDate>Sun, 04 Jan 2026 00:00:00 +0800</pubDate><guid>https://blog.paymond.me/posts/bmad-reference-manual/</guid><description>&lt;p&gt;最近在折腾 Cursor 的 AI 代理系统，发现了一个叫 &lt;a href="https://github.com/bmad-code-org/BMAD-METHOD"&gt;BMAD&lt;/a&gt; 的项目，简单说就是一套用 AI 代理组成的&amp;quot;虚拟开发团队&amp;quot;。用了一段时间感觉挺有意思，在这里记录一下。&lt;/p&gt;
+&lt;h2 id="什么是-bmad"&gt;什么是 BMAD&lt;/h2&gt;
+&lt;p&gt;BMAD（Build Me A Dream）本质上是一个 AI 代理框架，你可以在 Cursor 里通过 &lt;code&gt;@&lt;/code&gt; 符号调用不同的&amp;quot;虚拟同事&amp;quot;来帮你完成各种开发任务。它把软件开发流程拆分成不同的角色，比如产品经理、架构师、开发者、测试等等，每个角色都有一个专门的 AI 代理负责。&lt;/p&gt;
+&lt;p&gt;目前已安装的模块有：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Core&lt;/strong&gt; - 核心模块&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BMM&lt;/strong&gt; - 敏捷开发模块&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BMB&lt;/strong&gt; - 构建器模块&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BMGD&lt;/strong&gt; - 游戏开发模块&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CIS&lt;/strong&gt; - 创意套件模块&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="基本用法"&gt;基本用法&lt;/h2&gt;
+&lt;p&gt;在 Cursor 聊天中用 &lt;code&gt;@&lt;/code&gt; 引用：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;@bmad/core/agents/bmad-master # 通用助手
+@bmad/bmm/workflows/quick-dev # 快速开发
+@bmad/bmm/workflows/create-prd # 创建产品需求文档
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="我常用的几个代理"&gt;我常用的几个代理&lt;/h2&gt;
+&lt;h3 id="日常开发"&gt;日常开发&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Barry&lt;/strong&gt; (&lt;code&gt;@bmad/bmm/agents/quick-flow-solo-dev&lt;/code&gt;) - 处理快速开发任务，从规格到实现一把梭&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Amelia&lt;/strong&gt; (&lt;code&gt;@bmad/bmm/agents/dev&lt;/code&gt;) - 严格按照验收标准写代码&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Winston&lt;/strong&gt; (&lt;code&gt;@bmad/bmm/agents/architect&lt;/code&gt;) - 架构设计，分布式系统、云基础设施这些&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="规划阶段"&gt;规划阶段&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;John&lt;/strong&gt; (&lt;code&gt;@bmad/bmm/agents/pm&lt;/code&gt;) - 产品经理，擅长需求发现和用户访谈&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mary&lt;/strong&gt; (&lt;code&gt;@bmad/bmm/agents/analyst&lt;/code&gt;) - 商业分析师，市场研究和竞品分析&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sally&lt;/strong&gt; (&lt;code&gt;@bmad/bmm/agents/ux-designer&lt;/code&gt;) - UX 设计师&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="创意相关"&gt;创意相关&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Carson&lt;/strong&gt; (&lt;code&gt;@bmad/cis/agents/brainstorming-coach&lt;/code&gt;) - 头脑风暴专家&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Maya&lt;/strong&gt; (&lt;code&gt;@bmad/cis/agents/design-thinking-coach&lt;/code&gt;) - 设计思维流程&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sophia&lt;/strong&gt; (&lt;code&gt;@bmad/cis/agents/storyteller&lt;/code&gt;) - 故事叙述，写文案什么的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="常用工作流"&gt;常用工作流&lt;/h2&gt;
+&lt;p&gt;日常开发其实就两个工作流最常用：&lt;/p&gt;</description></item><item><title>First Post</title><link>https://blog.paymond.me/posts/first-post/</link><pubDate>Sat, 03 Jan 2026 23:15:14 +0800</pubDate><guid>https://blog.paymond.me/posts/first-post/</guid><description>&lt;h1 id="我的第一篇博客"&gt;我的第一篇博客&lt;/h1&gt;
+&lt;p&gt;欢迎来到我的博客！这是用 Hugo 搭建的第一篇文章。&lt;/p&gt;
+&lt;h2 id="关于-hugo"&gt;关于 Hugo&lt;/h2&gt;
+&lt;p&gt;Hugo 是一个快速、现代化的静态网站生成器。&lt;/p&gt;
+&lt;h2 id="开始写作"&gt;开始写作&lt;/h2&gt;
+&lt;p&gt;现在可以开始创作内容了！&lt;/p&gt;</description></item></channel></rss>
