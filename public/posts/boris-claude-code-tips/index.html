@@ -1,0 +1,413 @@
+<!doctype html>
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg:#faf8f1"
+  lang="zh-cn"
+  dir="ltr"
+><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Claude Code 创建者怎么用自己的工具：Boris Cherny 的 13 条实践 - My Blog</title>
+
+  
+  <meta name="theme-color" />
+
+  <meta name="description" content="Boris Cherny 是 Anthropic 的 Claude Code 创建者。他最近分享了自己的日常工作流：5个并行终端、Opus 4.5、团队共享的 CLAUDE.md，以及&#34;验证是最重要的&#34;这个核心观点。" />
+  <meta name="author" content="Jared" /><meta name="keywords" content="AI Agent, 开发工具, Claude Code" /><link rel="preload stylesheet" as="style" href="https://blog.paymond.me/main.min.css" />
+
+  <link rel="preload" as="image" href="https://blog.paymond.me/theme.png" />
+
+  <script
+    defer
+    src="https://blog.paymond.me/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  <link
+    rel="icon"
+    href="https://blog.paymond.me/favicon.ico"
+  />
+  <link
+    rel="apple-touch-icon"
+    href="https://blog.paymond.me/apple-touch-icon.png"
+  />
+
+  <meta name="generator" content="Hugo 0.154.2">
+  <meta itemprop="name" content="Claude Code 创建者怎么用自己的工具：Boris Cherny 的 13 条实践">
+  <meta itemprop="description" content="Boris Cherny 是 Anthropic 的 Claude Code 创建者。他最近分享了自己的日常工作流：5个并行终端、Opus 4.5、团队共享的 CLAUDE.md，以及&#34;验证是最重要的&#34;这个核心观点。">
+  <meta itemprop="datePublished" content="2026-02-02T14:00:00+08:00">
+  <meta itemprop="dateModified" content="2026-02-02T14:00:00+08:00">
+  <meta itemprop="wordCount" content="443">
+  <meta itemprop="image" content="https://blog.paymond.me/apple-touch-icon.png">
+  <meta itemprop="keywords" content="AI Agent,开发工具,Claude Code"><meta property="og:url" content="https://blog.paymond.me/posts/boris-claude-code-tips/">
+  <meta property="og:site_name" content="My Blog">
+  <meta property="og:title" content="Claude Code 创建者怎么用自己的工具：Boris Cherny 的 13 条实践">
+  <meta property="og:description" content="Boris Cherny 是 Anthropic 的 Claude Code 创建者。他最近分享了自己的日常工作流：5个并行终端、Opus 4.5、团队共享的 CLAUDE.md，以及&#34;验证是最重要的&#34;这个核心观点。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-02-02T14:00:00+08:00">
+    <meta property="article:modified_time" content="2026-02-02T14:00:00+08:00">
+    <meta property="article:tag" content="AI Agent">
+    <meta property="article:tag" content="开发工具">
+    <meta property="article:tag" content="Claude Code">
+    <meta property="og:image" content="https://blog.paymond.me/apple-touch-icon.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://blog.paymond.me/apple-touch-icon.png">
+  <meta name="twitter:title" content="Claude Code 创建者怎么用自己的工具：Boris Cherny 的 13 条实践">
+  <meta name="twitter:description" content="Boris Cherny 是 Anthropic 的 Claude Code 创建者。他最近分享了自己的日常工作流：5个并行终端、Opus 4.5、团队共享的 CLAUDE.md，以及&#34;验证是最重要的&#34;这个核心观点。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "\"Claude Code 创建者怎么用自己的工具：Boris Cherny 的 13 条实践\"",
+  "name": "\"Claude Code 创建者怎么用自己的工具：Boris Cherny 的 13 条实践\"",
+  "description": "\"Boris Cherny 是 Anthropic 的 Claude Code 创建者。他最近分享了自己的日常工作流：5个并行终端、Opus 4.5、团队共享的 CLAUDE.md，以及\\\"验证是最重要的\\\"这个核心观点。\"",
+  "author": {
+    "@type": "Person",
+    "name": "\"Jared\"",
+    "url": "\"https://blog.paymond.me/\""},
+  "publisher": {
+    "@type": "Organization",
+    "name": "\"My Blog\"",
+    "url": "\"https://blog.paymond.me/\"",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "\"https://blog.paymond.me/apple-touch-icon.png\""
+    }},
+  "datePublished": "\"2026-02-02T14:00:00+08:00\"",
+  "dateModified": "\"2026-02-02T14:00:00+08:00\"",
+  "url": "\"https://blog.paymond.me/posts/boris-claude-code-tips/\"",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "\"https://blog.paymond.me/posts/boris-claude-code-tips/\""
+  },"keywords": "\"AI Agent, 开发工具, Claude Code\"","inLanguage": "zh-CN",
+  "wordCount":  443 
+}
+</script>
+  <link rel="canonical" href="https://blog.paymond.me/posts/boris-claude-code-tips/" />
+  
+  
+  <link rel="alternate" hreflang="zh-CN" href="https://blog.paymond.me/posts/boris-claude-code-tips/" />
+  
+  <meta name="robots" content="index, follow" /></head>
+<body
+    class="bg-(--bg) text-black antialiased duration-200 ease-out [-webkit-tap-highlight-color:transparent] dark:text-white"
+  ><header
+  class="mx-auto flex h-[4.5rem] max-w-(--w) px-8 whitespace-nowrap lg:justify-center"
+>
+  <div class="relative z-50 flex items-center ltr:mr-auto rtl:ml-auto">
+    <a
+      class="-translate-y-[1px] text-2xl font-medium"
+      href="https://blog.paymond.me/"
+      >My Blog</a
+    >
+    <div
+      class="btn-dark text-[0px] ltr:ml-4 rtl:mr-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden ltr:-mr-8 rtl:-ml-8"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full flex-col justify-center bg-(--bg) pb-16 duration-200 select-none lg:static lg:h-auto lg:flex-row lg:bg-transparent! lg:pb-0 lg:transition-none"
+  ><nav
+      class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-10 rtl:space-x-reverse"
+    ><a
+        class="block text-center text-xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/"
+        >Home</a
+      ></nav>
+  </div>
+</header>
+<main
+      class="prose prose-neutral dark:prose-invert relative mx-auto min-h-[calc(100vh-9rem)] max-w-(--w) px-8 pt-14 pb-16"
+    ><article>
+  <header class="mb-14">
+    <h1 class="my-0! pb-2.5">Claude Code 创建者怎么用自己的工具：Boris Cherny 的 13 条实践</h1><div class="text-xs antialiased opacity-60"><time>Feb 2, 2026</time></div></header>
+
+  <section><p><img src="/posts/image/boris-claude-code/howboris-intro.png" alt="Boris Cherny 的 Claude Code 使用指南"></p>
+<p>2026 年 1 月初，Boris Cherny 在 Twitter 上发了个帖子，标题很朴素：&ldquo;我是 Boris，我创建了 Claude Code。很多人问我怎么用它，所以我想展示一下我的配置。&rdquo;</p>
+<p>接下来的 13 条推文，让很多人意外。</p>
+<p>Boris 的配置出乎意料地&quot;普通&quot;。他没有复杂的自定义脚本，没有神秘的隐藏功能。他的核心观点是：Claude Code 开箱即用就很好，没有唯一正确的使用方式，Claude Code 团队里每个人的用法都不一样。</p>
+<p>但&quot;普通&quot;不代表没有干货。以下是 Boris 分享的实践，按我的理解重新整理。</p>
+<h2 id="并行处理不是-1-个是-15-个以上">并行处理：不是 1 个，是 15 个以上</h2>
+<p><img src="/posts/image/boris-claude-code/howboris-parallel.png" alt="并行运行多个 Claude 实例"></p>
+<p>Boris 同时运行大约 15 个以上的 Claude 实例：</p>
+<ul>
+<li>终端里 5 个 Claude Code，用 iTerm2 的 tab 编号 1-5，配置系统通知知道哪个需要输入</li>
+<li>浏览器里 5-10 个 claude.ai/code 会话</li>
+<li>手机上用 Claude iOS app 启动任务，之后在电脑上接手</li>
+</ul>
+<p>关键细节：5 个终端实例跑在 5 个独立的 git checkout 上，这样 Claude 可以并行修改代码而不冲突。</p>
+<p>用 <code>&amp;</code> 命令或 <code>--teleport</code> 可以在本地和 web 之间切换。早上在手机上启动一个任务，下午在电脑上继续。</p>
+<h2 id="模型选择opus-45-with-thinking">模型选择：Opus 4.5 with thinking</h2>
+<p>Boris 用 Opus 4.5 加 thinking 模式做所有事。他的理由是：</p>
+<blockquote>
+<p>&ldquo;虽然 Opus 比 Sonnet 更大更慢，但因为你需要更少的引导，它的工具使用也更好，最终几乎总是比用小模型更快。&rdquo;</p>
+</blockquote>
+<p>这个观点值得注意：更大的模型不等于更慢的总体效率。减少来回沟通的时间，可能比模型推理时间更重要。</p>
+<h2 id="claudemd团队的共享记忆">CLAUDE.md：团队的共享记忆</h2>
+<p><img src="/posts/image/boris-claude-code/howboris-claudemd.png" alt="CLAUDE.md 团队共享文档"></p>
+<p>Claude Code 团队维护一个 <code>CLAUDE.md</code> 文件，检入 git。整个团队每周贡献多次。规则很简单：</p>
+<p><strong>每次发现 Claude 做错了什么，就加到 CLAUDE.md 里。</strong></p>
+<p>这样 Claude 下次就知道不要这样做。这是 Boris 所说的&quot;复合工程&quot;(Compounding Engineering)——借用 Dan Shipper 的概念——通过持续积累学习，让 Claude 越用越好。</p>
+<p>在代码审查时，团队会在 PR 上 tag <code>@.claude</code>，让 Claude 自动把学习内容更新到 CLAUDE.md。这用的是 Claude Code GitHub Action（<code>/install-github-action</code>）。</p>
+<p>一个真实例子：代码审查中有人评论&quot;不要用 TypeScript enum，用字符串字面量联合类型&quot;，然后 tag @.claude。Claude 就会提交一个更新，在 CLAUDE.md 里加上这条规则。</p>
+<h2 id="plan-模式先想清楚再动手">Plan 模式：先想清楚再动手</h2>
+<p>大多数会话从 Plan 模式开始（Shift+Tab 两次）。Boris 会和 Claude 反复讨论计划，直到满意。然后切换到自动接受编辑模式，让 Claude 一次性完成。</p>
+<blockquote>
+<p>&ldquo;好的计划真的很重要。&rdquo;</p>
+</blockquote>
+<p>这是个简单的道理，但很多人会跳过。先花时间把计划迭代清楚，后面的执行会顺利得多。</p>
+<h2 id="slash-命令内循环自动化">Slash 命令：内循环自动化</h2>
+<p>Boris 给高频工作流创建 slash 命令。比如 <code>/commit-push-pr</code>，他和 Claude 每天要用几十次。</p>
+<p>命令存在 <code>.claude/commands/</code> 目录，检入 git，团队共享。命令里可以嵌入 bash 来预计算信息（比如 git status），减少和模型的来回。</p>
+<h2 id="subagentspr-工作流自动化">Subagents：PR 工作流自动化</h2>
+<p>Boris 把 subagents 看作&quot;最常见 PR 工作流的自动化&quot;。他用的几个例子：</p>
+<ul>
+<li><code>code-simplifier</code> — Claude 完成工作后简化代码</li>
+<li><code>verify-app</code> — 端到端测试的详细指令</li>
+</ul>
+<p>Subagents 定义在 <code>.claude/agents/</code> 目录。</p>
+<h2 id="hooks自动格式化">Hooks：自动格式化</h2>
+<p>团队用 <code>PostToolUse</code> hook 自动格式化 Claude 生成的代码。Claude 90% 的时候生成格式正确的代码，hook 处理剩下 10%，避免 CI 失败。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#e6db74">&#34;PostToolUse&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> [
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;matcher&#34;</span>: <span style="color:#e6db74">&#34;Write|Edit&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hooks&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {<span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;command&#34;</span>, <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;bun run format || true&#34;</span>}
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><h2 id="权限管理预授权而非跳过">权限管理：预授权而非跳过</h2>
+<p>Boris 不用 <code>--dangerously-skip-permissions</code>。他用 <code>/permissions</code> 预授权已知安全的命令，避免不必要的权限提示。</p>
+<p>这些配置存在 <code>.claude/settings.json</code>，检入 git，团队共享。</p>
+<h2 id="工具集成让-claude-用你的工具">工具集成：让 Claude 用你的工具</h2>
+<p>Claude Code 可以使用 Boris 的各种工具：</p>
+<ul>
+<li>通过 MCP 服务器搜索和发送 Slack 消息</li>
+<li>用 bq CLI 跑 BigQuery 查询</li>
+<li>从 Sentry 抓错误日志</li>
+</ul>
+<p>MCP 配置存在 <code>.mcp.json</code>，检入 git。</p>
+<h2 id="长时间任务不要让-claude-卡住">长时间任务：不要让 Claude 卡住</h2>
+<p>对于运行很长的任务，Boris 的做法：</p>
+<ul>
+<li>提示 Claude 完成后用后台 agent 验证</li>
+<li>用 agent Stop hook 做更确定性的检查</li>
+<li>用 ralph-wiggum 插件（社区创意）</li>
+</ul>
+<p>在沙盒环境里，他会用 <code>--permission-mode=dontAsk</code> 或 <code>--dangerously-skip-permissions</code> 避免被权限提示阻塞。</p>
+<h2 id="验证最重要的一条">验证：最重要的一条</h2>
+<p><img src="/posts/image/boris-claude-code/howboris-verify.png" alt="验证是最重要的"></p>
+<p>这是 Boris 强调的核心：</p>
+<blockquote>
+<p>&ldquo;让 Claude 产出优秀结果最重要的一件事——给 Claude 一种验证自己工作的方法。如果 Claude 有这个反馈循环，最终结果的质量会提高 2-3 倍。&rdquo;</p>
+</blockquote>
+<p>他自己的例子：每一个发布到 claude.ai/code 的改动，Claude 都会用 Chrome 扩展打开浏览器，测试 UI，迭代直到代码能用、体验也好。</p>
+<p>验证在不同领域有不同形式：跑一个 bash 命令、跑测试套件、在浏览器或手机模拟器里测试。关键是给 Claude 一个闭环。</p>
+<hr>
+<h2 id="配置文件速查">配置文件速查</h2>
+<p>根据 Boris 分享的内容，Claude Code 的配置文件可以分为两类：</p>
+<h3 id="项目级检入-git团队共享">项目级（检入 git，团队共享）</h3>
+<table>
+  <thead>
+      <tr>
+          <th>文件/目录</th>
+          <th>用途</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>CLAUDE.md</code></td>
+          <td>项目规则、最佳实践、错误记录</td>
+      </tr>
+      <tr>
+          <td><code>.claude/commands/</code></td>
+          <td>Slash 命令定义</td>
+      </tr>
+      <tr>
+          <td><code>.claude/agents/</code></td>
+          <td>Subagents 定义</td>
+      </tr>
+      <tr>
+          <td><code>.claude/settings.json</code></td>
+          <td>权限配置</td>
+      </tr>
+      <tr>
+          <td><code>.mcp.json</code></td>
+          <td>MCP 服务器配置</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="全局个人级">全局/个人级</h3>
+<table>
+  <thead>
+      <tr>
+          <th>配置</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>终端配置</td>
+          <td>iTerm2 通知、tab 编号习惯</td>
+      </tr>
+      <tr>
+          <td>模型偏好</td>
+          <td>Opus 4.5 with thinking（个人选择）</td>
+      </tr>
+      <tr>
+          <td>工作流习惯</td>
+          <td>并行实例数量、Plan 模式使用</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="boris-的核心感悟">Boris 的核心感悟</h2>
+<ol>
+<li><strong>没有唯一正确的方式</strong> — Claude Code 团队每个人用法都不同，工具设计本身就支持你按自己的方式使用和定制</li>
+<li><strong>更大的模型可能更快</strong> — 减少引导 + 更好的工具使用 = 总体更快，不要只看推理速度</li>
+<li><strong>好的计划真的很重要</strong> — 别跳过 Plan 模式，花时间把计划迭代清楚</li>
+<li><strong>验证是最重要的</strong> — 给 Claude 反馈循环，质量提升 2-3 倍</li>
+<li><strong>复合工程</strong> — 把错误和学习持续积累到 CLAUDE.md，让 Claude 越用越好</li>
+</ol>
+<hr>
+<h2 id="附录把-boris-的建议变成规则文件">附录：把 Boris 的建议变成规则文件</h2>
+<p>看完 Boris 的分享，你可能想把这些实践整理成一个 CLAUDE.md 或项目规则。下面是一个常见的尝试和优化版本的对比。</p>
+<h3 id="原始版本">原始版本</h3>
+<p>这是一个基于 Boris 建议整理的规则文件：</p>
+<p><img src="/posts/image/boris-claude-code/original-rules.png" alt="原始规则文件"></p>
+<p>这个版本覆盖了几个核心点：Plan 模式、Subagent 策略、自我改进循环、验证。但有几个问题：</p>
+<p><strong>缺少的关键实践：</strong></p>
+<ul>
+<li>Hooks（自动格式化）</li>
+<li>权限预授权策略</li>
+<li>Slash 命令</li>
+<li>Boris 说&quot;验证可以 2-3x 提升质量&quot;这个具体数字没体现</li>
+</ul>
+<p><strong>可以精简的地方：</strong></p>
+<ul>
+<li>Task Management 部分有些冗余</li>
+<li>&ldquo;Demand Elegance&quot;和&quot;Autonomous Bug Fixing&quot;是好的补充，但和 Boris 的原意有偏差</li>
+</ul>
+<h3 id="优化版本">优化版本</h3>
+<p>根据 Boris 的建议重新整理：</p>
+<p><img src="/posts/image/boris-claude-code/optimized-rules-rayso.png" alt="优化版规则文件"></p>
+<p>主要改进：</p>
+<ol>
+<li><strong>验证提到最前面</strong>，强调&quot;2-3x 质量提升&rdquo;</li>
+<li><strong>加入 Slash 命令和 Hooks</strong> 这两个 Boris 明确提到的实践</li>
+<li><strong>Self-Improvement Loop 改名为 Compounding Engineering</strong>，更贴近 Boris 的原话</li>
+<li><strong>精简 Core Principles</strong>，突出三个最重要的点</li>
+</ol>
+<p>你可以根据自己的项目情况调整这个模板。记住 Boris 说的：没有唯一正确的方式。</p>
+<hr>
+<p><strong>参考来源</strong></p>
+<ul>
+<li><a href="https://x.com/bcherny/status/2007179832300581177">Boris Cherny 的原始 Twitter 帖子</a></li>
+<li><a href="https://howborisusesclaudecode.com/">howborisusesclaudecode.com</a> — 社区整理的完整版</li>
+<li><a href="https://code.claude.com/docs">Claude Code 官方文档</a></li>
+</ul>
+<p><em>本文撰写于 2026 年 2 月 2 日。</em></p>
+</section>
+
+  <footer class="mt-12 flex flex-wrap"><a
+      class="mb-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[8%] dark:hover:bg-white/[12%]"
+      href="https://blog.paymond.me/tags/ai-agent"
+      >AI Agent</a
+    ><a
+      class="mb-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[8%] dark:hover:bg-white/[12%]"
+      href="https://blog.paymond.me/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7"
+      >开发工具</a
+    ><a
+      class="mb-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[8%] dark:hover:bg-white/[12%]"
+      href="https://blog.paymond.me/tags/claude-code"
+      >Claude Code</a
+    ></footer><nav
+    class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg leading-[1.2]! *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]"
+  ><a
+      class="justify-end pl-3 ltr:ml-auto rtl:mr-auto"
+      href="https://blog.paymond.me/posts/moltbook-ai-society/"
+      ><span>Moltbook：77万AI agent建了个社交网络，然后创造了龙虾宗教</span><span class="ltr:ml-1.5 rtl:mr-1.5">→</span></a
+    ></nav></article></main><footer
+  class="mx-auto flex h-[4.5rem] max-w-(--w) items-center px-8 text-xs tracking-wider uppercase opacity-60"
+>
+  <div class="mr-auto">&copy;2026
+    <a class="link" href="https://blog.paymond.me/">My Blog</a></div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >powered by hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >hugo-paper</a
+  >
+</footer>
+</body>
+</html>

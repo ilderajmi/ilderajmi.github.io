@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pre-Posts on My Blog</title>
+    <link>https://blog.paymond.me/pre-post/</link>
+    <description>Recent content in Pre-Posts on My Blog</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 02 Feb 2026 14:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.paymond.me/pre-post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Claude Code 创建者怎么用自己的工具：Boris Cherny 的 13 条实践</title>
+      <link>https://blog.paymond.me/pre-post/boris-claude-code-tips/</link>
+      <pubDate>Mon, 02 Feb 2026 14:00:00 +0800</pubDate>
+      <guid>https://blog.paymond.me/pre-post/boris-claude-code-tips/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://blog.paymond.me/posts/image/boris-claude-code/howboris-intro.png&#34; alt=&#34;Boris Cherny 的 Claude Code 使用指南&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;2026 年 1 月初，Boris Cherny 在 Twitter 上发了个帖子，标题很朴素：&amp;ldquo;我是 Boris，我创建了 Claude Code。很多人问我怎么用它，所以我想展示一下我的配置。&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;接下来的 13 条推文，让很多人意外。&lt;/p&gt;&#xA;&lt;p&gt;Boris 的配置出乎意料地&amp;quot;普通&amp;quot;。他没有复杂的自定义脚本，没有神秘的隐藏功能。他的核心观点是：Claude Code 开箱即用就很好，没有唯一正确的使用方式，Claude Code 团队里每个人的用法都不一样。&lt;/p&gt;&#xA;&lt;p&gt;但&amp;quot;普通&amp;quot;不代表没有干货。以下是 Boris 分享的实践，按我的理解重新整理。&lt;/p&gt;&#xA;&lt;h2 id=&#34;并行处理不是-1-个是-15-个以上&#34;&gt;并行处理：不是 1 个，是 15 个以上&lt;/h2&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://blog.paymond.me/posts/image/boris-claude-code/howboris-parallel.png&#34; alt=&#34;并行运行多个 Claude 实例&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Boris 同时运行大约 15 个以上的 Claude 实例：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;终端里 5 个 Claude Code，用 iTerm2 的 tab 编号 1-5，配置系统通知知道哪个需要输入&lt;/li&gt;&#xA;&lt;li&gt;浏览器里 5-10 个 claude.ai/code 会话&lt;/li&gt;&#xA;&lt;li&gt;手机上用 Claude iOS app 启动任务，之后在电脑上接手&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;关键细节：5 个终端实例跑在 5 个独立的 git checkout 上，这样 Claude 可以并行修改代码而不冲突。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

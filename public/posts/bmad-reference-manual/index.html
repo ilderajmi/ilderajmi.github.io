@@ -1,10 +1,296 @@
-<!doctype html><html class="not-ready lg:text-base" style=--bg:#faf8f1 lang=zh-cn dir=ltr><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>用 BMAD 打造你的 AI 开发团队 - My Blog</title><meta name=theme-color><meta name=description content="BMAD (Build Me A Dream) 是一个 AI 代理框架，可以在 Cursor 中创建虚拟开发团队。了解如何使用 BMAD 的各种代理角色来提升开发效率。"><meta name=author content="Jared"><meta name=keywords content="BMAD,AI代理,开发工具"><link rel="preload stylesheet" as=style href=https://blog.paymond.me/main.min.css><link rel=preload as=image href=https://blog.paymond.me/theme.png><script defer src=https://blog.paymond.me/highlight.min.js onload=hljs.initHighlightingOnLoad()></script><link rel=icon href=https://blog.paymond.me/favicon.ico><link rel=apple-touch-icon href=https://blog.paymond.me/apple-touch-icon.png><meta name=generator content="Hugo 0.154.2"><meta itemprop=name content="用 BMAD 打造你的 AI 开发团队"><meta itemprop=description content="BMAD (Build Me A Dream) 是一个 AI 代理框架，可以在 Cursor 中创建虚拟开发团队。了解如何使用 BMAD 的各种代理角色来提升开发效率。"><meta itemprop=datePublished content="2026-01-04T00:00:00+08:00"><meta itemprop=dateModified content="2026-01-04T00:00:00+08:00"><meta itemprop=wordCount content="166"><meta itemprop=image content="https://blog.paymond.me/apple-touch-icon.png"><meta itemprop=keywords content="BMAD,AI代理,开发工具"><meta property="og:url" content="https://blog.paymond.me/posts/bmad-reference-manual/"><meta property="og:site_name" content="My Blog"><meta property="og:title" content="用 BMAD 打造你的 AI 开发团队"><meta property="og:description" content="BMAD (Build Me A Dream) 是一个 AI 代理框架，可以在 Cursor 中创建虚拟开发团队。了解如何使用 BMAD 的各种代理角色来提升开发效率。"><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-01-04T00:00:00+08:00"><meta property="article:modified_time" content="2026-01-04T00:00:00+08:00"><meta property="article:tag" content="BMAD"><meta property="article:tag" content="AI代理"><meta property="article:tag" content="开发工具"><meta property="og:image" content="https://blog.paymond.me/apple-touch-icon.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.paymond.me/apple-touch-icon.png"><meta name=twitter:title content="用 BMAD 打造你的 AI 开发团队"><meta name=twitter:description content="BMAD (Build Me A Dream) 是一个 AI 代理框架，可以在 Cursor 中创建虚拟开发团队。了解如何使用 BMAD 的各种代理角色来提升开发效率。"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"\"用 BMAD 打造你的 AI 开发团队\"","name":"\"用 BMAD 打造你的 AI 开发团队\"","description":"\"BMAD (Build Me A Dream) 是一个 AI 代理框架，可以在 Cursor 中创建虚拟开发团队。了解如何使用 BMAD 的各种代理角色来提升开发效率。\"","author":{"@type":"Person","name":"\"Jared\"","url":"\"https://blog.paymond.me/\""},"publisher":{"@type":"Organization","name":"\"My Blog\"","url":"\"https://blog.paymond.me/\"","logo":{"@type":"ImageObject","url":"\"https://blog.paymond.me/apple-touch-icon.png\""}},"datePublished":"\"2026-01-04T00:00:00+08:00\"","dateModified":"\"2026-01-04T00:00:00+08:00\"","url":"\"https://blog.paymond.me/posts/bmad-reference-manual/\"","mainEntityOfPage":{"@type":"WebPage","@id":"\"https://blog.paymond.me/posts/bmad-reference-manual/\""},"keywords":"\"BMAD, AI代理, 开发工具\"","inLanguage":"zh-CN","wordCount":166}</script><link rel=canonical href=https://blog.paymond.me/posts/bmad-reference-manual/><link rel=alternate hreflang=zh-CN href=https://blog.paymond.me/posts/bmad-reference-manual/><meta name=robots content="index, follow"></head><body class="bg-(--bg) text-black antialiased duration-200 ease-out [-webkit-tap-highlight-color:transparent] dark:text-white"><header class="mx-auto flex h-[4.5rem] max-w-(--w) px-8 whitespace-nowrap lg:justify-center"><div class="relative z-50 flex items-center ltr:mr-auto rtl:ml-auto"><a class="-translate-y-[1px] text-2xl font-medium" href=https://blog.paymond.me/>My Blog</a><div class="btn-dark text-[0px] ltr:ml-4 rtl:mr-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]" role=button aria-label=Dark></div></div><div class="btn-menu relative z-50 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden ltr:-mr-8 rtl:-ml-8" role=button aria-label=Menu></div><script>const htmlClass=document.documentElement.classList;setTimeout(()=>{htmlClass.remove("not-ready")},10);const btnMenu=document.querySelector(".btn-menu");btnMenu.addEventListener("click",()=>{htmlClass.toggle("open")});const metaTheme=document.querySelector('meta[name="theme-color"]'),lightBg="#faf8f1".replace(/"/g,""),setDark=e=>{metaTheme.setAttribute("content",e?"#000":lightBg),htmlClass[e?"add":"remove"]("dark"),localStorage.setItem("dark",e)},darkScheme=window.matchMedia("(prefers-color-scheme: dark)");if(htmlClass.contains("dark"))setDark(!0);else{const e=localStorage.getItem("dark");setDark(e?e==="true":darkScheme.matches)}darkScheme.addEventListener("change",e=>{setDark(e.matches)});const btnDark=document.querySelector(".btn-dark");btnDark.addEventListener("click",()=>{setDark(localStorage.getItem("dark")!=="true")})</script><div class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full flex-col justify-center bg-(--bg) pb-16 duration-200 select-none lg:static lg:h-auto lg:flex-row lg:bg-transparent! lg:pb-0 lg:transition-none"><nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-10 rtl:space-x-reverse"><a class="block text-center text-xl leading-[5rem] lg:text-base lg:font-normal" href=/>Home</a></nav></div></header><main class="prose prose-neutral dark:prose-invert relative mx-auto min-h-[calc(100vh-9rem)] max-w-(--w) px-8 pt-14 pb-16"><article><header class=mb-14><h1 class="my-0! pb-2.5">用 BMAD 打造你的 AI 开发团队</h1><div class="text-xs antialiased opacity-60"><time>Jan 4, 2026</time></div></header><section><p>最近在折腾 Cursor 的 AI 代理系统，发现了一个叫 <a href=https://github.com/bmad-code-org/BMAD-METHOD>BMAD</a> 的项目，简单说就是一套用 AI 代理组成的"虚拟开发团队"。用了一段时间感觉挺有意思，在这里记录一下。</p><h2 id=什么是-bmad>什么是 BMAD</h2><p>BMAD（Build Me A Dream）本质上是一个 AI 代理框架，你可以在 Cursor 里通过 <code>@</code> 符号调用不同的"虚拟同事"来帮你完成各种开发任务。它把软件开发流程拆分成不同的角色，比如产品经理、架构师、开发者、测试等等，每个角色都有一个专门的 AI 代理负责。</p><p>目前已安装的模块有：</p><ul><li><strong>Core</strong> - 核心模块</li><li><strong>BMM</strong> - 敏捷开发模块</li><li><strong>BMB</strong> - 构建器模块</li><li><strong>BMGD</strong> - 游戏开发模块</li><li><strong>CIS</strong> - 创意套件模块</li></ul><h2 id=基本用法>基本用法</h2><p>在 Cursor 聊天中用 <code>@</code> 引用：</p><pre tabindex=0><code>@bmad/core/agents/bmad-master        # 通用助手
+<!doctype html>
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg:#faf8f1"
+  lang="zh-cn"
+  dir="ltr"
+><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>用 BMAD 打造你的 AI 开发团队 - My Blog</title>
+
+  
+  <meta name="theme-color" />
+
+  <meta name="description" content="BMAD (Build Me A Dream) 是一个 AI 代理框架，可以在 Cursor 中创建虚拟开发团队。了解如何使用 BMAD 的各种代理角色来提升开发效率。" />
+  <meta name="author" content="Jared" /><meta name="keywords" content="BMAD, AI代理, 开发工具" /><link rel="preload stylesheet" as="style" href="https://blog.paymond.me/main.min.css" />
+
+  <link rel="preload" as="image" href="https://blog.paymond.me/theme.png" />
+
+  <script
+    defer
+    src="https://blog.paymond.me/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  <link
+    rel="icon"
+    href="https://blog.paymond.me/favicon.ico"
+  />
+  <link
+    rel="apple-touch-icon"
+    href="https://blog.paymond.me/apple-touch-icon.png"
+  />
+
+  <meta name="generator" content="Hugo 0.154.2">
+  <meta itemprop="name" content="用 BMAD 打造你的 AI 开发团队">
+  <meta itemprop="description" content="BMAD (Build Me A Dream) 是一个 AI 代理框架，可以在 Cursor 中创建虚拟开发团队。了解如何使用 BMAD 的各种代理角色来提升开发效率。">
+  <meta itemprop="datePublished" content="2026-01-04T00:00:00+08:00">
+  <meta itemprop="dateModified" content="2026-01-04T00:00:00+08:00">
+  <meta itemprop="wordCount" content="166">
+  <meta itemprop="image" content="https://blog.paymond.me/apple-touch-icon.png">
+  <meta itemprop="keywords" content="BMAD,AI代理,开发工具"><meta property="og:url" content="https://blog.paymond.me/posts/bmad-reference-manual/">
+  <meta property="og:site_name" content="My Blog">
+  <meta property="og:title" content="用 BMAD 打造你的 AI 开发团队">
+  <meta property="og:description" content="BMAD (Build Me A Dream) 是一个 AI 代理框架，可以在 Cursor 中创建虚拟开发团队。了解如何使用 BMAD 的各种代理角色来提升开发效率。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-01-04T00:00:00+08:00">
+    <meta property="article:modified_time" content="2026-01-04T00:00:00+08:00">
+    <meta property="article:tag" content="BMAD">
+    <meta property="article:tag" content="AI代理">
+    <meta property="article:tag" content="开发工具">
+    <meta property="og:image" content="https://blog.paymond.me/apple-touch-icon.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://blog.paymond.me/apple-touch-icon.png">
+  <meta name="twitter:title" content="用 BMAD 打造你的 AI 开发团队">
+  <meta name="twitter:description" content="BMAD (Build Me A Dream) 是一个 AI 代理框架，可以在 Cursor 中创建虚拟开发团队。了解如何使用 BMAD 的各种代理角色来提升开发效率。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "\"用 BMAD 打造你的 AI 开发团队\"",
+  "name": "\"用 BMAD 打造你的 AI 开发团队\"",
+  "description": "\"BMAD (Build Me A Dream) 是一个 AI 代理框架，可以在 Cursor 中创建虚拟开发团队。了解如何使用 BMAD 的各种代理角色来提升开发效率。\"",
+  "author": {
+    "@type": "Person",
+    "name": "\"Jared\"",
+    "url": "\"https://blog.paymond.me/\""},
+  "publisher": {
+    "@type": "Organization",
+    "name": "\"My Blog\"",
+    "url": "\"https://blog.paymond.me/\"",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "\"https://blog.paymond.me/apple-touch-icon.png\""
+    }},
+  "datePublished": "\"2026-01-04T00:00:00+08:00\"",
+  "dateModified": "\"2026-01-04T00:00:00+08:00\"",
+  "url": "\"https://blog.paymond.me/posts/bmad-reference-manual/\"",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "\"https://blog.paymond.me/posts/bmad-reference-manual/\""
+  },"keywords": "\"BMAD, AI代理, 开发工具\"","inLanguage": "zh-CN",
+  "wordCount":  166 
+}
+</script>
+  <link rel="canonical" href="https://blog.paymond.me/posts/bmad-reference-manual/" />
+  
+  
+  <link rel="alternate" hreflang="zh-CN" href="https://blog.paymond.me/posts/bmad-reference-manual/" />
+  
+  <meta name="robots" content="index, follow" /></head>
+<body
+    class="bg-(--bg) text-black antialiased duration-200 ease-out [-webkit-tap-highlight-color:transparent] dark:text-white"
+  ><header
+  class="mx-auto flex h-[4.5rem] max-w-(--w) px-8 whitespace-nowrap lg:justify-center"
+>
+  <div class="relative z-50 flex items-center ltr:mr-auto rtl:ml-auto">
+    <a
+      class="-translate-y-[1px] text-2xl font-medium"
+      href="https://blog.paymond.me/"
+      >My Blog</a
+    >
+    <div
+      class="btn-dark text-[0px] ltr:ml-4 rtl:mr-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden ltr:-mr-8 rtl:-ml-8"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full flex-col justify-center bg-(--bg) pb-16 duration-200 select-none lg:static lg:h-auto lg:flex-row lg:bg-transparent! lg:pb-0 lg:transition-none"
+  ><nav
+      class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-10 rtl:space-x-reverse"
+    ><a
+        class="block text-center text-xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/"
+        >Home</a
+      ></nav>
+  </div>
+</header>
+<main
+      class="prose prose-neutral dark:prose-invert relative mx-auto min-h-[calc(100vh-9rem)] max-w-(--w) px-8 pt-14 pb-16"
+    ><article>
+  <header class="mb-14">
+    <h1 class="my-0! pb-2.5">用 BMAD 打造你的 AI 开发团队</h1><div class="text-xs antialiased opacity-60"><time>Jan 4, 2026</time></div></header>
+
+  <section><p>最近在折腾 Cursor 的 AI 代理系统，发现了一个叫 <a href="https://github.com/bmad-code-org/BMAD-METHOD">BMAD</a> 的项目，简单说就是一套用 AI 代理组成的&quot;虚拟开发团队&quot;。用了一段时间感觉挺有意思，在这里记录一下。</p>
+<h2 id="什么是-bmad">什么是 BMAD</h2>
+<p>BMAD（Build Me A Dream）本质上是一个 AI 代理框架，你可以在 Cursor 里通过 <code>@</code> 符号调用不同的&quot;虚拟同事&quot;来帮你完成各种开发任务。它把软件开发流程拆分成不同的角色，比如产品经理、架构师、开发者、测试等等，每个角色都有一个专门的 AI 代理负责。</p>
+<p>目前已安装的模块有：</p>
+<ul>
+<li><strong>Core</strong> - 核心模块</li>
+<li><strong>BMM</strong> - 敏捷开发模块</li>
+<li><strong>BMB</strong> - 构建器模块</li>
+<li><strong>BMGD</strong> - 游戏开发模块</li>
+<li><strong>CIS</strong> - 创意套件模块</li>
+</ul>
+<h2 id="基本用法">基本用法</h2>
+<p>在 Cursor 聊天中用 <code>@</code> 引用：</p>
+<pre tabindex="0"><code>@bmad/core/agents/bmad-master        # 通用助手
 @bmad/bmm/workflows/quick-dev        # 快速开发
 @bmad/bmm/workflows/create-prd       # 创建产品需求文档
-</code></pre><h2 id=我常用的几个代理>我常用的几个代理</h2><h3 id=日常开发>日常开发</h3><ul><li><strong>Barry</strong> (<code>@bmad/bmm/agents/quick-flow-solo-dev</code>) - 处理快速开发任务，从规格到实现一把梭</li><li><strong>Amelia</strong> (<code>@bmad/bmm/agents/dev</code>) - 严格按照验收标准写代码</li><li><strong>Winston</strong> (<code>@bmad/bmm/agents/architect</code>) - 架构设计，分布式系统、云基础设施这些</li></ul><h3 id=规划阶段>规划阶段</h3><ul><li><strong>John</strong> (<code>@bmad/bmm/agents/pm</code>) - 产品经理，擅长需求发现和用户访谈</li><li><strong>Mary</strong> (<code>@bmad/bmm/agents/analyst</code>) - 商业分析师，市场研究和竞品分析</li><li><strong>Sally</strong> (<code>@bmad/bmm/agents/ux-designer</code>) - UX 设计师</li></ul><h3 id=创意相关>创意相关</h3><ul><li><strong>Carson</strong> (<code>@bmad/cis/agents/brainstorming-coach</code>) - 头脑风暴专家</li><li><strong>Maya</strong> (<code>@bmad/cis/agents/design-thinking-coach</code>) - 设计思维流程</li><li><strong>Sophia</strong> (<code>@bmad/cis/agents/storyteller</code>) - 故事叙述，写文案什么的</li></ul><h2 id=常用工作流>常用工作流</h2><p>日常开发其实就两个工作流最常用：</p><pre tabindex=0><code>@bmad/bmm/workflows/quick-dev        # 小功能、Bug 修复
+</code></pre><h2 id="我常用的几个代理">我常用的几个代理</h2>
+<h3 id="日常开发">日常开发</h3>
+<ul>
+<li><strong>Barry</strong> (<code>@bmad/bmm/agents/quick-flow-solo-dev</code>) - 处理快速开发任务，从规格到实现一把梭</li>
+<li><strong>Amelia</strong> (<code>@bmad/bmm/agents/dev</code>) - 严格按照验收标准写代码</li>
+<li><strong>Winston</strong> (<code>@bmad/bmm/agents/architect</code>) - 架构设计，分布式系统、云基础设施这些</li>
+</ul>
+<h3 id="规划阶段">规划阶段</h3>
+<ul>
+<li><strong>John</strong> (<code>@bmad/bmm/agents/pm</code>) - 产品经理，擅长需求发现和用户访谈</li>
+<li><strong>Mary</strong> (<code>@bmad/bmm/agents/analyst</code>) - 商业分析师，市场研究和竞品分析</li>
+<li><strong>Sally</strong> (<code>@bmad/bmm/agents/ux-designer</code>) - UX 设计师</li>
+</ul>
+<h3 id="创意相关">创意相关</h3>
+<ul>
+<li><strong>Carson</strong> (<code>@bmad/cis/agents/brainstorming-coach</code>) - 头脑风暴专家</li>
+<li><strong>Maya</strong> (<code>@bmad/cis/agents/design-thinking-coach</code>) - 设计思维流程</li>
+<li><strong>Sophia</strong> (<code>@bmad/cis/agents/storyteller</code>) - 故事叙述，写文案什么的</li>
+</ul>
+<h2 id="常用工作流">常用工作流</h2>
+<p>日常开发其实就两个工作流最常用：</p>
+<pre tabindex="0"><code>@bmad/bmm/workflows/quick-dev        # 小功能、Bug 修复
 @bmad/bmm/workflows/create-tech-spec # 写技术规格
-</code></pre><p>如果要正经做一个项目，完整流程大概是：</p><pre tabindex=0><code>workflow-init → create-product-brief → create-prd →
+</code></pre><p>如果要正经做一个项目，完整流程大概是：</p>
+<pre tabindex="0"><code>workflow-init → create-product-brief → create-prd →
 create-architecture → create-epics-and-stories → dev-story
-</code></pre><p>不过说实话，我大部分时候还是直接 <code>quick-dev</code> 走起，毕竟主要是写点小工具和脚本。</p><h2 id=游戏开发模块>游戏开发模块</h2><p>BMAD 还有个游戏开发模块（BMGD），如果你用 Unity 或 Unreal 做游戏，里面有几个挺有意思的角色：</p><ul><li><strong>Indie</strong> (<code>@bmad/bmgd/agents/game-solo-dev</code>) - 独立游戏开发者，全流程专家</li><li><strong>Samus Shepard</strong> (<code>@bmad/bmgd/agents/game-designer</code>) - 游戏设计师</li><li><strong>Cloud Dragonborn</strong> (<code>@bmad/bmgd/agents/game-architect</code>) - 游戏架构师</li></ul><p>我还没机会试这个模块，等下次做游戏项目的时候再体验。</p><h2 id=一些想法>一些想法</h2><p>用了一段时间，感觉这套东西确实能提高效率。但也不是银弹，有些时候直接让 Claude 自己干反而更快。我觉得它的价值主要在于：</p><ol><li><strong>流程规范化</strong> - 按照敏捷开发的流程来，不容易漏掉东西</li><li><strong>角色分离</strong> - 不同角色有不同视角，比一个 AI 包揽一切更有针对性</li><li><strong>可复用</strong> - 工作流可以重复使用，形成自己的开发模式</li></ol><p>不过如果你就是写个脚本或者改个 bug，直接上就完了，没必要搞这么复杂。</p><h2 id=资源链接>资源链接</h2><ul><li><a href=https://github.com/bmad-code-org/BMAD-METHOD>BMAD GitHub</a></li><li>版本: v6.0.0-alpha.22</li></ul><hr><p>如果你也在用 Cursor，可以试试 BMAD，说不定会给你带来一些启发。</p></section><footer class="mt-12 flex flex-wrap"><a class="mb-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[8%] dark:hover:bg-white/[12%]" href=https://blog.paymond.me/tags/bmad>BMAD</a><a class="mb-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[8%] dark:hover:bg-white/[12%]" href=https://blog.paymond.me/tags/ai%E4%BB%A3%E7%90%86>AI代理</a><a class="mb-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[8%] dark:hover:bg-white/[12%]" href=https://blog.paymond.me/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7>开发工具</a></footer><nav class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg leading-[1.2]! *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]"><a class="ltr:pr-3 rtl:pl-3" href=https://blog.paymond.me/posts/chinese-llm-2025/><span class="ltr:mr-1.5 rtl:ml-1.5">←</span><span>国产大模型的2025：Kimi、MiniMax、智谱的不同路径</span></a><a class="justify-end pl-3 ltr:ml-auto rtl:mr-auto" href=https://blog.paymond.me/posts/first-post/><span>First Post</span><span class="ltr:ml-1.5 rtl:mr-1.5">→</span></a></nav></article></main><footer class="mx-auto flex h-[4.5rem] max-w-(--w) items-center px-8 text-xs tracking-wider uppercase opacity-60"><div class=mr-auto>&copy;2026
-<a class=link href=https://blog.paymond.me/>My Blog</a></div><a class="link mx-6" href=https://gohugo.io/ rel=noopener target=_blank>powered by hugo️️</a>️
-<a class=link href=https://github.com/nanxiaobei/hugo-paper rel=noopener target=_blank>hugo-paper</a></footer></body></html>
+</code></pre><p>不过说实话，我大部分时候还是直接 <code>quick-dev</code> 走起，毕竟主要是写点小工具和脚本。</p>
+<h2 id="游戏开发模块">游戏开发模块</h2>
+<p>BMAD 还有个游戏开发模块（BMGD），如果你用 Unity 或 Unreal 做游戏，里面有几个挺有意思的角色：</p>
+<ul>
+<li><strong>Indie</strong> (<code>@bmad/bmgd/agents/game-solo-dev</code>) - 独立游戏开发者，全流程专家</li>
+<li><strong>Samus Shepard</strong> (<code>@bmad/bmgd/agents/game-designer</code>) - 游戏设计师</li>
+<li><strong>Cloud Dragonborn</strong> (<code>@bmad/bmgd/agents/game-architect</code>) - 游戏架构师</li>
+</ul>
+<p>我还没机会试这个模块，等下次做游戏项目的时候再体验。</p>
+<h2 id="一些想法">一些想法</h2>
+<p>用了一段时间，感觉这套东西确实能提高效率。但也不是银弹，有些时候直接让 Claude 自己干反而更快。我觉得它的价值主要在于：</p>
+<ol>
+<li><strong>流程规范化</strong> - 按照敏捷开发的流程来，不容易漏掉东西</li>
+<li><strong>角色分离</strong> - 不同角色有不同视角，比一个 AI 包揽一切更有针对性</li>
+<li><strong>可复用</strong> - 工作流可以重复使用，形成自己的开发模式</li>
+</ol>
+<p>不过如果你就是写个脚本或者改个 bug，直接上就完了，没必要搞这么复杂。</p>
+<h2 id="资源链接">资源链接</h2>
+<ul>
+<li><a href="https://github.com/bmad-code-org/BMAD-METHOD">BMAD GitHub</a></li>
+<li>版本: v6.0.0-alpha.22</li>
+</ul>
+<hr>
+<p>如果你也在用 Cursor，可以试试 BMAD，说不定会给你带来一些启发。</p>
+</section>
+
+  <footer class="mt-12 flex flex-wrap"><a
+      class="mb-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[8%] dark:hover:bg-white/[12%]"
+      href="https://blog.paymond.me/tags/bmad"
+      >BMAD</a
+    ><a
+      class="mb-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[8%] dark:hover:bg-white/[12%]"
+      href="https://blog.paymond.me/tags/ai%E4%BB%A3%E7%90%86"
+      >AI代理</a
+    ><a
+      class="mb-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[8%] dark:hover:bg-white/[12%]"
+      href="https://blog.paymond.me/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7"
+      >开发工具</a
+    ></footer><nav
+    class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg leading-[1.2]! *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]"
+  ><a class="ltr:pr-3 rtl:pl-3" href="https://blog.paymond.me/posts/chinese-llm-2025/"
+      ><span class="ltr:mr-1.5 rtl:ml-1.5">←</span><span>国产大模型的2025：Kimi、MiniMax、智谱的不同路径</span></a
+    ><a
+      class="justify-end pl-3 ltr:ml-auto rtl:mr-auto"
+      href="https://blog.paymond.me/posts/first-post/"
+      ><span>First Post</span><span class="ltr:ml-1.5 rtl:mr-1.5">→</span></a
+    ></nav></article></main><footer
+  class="mx-auto flex h-[4.5rem] max-w-(--w) items-center px-8 text-xs tracking-wider uppercase opacity-60"
+>
+  <div class="mr-auto">&copy;2026
+    <a class="link" href="https://blog.paymond.me/">My Blog</a></div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >powered by hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >hugo-paper</a
+  >
+</footer>
+</body>
+</html>
