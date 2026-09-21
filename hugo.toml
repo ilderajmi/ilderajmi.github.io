@@ -4,6 +4,10 @@ title = 'My Blog'
 
 theme = 'paper'
 
+# 草稿/临时文件不参与构建。content/drafts 下曾放着一份纯文本草稿，
+# Hugo 会把它当成页面发布并写进 sitemap，而 robots.txt 又 Disallow /drafts/。
+ignoreFiles = ['content/drafts/']
+
 # SEO 配置
 [params]
   color = 'linen'
@@ -70,6 +74,14 @@ theme = 'paper'
 
 # robots.txt 配置
 enableRobotsTXT = true
+
+# 首页输出 RSS 和动态 robots.txt。分类/标签只输出 HTML，
+# 不再生成 /tags/*/index.xml 这类低价值 feed（搜索引擎抓取后只会判为
+# 「已抓取 - 目前尚未收录」）。
+[outputs]
+  home = ['HTML', 'RSS', 'ROBOTS']
+  taxonomy = ['HTML']
+  term = ['HTML']
 
 # Google Analytics (需要替换为实际的 Measurement ID)
 # [services.googleAnalytics]

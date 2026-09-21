@@ -121,12 +121,21 @@
   <!-- canonical -->
   <link rel="canonical" href="{{- .Permalink -}}" />
   
-  <!-- 语言版本 -->
+  <!-- 语言版本：声明了 alternates 就输出互指 hreflang，否则只输出自指 hreflang -->
+  {{- if .Params.alternates -}}
+    {{- range .Params.alternates -}}
+  <link rel="alternate" hreflang="{{- .lang -}}" href="{{- .url | absURL -}}" />
+    {{- end -}}
+  {{- else -}}
   <link rel="alternate" hreflang="{{- $hreflang -}}" href="{{- .Permalink -}}" />
+  {{- end -}}
   
   <!-- robots meta -->
   {{- if .Params.noindex -}}
   <meta name="robots" content="noindex, nofollow" />
+  {{- else if and (eq .Kind "taxonomy") (not .Data.Terms) -}}
+  <!-- 分类/标签/系列总览页没有任何条目时是空白页，索引它只会产生「已抓取，尚未收录」 -->
+  <meta name="robots" content="noindex, follow" />
   {{- else -}}
   <meta name="robots" content="index, follow" />
   {{- end -}}

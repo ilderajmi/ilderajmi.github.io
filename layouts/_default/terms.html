@@ -1,0 +1,28 @@
+{{- /*
+  分类/标签/系列总览页模板。
+
+  主题自带的 _default/list.html 不渲染 .Data.Terms，所以 /tags/、/categories/、
+  /series/ 实际是只带页头和页脚的空白页：站内没有任何链接指向它们，Google 也一直
+  报「URL is unknown to Google」（只从 sitemap 发现，从未被抓取）。
+  这里渲染成可点击的索引，给标签页提供一条站内链接路径。
+*/ -}}
+{{- define "main" -}}
+
+<h1 class="mb-14">{{- .Title -}}</h1>
+
+{{- $terms := .Data.Terms.ByCount -}}
+{{- with $terms -}}
+<ul class="not-prose flex flex-wrap gap-x-6 gap-y-3">
+  {{- range . -}}
+  <li>
+    <a class="link" href="{{- .Page.Permalink -}}"
+      >{{- .Page.LinkTitle -}} ({{- .Count -}})</a
+    >
+  </li>
+  {{- end -}}
+</ul>
+{{- else -}}
+<p>暂无内容。</p>
+{{- end -}}
+
+{{- end -}}

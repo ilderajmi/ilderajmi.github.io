@@ -2,6 +2,7 @@
 title = 'Privacy Policy'
 date = '2026-01-19'
 draft = false
+noindex = true
 layout = 'plain'
 sitemap_exclude = true
 [build]
