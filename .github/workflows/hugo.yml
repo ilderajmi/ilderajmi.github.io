@@ -18,7 +18,10 @@ jobs:
           submodules: recursive
       - uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
+          # 固定版本：'latest' 会让线上构建与本机验证用的 Hugo 版本不一致。
+          # Hugo 0.166 已移除 site.Author，0.158 起弃用 languageCode 与
+          # .Site.LanguageCode，主题与本仓库仍在使用这些写法。
+          hugo-version: '0.154.2'
           extended: true
       - run: bash ./scripts/post-seo-geo-lint.sh
       - run: hugo --gc --minify --cleanDestinationDir
