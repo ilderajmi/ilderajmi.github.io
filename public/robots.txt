@@ -1,6 +1,3 @@
-# 这是一个备用的 robots.txt 文件
-# 注意: layouts/robots.txt 模板会在 GitHub Actions 部署时自动生成动态版本
-
 User-agent: *
 Allow: /
 
@@ -20,6 +17,10 @@ Allow: /policies/
 
 # 禁止爬取草稿和未发布内容
 Disallow: /drafts/
+
+# Cloudflare 邮箱混淆会注入 /cdn-cgi/l/email-protection 影子链接，
+# 抓取该路径只会得到 404，这里显式排除 /cdn-cgi/。
+Disallow: /cdn-cgi/
 
 # Sitemap位置
 Sitemap: https://blog.paymond.me/sitemap.xml
