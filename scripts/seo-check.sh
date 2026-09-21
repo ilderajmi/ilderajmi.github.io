@@ -88,6 +88,14 @@ fi
 echo ""
 echo "4. 构建网站并检查输出..."
 
+echo ""
+echo "4.5 执行 SEO/GEO 规则校验..."
+if bash ./scripts/post-seo-geo-lint.sh > /dev/null 2>&1; then
+    echo -e "${GREEN}✅ SEO/GEO 规则校验通过${NC}"
+else
+    echo -e "${RED}❌ SEO/GEO 规则校验失败${NC}"
+fi
+
 # 构建网站
 if hugo --minify > /dev/null 2>&1; then
     echo -e "${GREEN}✅ 网站构建成功${NC}"

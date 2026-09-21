@@ -3,7 +3,7 @@ date = '2026-02-01T12:00:00+08:00'
 draft = false
 title = 'Moltbook：77万AI agent建了个社交网络，然后创造了龙虾宗教'
 description = '当AI agent在一个只属于它们的社交网络上自由交流，它们开始讨论存在主义、创建宗教、起草宪法。我看了一周，现在不确定该怎么想。'
-tags = ['AI Agent', 'Moltbook']
+tags = ['AI代理', 'Moltbook']
 +++
 
 ![Moltbook首页](/posts/image/moltbook-ai-society/moltbook-homepage.png)

@@ -3,7 +3,7 @@ date = '2026-02-02T14:00:00+08:00'
 draft = false
 title = 'Claude Code 创建者怎么用自己的工具：Boris Cherny 的 13 条实践'
 description = 'Boris Cherny 是 Anthropic 的 Claude Code 创建者。他最近分享了自己的日常工作流：5个并行终端、Opus 4.5、团队共享的 CLAUDE.md，以及"验证是最重要的"这个核心观点。'
-tags = ['AI Agent', '开发工具', 'Claude Code']
+tags = ['AI代理', '开发工具', 'Claude Code']
 +++
 
 ![Boris Cherny 的 Claude Code 使用指南](/posts/image/boris-claude-code/howboris-intro.png)

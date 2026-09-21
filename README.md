@@ -14,6 +14,9 @@ hugo --minify
 
 # SEO 检查
 ./scripts/seo-check.sh
+
+# SEO/GEO 规则校验（发布前建议必跑）
+bash ./scripts/post-seo-geo-lint.sh
 ```
 
 ### 创建新文章
@@ -25,6 +28,7 @@ hugo new posts/my-new-post.md
 
 - **[SEO-GUIDE.md](./SEO-GUIDE.md)** - 完整的 SEO 优化指南
 - **[SEO-TODO.md](./SEO-TODO.md)** - SEO 待办事项清单
+- **[SEO-GEO-RULES.md](./SEO-GEO-RULES.md)** - 自动化 SEO/GEO 发布规则
 - **[hugo.toml](./hugo.toml)** - 网站配置文件
 
 ## ✅ 已完成的 SEO 优化
@@ -59,6 +63,17 @@ hugo new posts/my-new-post.md
 ```bash
 ./scripts/seo-check.sh
 ```
+
+## 🔔 发布后搜索引擎通知
+
+GitHub Actions 会在部署成功后自动执行：
+- Bing sitemap ping
+- Google Search Console sitemap submit（可选，需要 secrets）
+
+Google 可选 secrets：
+- `GSC_ACCESS_TOKEN`: Google OAuth access token（具备 Search Console 权限）
+- `GSC_SITE_URL`: Search Console property（例如 `sc-domain:paymond.me` 或 `https://blog.paymond.me/`）
+- `GSC_SITEMAP_URL`: 可选，默认使用 `https://blog.paymond.me/sitemap.xml`
 
 ## 📞 联系方式
 

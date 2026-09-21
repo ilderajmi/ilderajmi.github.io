@@ -85,6 +85,9 @@
 
   <!-- production -->
   {{- if or hugo.IsProduction (eq site.Params.env "production") -}}
+  {{- $page_lang := or .Params.pageLang site.LanguageCode -}}
+  {{- $hreflang := $page_lang -}}
+  {{- if eq $page_lang "zh-cn" -}}{{- $hreflang = "zh-CN" -}}{{- end -}}
 
   <!-- Google Analytics 4 -->
   {{- if site.Params.googleAnalyticsID -}}
@@ -99,7 +102,7 @@
 
   {{- template "_internal/google_analytics.html" . -}}
   {{- template "_internal/schema.html" . -}}
-  {{- template "_internal/opengraph.html" . -}}
+  {{- partial "opengraph.html" . -}}
   {{- template "_internal/twitter_cards.html" . -}}
 
   <!-- 自定义 JSON-LD 结构化数据 -->
@@ -119,7 +122,7 @@
   <link rel="canonical" href="{{- .Permalink -}}" />
   
   <!-- 语言版本 -->
-  <link rel="alternate" hreflang="zh-CN" href="{{- .Permalink -}}" />
+  <link rel="alternate" hreflang="{{- $hreflang -}}" href="{{- .Permalink -}}" />
   
   <!-- robots meta -->
   {{- if .Params.noindex -}}
