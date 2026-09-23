@@ -1,0 +1,29 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>把工作交给 agent 之前，先分清这三类任务</title></head><body style="margin:0;background:#f1f8f8;"><main style="max-width:640px;margin:auto;"><section style="background:#fff;color:#0b2d3f;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;font-size:16px;line-height:1.85;padding:20px;word-wrap:break-word;">
+<section style="background:#0a2b3d;padding:24px 20px;border-radius:8px;"><p style="color:#7be3d7;font-size:12px;letter-spacing:2px;margin:0 0 12px;">JARED · 工作方法</p><h1 style="color:#fff;font-size:26px;line-height:1.45;margin:0;">把工作交给 agent 之前，先分清这三类任务</h1></section>
+<p style="margin:18px 0;color:#486474;">你可能已经让 agent 帮忙整理过资料：读几份公开文档，列成一张表。结果不错，于是很自然地想往前推一步——既然整理得好，能不能顺手把结论发给同事、把文件改掉、把工单建好？</p>
+<section style="background:#f1f8f8;border-left:4px solid #087d72;padding:16px;margin:24px 0;"><p style="margin:0;color:#0b2d3f;"><strong>决定能不能交给 agent 的，不是它有多聪明，而是这一步出错之后能不能撤回。</strong></p></section>
+<h2 style="font-size:20px;line-height:1.5;color:#087d72;margin:30px 0 12px;">01 · 可撤回的信息整理</h2>
+<p style="margin:18px 0;color:#486474;">读文件、检索、做摘要、列提纲、写草稿，这类操作只读取和重组已有信息，不改变任何外部状态。做错了丢掉重来即可，最坏结果是一张需要重做的表。</p>
+<p style="margin:18px 0;color:#486474;">Claude Code 的权限文档就把这类操作单独对待：工作目录内只读的文件读取和 Grep 不需要批准，而 shell 命令需要批准。官方默认也把「只看」和「动手」分开了。</p>
+<p style="margin:18px 0;color:#486474;">但要记住：可撤回不等于可信。摘要完全可能混错日期、漏掉条件，结论仍要抽样核对。</p>
+<h2 style="font-size:20px;line-height:1.5;color:#087d72;margin:30px 0 12px;">02 · 需复核的业务建议</h2>
+<p style="margin:18px 0;color:#486474;">判断、排序、推荐、方案，这类输出不改变外部状态，却会影响你的决定：先处理哪个客户、先改哪个模块、这套方案值不值得做。</p>
+<p style="margin:18px 0;color:#486474;">Claude Code 提供 plan 模式，先给计划、你确认再执行；GitHub Copilot 的 cloud agent 会先在分支上研究仓库、制定计划并改代码，你可以看 diff、反复迭代，再决定要不要创建 pull request。共同点是把决定权留在一个明确的位置。</p>
+<p style="margin:18px 0;color:#486474;">边界：这一类需要一个签字点。没有写清楚的验收标准，就不要让它进入下一环。</p>
+<h2 style="font-size:20px;line-height:1.5;color:#087d72;margin:30px 0 12px;">03 · 影响外部状态的动作</h2>
+<p style="margin:18px 0;color:#486474;">发邮件、改数据库、提交工单、付款、发布内容、通知客户，一旦执行就留下外部痕迹，做错了成本不再是一张表。</p>
+<p style="margin:18px 0;color:#486474;">控制手段也更重：Claude Code 的 Bash 沙箱用文件系统隔离和网络隔离限定 agent 能碰什么，并单独给出安全限制说明；GitHub Copilot 的 cloud agent 需要单独配置网络访问、防火墙与 secrets。</p>
+<p style="margin:18px 0;color:#486474;">边界：这一类默认不放，或者只在限定范围内放行，并保留一条回退路径。</p>
+<h2 style="font-size:20px;line-height:1.5;color:#087d72;margin:30px 0 12px;">一张分级表</h2>
+<p style="background:#f1f8f8;border-left:4px solid #087d72;padding:12px 16px;margin:10px 0;color:#0b2d3f;">信息整理 → agent 先动手，人抽样核对结论。</p>
+<p style="background:#f1f8f8;border-left:4px solid #087d72;padding:12px 16px;margin:10px 0;color:#0b2d3f;">业务建议 → agent 先提议，人确认后才进入下一步。</p>
+<p style="background:#f1f8f8;border-left:4px solid #087d72;padding:12px 16px;margin:10px 0;color:#0b2d3f;">外部动作 → 人先动手，执行前逐项确认。</p>
+<p style="margin:18px 0;color:#486474;">三类之间会滑动。同一条链路上，权限要在每一环重新判断，不能拿第一次的「可以」贯穿到底。</p>
+<p style="margin:18px 0;color:#486474;">沙箱和审批点降低的是风险，不是把风险清零。本文例子是说明方法的假设场景，我没有对这些产品做安全测试，也不宣称任何产品提供某种保障；规则与默认行为请以官方文档当前说明为准。</p>
+<p style="margin:18px 0;color:#486474;">今天只做一件事：找出你最近一次交给 agent 的任务，写下它属于哪一类。如果它其实落在第三类，先退回第一类——让 agent 只做整理，把动作留给你自己。</p>
+<h2 style="font-size:20px;line-height:1.5;color:#087d72;margin:30px 0 12px;">参考来源</h2>
+<p style="margin:18px 0;color:#486474;">Claude Code 文档：Configure permissions；Configure the sandboxed Bash tool。核对日期 2026-09-24。</p>
+<p style="margin:18px 0;color:#486474;">GitHub 文档：About GitHub Copilot cloud agent。核对日期 2026-09-24。</p>
+<p style="margin:18px 0;color:#486474;">完整来源链接见博客版。</p>
+<section style="border-top:1px solid #d9e7e9;margin-top:28px;padding-top:18px;"><p style="font-size:14px;color:#61798a;margin:0;">以上为通用划分方法，不构成任何产品的安全承诺。</p></section>
+</section></main></body></html>
