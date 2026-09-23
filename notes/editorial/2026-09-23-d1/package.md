@@ -8,9 +8,9 @@
 朋友圈导语：看到更新就想试？先从最近一次返工里找一个问题，用同一份材料比较。这里有一张可直接照填的决策卡。
 封面方向：深蓝背景，白色主标题“换工具之前”，青绿小字“先问5个问题”。本轮无封面图片，不能声称已生成。
 
-博客稿：content/posts/five-questions-before-switching-ai-tools.md，draft=true。
-候选URL：https://blog.paymond.me/posts/five-questions-before-switching-ai-tools/ 。尚未上线验证，不可当成已发布链接；白班发布后实际回读，才可填公众号“阅读原文”。
+博客稿：content/posts/five-questions-before-switching-ai-tools.md，draft=false，已发布 commit bb171aa5d33637e9d18ece3dc42a98810289ec05。
+已发布URL（2026-09-23 13:20 Asia/Shanghai 线上回读 HTTP 200）：https://blog.paymond.me/posts/five-questions-before-switching-ai-tools/ 。公众号“阅读原文”填这个地址。
 
-公众号：打开wechat.html复制渲染后的文章正文，标题/摘要独立填入。若顶部标题重复可在编辑器删除。wechat.txt为纯文本降级。后台粘贴和手机预览由用户操作，未验证；本轮不发送。
+公众号：打开wechat.html复制渲染后的文章正文，标题/摘要独立填入。若顶部标题重复可在编辑器删除。wechat.txt为纯文本降级。后台粘贴和手机预览由用户操作，未验证；本轮不代发。
 
 选题使用预先列明替补，无合格当日更新不凑热点。资料不来自微信榜单，本轮没有热文学习样本。引用近期公告仅为解释两类决策，未做厂商性能实测。

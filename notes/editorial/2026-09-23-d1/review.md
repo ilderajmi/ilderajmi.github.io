@@ -33,3 +33,9 @@
 - 版式 9：博客是编号小标题加五行决策表；公众号版把表格改成单列卡片，全部内联样式，无脚本、无外部 CSS、无复杂表格，390px 宽度检查过。扣分点是微信后台粘贴与手机实机预览仍未验证。
 
 结论：通过白班审核，可发布博客。公众号包交付用户手动粘贴，不代发。
+
+## 线上验收（2026-09-23 13:20 Asia/Shanghai）
+
+发布 commit bb171aa5d33637e9d18ece3dc42a98810289ec05，远端 main 回读一致（非强制推送）。Actions run 35821780089 结论 success，lint、analytics 测试、hugo 构建与 deploy-pages 全部通过。生产 URL https://blog.paymond.me/posts/five-questions-before-switching-ai-tools/ 回读 HTTP 200、16273 bytes；标题、五个小标题、五行决策表与参考来源均在正文中；canonical 指向该 URL，robots 为 index, follow，sitemap 含该 URL，站内链接 /posts/6-layers-of-harness-zh/ 返回 200。证据见 reports/blog-pilot-d1-20260922/white-shift-20260923-1320.json。
+
+公众号包已更新为已发布 URL 的阅读原文地址；后台粘贴、手机预览与发送由用户操作，仍未验证。
