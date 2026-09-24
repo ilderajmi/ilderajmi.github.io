@@ -11,7 +11,7 @@
 封面方向：深海军蓝底，白色主标题"先分清这三类"，青绿小字"可撤回 / 需复核 / 外部动作"。本轮无封面图片，不能声称已生成。
 
 博客稿：content/posts/three-task-types-before-agent.md，draft=true（夜班产物，未发布）。
-计划路径（未验证，不得当成功）：https://blog.paymond.me/posts/three-task-types-before-agent/ 。09:45 白班审核通过并发布后，用线上回读的真实 URL 填入公众号"阅读原文"。
+已发布 URL（2026-09-24 09:05 Asia/Shanghai 线上回读 HTTP 200，15677 bytes）：https://blog.paymond.me/posts/three-task-types-before-agent/ 。公众号"阅读原文"填这个地址。发布 commit 84957b0，Actions run 35943020836 success。
 
 公众号：打开 wechat.html 复制渲染后的正文，标题/摘要独立填入。若顶部标题与标题字段重复，可在编辑器删除顶部大标题。wechat.txt 为纯文本降级。后台粘贴与手机预览由用户操作，未验证；本轮不代发。
 
