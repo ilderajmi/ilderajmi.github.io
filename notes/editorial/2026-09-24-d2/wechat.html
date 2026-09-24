@@ -4,7 +4,7 @@
 <section style="background:#f1f8f8;border-left:4px solid #087d72;padding:16px;margin:24px 0;"><p style="margin:0;color:#0b2d3f;"><strong>决定能不能交给 agent 的，不是它有多聪明，而是这一步出错之后能不能撤回。</strong></p></section>
 <h2 style="font-size:20px;line-height:1.5;color:#087d72;margin:30px 0 12px;">01 · 可撤回的信息整理</h2>
 <p style="margin:18px 0;color:#486474;">读文件、检索、做摘要、列提纲、写草稿，这类操作只读取和重组已有信息，不改变任何外部状态。做错了丢掉重来即可，最坏结果是一张需要重做的表。</p>
-<p style="margin:18px 0;color:#486474;">Claude Code 的权限文档就把这类操作单独对待：工作目录内只读的文件读取和 Grep 不需要批准，而 shell 命令需要批准。官方默认也把「只看」和「动手」分开了。</p>
+<p style="margin:18px 0;color:#486474;">Claude Code 的权限文档就把这类操作单独对待：工作目录内只读的文件读取和 Grep 不需要批准；shell 命令则通常需要批准，官方只对一组只读命令免批准。官方默认也把「只看」和「动手」分开了。</p>
 <p style="margin:18px 0;color:#486474;">但要记住：可撤回不等于可信。摘要完全可能混错日期、漏掉条件，结论仍要抽样核对。</p>
 <h2 style="font-size:20px;line-height:1.5;color:#087d72;margin:30px 0 12px;">02 · 需复核的业务建议</h2>
 <p style="margin:18px 0;color:#486474;">判断、排序、推荐、方案，这类输出不改变外部状态，却会影响你的决定：先处理哪个客户、先改哪个模块、这套方案值不值得做。</p>
