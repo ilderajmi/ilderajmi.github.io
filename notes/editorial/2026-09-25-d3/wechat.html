@@ -1,0 +1,37 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>定时任务设好了，为什么事情还是没完成？</title></head><body style="margin:0;background:#f1f8f8;"><main style="max-width:640px;margin:auto;"><section style="background:#fff;color:#0b2d3f;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;font-size:16px;line-height:1.85;padding:20px;word-wrap:break-word;">
+<section style="background:#0a2b3d;padding:24px 20px;border-radius:8px;"><p style="color:#7be3d7;font-size:12px;letter-spacing:2px;margin:0 0 12px;">JARED · 工作方法</p><h1 style="color:#fff;font-size:26px;line-height:1.45;margin:0;">定时任务设好了，为什么事情还是没完成？</h1></section>
+<p style="margin:18px 0;color:#486474;">你可能设好过这样的定时任务：每天早上九点，把昨天的情况汇总成一份简报。日历上写着它每天都在跑。可当你真的需要那份简报时，它晚了两个小时，或者压根没有出现，你只好手工补一遍。</p>
+<section style="background:#f1f8f8;border-left:4px solid #087d72;padding:16px;margin:24px 0;"><p style="margin:0;color:#0b2d3f;">定时任务只承诺到一个时间点触发一次这个意图，它不承诺准时、不承诺成功、也不承诺有人看结果。把它拆成四层——配置、触发、执行、验收——每一层的失控方式都不一样。</p></section>
+<h2 style="font-size:20px;line-height:1.5;color:#087d72;margin:30px 0 12px;">01 · 配置：说的是"什么时候"，不是"在哪个时间"</h2>
+<p style="margin:18px 0;color:#486474;">一份调度配置通常只写两件事：多久跑一次，跑什么。它没写的是：按谁的时钟算。</p>
+<p style="margin:18px 0;color:#486474;">cron 的手册页专门用一个 <code style="background:#eef5f6;padding:1px 4px;border-radius:3px;">CRON_TZ</code> 变量说明这一点：它指定这张表使用哪个时区。日历计时器同理，systemd 的 timer 会额外依赖时间同步目标，避免在系统时钟校准之前触发。所以"每天九点"这句话本身是不完整的，完整版本是"每天九点，按哪个时区的九点"。</p>
+<p style="margin:18px 0;color:#486474;">配置层最容易被忽略的另一样东西是变更历史。改过的表达式、调过的时区如果没有记录，排查时你会先怀疑任务本身，而不是怀疑自己改过什么。</p>
+<h2 style="font-size:20px;line-height:1.5;color:#087d72;margin:30px 0 12px;">02 · 触发：会被延迟，也可能被丢掉，还会自己关掉</h2>
+<p style="margin:18px 0;color:#486474;">这一层的默认假设是"到点一定会叫我"。官方文档并不这么承诺。</p>
+<p style="margin:18px 0;color:#486474;">GitHub Actions 的文档在 schedule 事件下写明三点：定时任务在负载高时会被延迟，而每个小时的开始正是高负载时段；如果负载足够高，一些排队的作业可能被丢弃；定时工作流只在默认分支上运行。同一份文档还有一条更隐蔽的：在公共仓库中，仓库连续 60 天没有活动时，定时工作流会被自动禁用。</p>
+<section style="background:#f1f8f8;border-left:4px solid #087d72;padding:16px;margin:24px 0;"><p style="margin:0;color:#0b2d3f;">"任务没跑"和"任务跑了但结果不对"是两类问题。前者要先查触发记录，而不是先读代码。</p></section>
+<h2 style="font-size:20px;line-height:1.5;color:#087d72;margin:30px 0 12px;">03 · 执行：开始不等于成功</h2>
+<p style="margin:18px 0;color:#486474;">一个任务有开始时间，不等于它走完了；走完了，也不等于它做对了。</p>
+<p style="margin:18px 0;color:#486474;">真正能拿来做判断的是三样东西：结束时间、退出状态，以及有没有产出。只有开始时间的日志，最多能证明"系统确实叫过一次这个任务"。所以排查顺序是：先看有没有结束记录，再看退出状态，最后看产物对不对。顺序反了，就容易在代码里找半天，而问题其实出在触发上。</p>
+<h2 style="font-size:20px;line-height:1.5;color:#087d72;margin:30px 0 12px;">04 · 验收：输出要有落点，而且得有人看</h2>
+<p style="margin:18px 0;color:#486474;">最后一层最容易被省略。cron 手册页的示例里，任务输出会以邮件形式发给 crontab 的所有者，也可以用 MAILTO 指定别人接收。这类工具从设计上就给输出安排了去处。</p>
+<p style="margin:18px 0;color:#486474;">问题在于，有去处不等于有人看。收件箱里堆着几十封没人打开的任务邮件时，整个验收环节实际上是空的：任务在跑，结果没人确认。</p>
+<h2 style="font-size:20px;line-height:1.5;color:#087d72;margin:30px 0 12px;">补跑：要显式打开，而且不等于补齐</h2>
+<p style="margin:18px 0;color:#486474;">systemd 的 timer 提供了一个 Persistent= 选项，它默认是关闭的。打开之后，系统会把上次触发的时间存到磁盘；如果计时器在停机期间本应触发过，重新激活时会立刻补跑一次——不过这个补跑同样受 RandomizedDelaySec= 的延迟影响，而且只对 OnCalendar= 类型的计时器有效。</p>
+<p style="margin:18px 0;color:#486474;">同一份文档还写了另一种情况：系统休眠期间到点的日历计时器不会立刻执行，恢复后才会补上；但如果在休眠期间它到点了不止一次，最终也只会激活一次服务。</p>
+<section style="background:#f1f8f8;border-left:4px solid #087d72;padding:16px;margin:24px 0;"><p style="margin:0;color:#0b2d3f;">补跑机制解决的是"别漏掉这件事"，不是"把漏掉的那几次补齐"。</p></section>
+<h2 style="font-size:20px;line-height:1.5;color:#087d72;margin:30px 0 12px;">一张含失败恢复条件的检查表</h2>
+<p style="background:#f1f8f8;border-left:4px solid #087d72;padding:12px 16px;margin:10px 0;color:#0b2d3f;">配置 → 记录触发时间、时区、入口、改动人与日期；改过配置却没记录就是失败，变更后先手工跑一次。</p>
+<p style="background:#f1f8f8;border-left:4px solid #087d72;padding:12px 16px;margin:10px 0;color:#0b2d3f;">触发 → 记录计划时间与实际触发时间；超出能接受的时间窗就算失败，先当作未触发处理，走手工入口，不要干等下一次。</p>
+<p style="background:#f1f8f8;border-left:4px solid #087d72;padding:12px 16px;margin:10px 0;color:#0b2d3f;">执行 → 记录开始、结束、退出状态、产物位置；非零退出、没有结束记录或没有产物都算失败，告警并重试一次，仍失败就明确标记为当天缺口。</p>
+<p style="background:#f1f8f8;border-left:4px solid #087d72;padding:12px 16px;margin:10px 0;color:#0b2d3f;">验收 → 记录产物位置与判断标准；产物缺失或内容不达标就是失败，不静默跳过，把缺口写进当天记录，由人决定是否重做。</p>
+<p style="margin:18px 0;color:#486474;">这张表的价值不在于填得漂亮，而在于它把"我以为它在跑"换成了"我知道它跑没跑、结果对不对"。四层里任何一层没有落点，整条链路的结论就只能靠猜。</p>
+<h2 style="font-size:20px;line-height:1.5;color:#087d72;margin:30px 0 12px;">适用边界</h2>
+<p style="margin:18px 0;color:#486474;">上面引用的是公开文档中的具体行为说明，不是对所有调度工具的统一保证：不同平台对延迟、丢弃、自动禁用的处理并不一样，具体规则以你所用平台的当前文档为准。</p>
+<p style="margin:18px 0;color:#486474;">文中"每天早上九点汇总简报"是说明方法的假设场景，不是任何真实项目的记录；我没有对任何调度平台做过压力测试。补跑选项的名称和默认值也可能随版本变化，配置前请回到官方文档核对。</p>
+<p style="margin:18px 0;color:#486474;">今天可以只做一件事：打开你最信任的那个定时任务，找出它最近一次的输出落在哪里。如果找不到，就先补上这一条。</p>
+<h2 style="font-size:20px;line-height:1.5;color:#087d72;margin:30px 0 12px;">参考来源</h2>
+<p style="margin:18px 0;color:#486474;">crontab(5) 手册页；systemd 文档 systemd.timer；GitHub 文档 Events that trigger workflows。核对日期 2026-09-25。完整来源链接见博客版。</p>
+<section style="border-top:1px solid #d9e7e9;margin-top:28px;padding-top:18px;"><p style="font-size:14px;color:#61798a;margin:0;">以上为通用巡检方法，不构成任何平台的行为保证。</p></section>
+</section></main></body></html>
+
