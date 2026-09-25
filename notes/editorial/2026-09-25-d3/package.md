@@ -9,10 +9,9 @@
 
 封面方向：深海军蓝底，白色主标题"先分清这四层"，青绿小字"配置 / 触发 / 执行 / 验收"。本轮无封面图片，不能声称已生成。
 
-博客稿：content/posts/why-scheduled-tasks-do-not-finish.md，draft=true（夜班产物，未发布）。
-已发布 URL：待白班审核通过并发布后回填；公众号"阅读原文"在此之前不要填写，避免指向不存在的地址。
+博客稿：content/posts/why-scheduled-tasks-do-not-finish.md，draft=false（2026-09-25 白班独立审核通过并发布，正文无修订）。
+已发布 URL（2026-09-25 09:55 Asia/Shanghai 线上回读 HTTP 200，17528 bytes）：https://blog.paymond.me/posts/why-scheduled-tasks-do-not-finish/ 。公众号"阅读原文"填这个地址。发布 commit c407a0b，Actions run 36083881354 success。
 
 公众号：打开 wechat.html 复制渲染后的正文，标题/摘要独立填入。若顶部标题与标题字段重复，可在编辑器删除顶部大标题。wechat.txt 为纯文本降级。后台粘贴与手机预览由用户操作，未验证；本轮不代发。
 
 选题使用原题，未启用替补。来源为三份官方文档（cron / systemd / GitHub Actions），文中例子已明确标注为假设场景。
-
