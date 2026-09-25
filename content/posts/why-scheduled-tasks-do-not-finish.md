@@ -2,7 +2,7 @@
 title = '定时任务设好了，为什么事情还是没完成？'
 description = '定时任务只承诺到点触发一次。把配置、触发、执行、验收分开看，再加上明确的补跑与失败恢复条件，才能知道事情到底有没有做完。'
 date = '2026-09-25T00:45:00+08:00'
-draft = true
+draft = false
 pageLang = 'zh-CN'
 tags = ['自动化', '工作方法']
 +++
@@ -85,4 +85,3 @@ systemd 的 timer 提供了一个 `Persistent=` 选项，它默认是关闭的�
 - crontab(5) 手册页：[crontab(5) - Linux man page](https://man7.org/linux/man-pages/man5/crontab.5.html)。用于说明 `CRON_TZ` 指定表内时区、任务输出默认以邮件发给 crontab 所有者（可用 `MAILTO` 改）。核对日期 2026-09-25。
 - systemd 文档：[systemd.timer](https://www.freedesktop.org/software/systemd/man/latest/systemd.timer.html)。用于说明 `Persistent=` 默认关闭、存盘并补跑一次、受 `RandomizedDelaySec=` 影响且仅对 `OnCalendar=` 有效，以及休眠期间多次到点只激活一次服务。核对日期 2026-09-25。
 - GitHub 文档：[Events that trigger workflows](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)。用于说明 `schedule` 事件在高负载时被延迟、排队作业可能被丢弃、定时工作流只在默认分支运行，以及公共仓库 60 天无活动会被自动禁用。核对日期 2026-09-25。
-
