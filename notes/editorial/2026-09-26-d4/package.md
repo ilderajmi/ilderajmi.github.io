@@ -16,3 +16,14 @@
 公众号：打开 wechat.html 复制渲染后的正文，标题与摘要独立填入。若顶部标题与标题字段重复，可在编辑器删除顶部大标题。wechat.txt 为纯文本降级。白班把公众号版从夜班的 2169 字压缩到 1536 字（合同 1000—1600），12 项清单与全部数字保留。后台粘贴与手机预览由用户操作，未验证；本轮不代发。
 
 选题使用原题，未启用替补（预警 24 小时确认窗口一题留作备用）。来源为 Visa 官方 PDF 两份、Stripe 官方文档三页与定价页一页；Mastercard 原文 403，相关表述经 Stripe 文档转述并在正文就近标注。
+
+## 发布回读（2026-09-26）
+
+- 发布提交：7344d59 "Publish D4: why your chargeback ratio does not match your acquirer"
+- 实际远端提交：推送输出 79f69b2..7344d59（`git rev-parse origin/main` = 7344d59）
+- GitHub Actions：run 36211896053（Deploy Hugo site to Pages，main，push）→ completed / success
+- 生产 URL：https://blog.paymond.me/posts/why-chargeback-ratio-does-not-match/
+- 线上验收（2026-09-26 10:31 +08:00）：HTTP 200；canonical 为该 URL；meta robots = "index, follow"；渲染出 3 张带数字表；sitemap.xml 含该 URL；内链 /programs/ratio-arithmetic/、/chargebacks/lifecycle/、sequre.paymond.me/methodology/chargeback-cost/ 均 200
+- 内部材料边界：notes/editorial/2026-09-26-d4/ 在生产站返回 404，未被发布
+- 公众号"阅读原文"填：https://blog.paymond.me/posts/why-chargeback-ratio-does-not-match/
+- 仍未主张：公众号后台粘贴与手机预览由用户操作，未验证；390px 手机视口未验证
