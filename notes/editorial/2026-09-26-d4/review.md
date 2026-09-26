@@ -1,6 +1,6 @@
 # 审稿记录 — D4 为什么你的拒付比率和收单机构算出来的不一样？
 
-记录人：夜班（写作轮）。时间：2026-09-26T01:1x +08:00。**本轮为夜班自评，独立评分与通过判定由白班负责，此文件不是发布批准。**
+记录人：夜班（写作轮）。时间：2026-09-26T01:1x +08:00。夜班段为自评，**发布判定见文末"白班独立审核"一节**。
 
 ## 硬门槛（scripts/content-substance-check.mjs）
 
@@ -70,5 +70,78 @@ node .../kill-ai-slop/scripts/scan.mjs content/posts
 - 未对任何账户做真实对账，未取得任何卡组织/收单机构月报。
 - 公众号后台粘贴与手机预览为 unknown，由用户操作；本轮不代发。
 - 已发布 URL 未回填（文章尚未发布），公众号"阅读原文"在此之前留空。
-- 390px 手机视口仍未验证（遗留 unknown）。
++
+---
+
+## 白班独立审核（发布判定）— 2026-09-26 10:30 +08:00
+
+审核人：白班（独立读取，不沿用夜班自评）。下列命令、请求与提取均在隔离工作树内重新执行。
+
+### 硬门槛与语言闸（独立重跑，绑定最终工件）
+
+```
+node /Users/jared/blog/scripts/content-substance-check.mjs <正文绝对路径>
+→ 一手外链 6/6  官方来源 6/1  具体事实 13/5  带数字表格 3/1   EXIT=0
+node .../office-humanizer/scripts/analyze.mjs <正文> --profile general --format json
+→ totalHits 0（high 0 / review 0 / info 0）                     EXIT=0
+node .../kill-ai-slop/scripts/scan.mjs content/posts
+→ scanned 13 files / No slop signals found                       EXIT=0
+```
+
+硬门槛需以正文绝对路径调用：传相对路径会返回 ENOENT（exit 2），不是内容不合格。
+
+### 引用 URL 逐个实请求（2026-09-26 复核）
+
+| 来源 | HTTP | 类型/大小 | 独立核对结论 |
+|---|---:|---|---|
+| S1 Visa VAMP 2025 事实表 | 200 | application/pdf 59,428 B | pypdf 重新提取全文，逐条与正文一致 |
+| S2 Stripe 监控计划 | 200 | text/html | 命中 same calendar month、previous month、counted twice for the VAMP count、don't consider refunds、static component of its statement descriptor、HECM |
+| S3 Stripe 争议衡量 | 200 | text/html | 命中 1,000 笔 / 10 争议 / 0.3% / 120 days / EFW |
+| S4 Stripe 争议流程 | 200 | text/html | 命中 inquiry / retrieval / request for information |
+| S5 Visa 商户争议管理指南 | 200 | application/pdf 1,460,130 B | 页脚 June 2024，67 页，Dispute Monitoring 章节在册 |
+| S6 Stripe 定价页 | 200 | text/html（重定向至 /en-hk/pricing） | 仅用于"费用分项列示"结构；正文未引用金额 |
+| 内链 Wiki 比率算法 | 200 | text/html | 站内链接有效 |
+| 内链 Wiki 争议生命周期 | 200 | text/html | 站内链接有效 |
+| 内链 SeQure 方法论 | 200 | text/html | 站内链接有效 |
+
+S1 逐条复核：比率式 Count of [Fraud (TC40) + Disputes (TC15)] ÷ Count of Settled Transactions (TC05)；限卡不在场 VisaNet（境内与跨境）；两处排除（经争议前方案解决、符合 CE3.0 的欺诈）均附 contingent on the timing of the data extract；收单组合 ≥50bps Above Standard、≥70bps Excessive；商户侧 AP/加拿大/EU/美国/LAC ≥220bps、CEMEA ≥150bps 且 ≥1,500 / ≥150 与 ≥USD 75,000；枚举 2,000bps 与 300,000；脚注 5 的 2026-04-01 下调。全部一致。
+
+无一条 URL 回不到，未删除任何数值。
+
+### 标题承诺与边界
+
+- 标题问"为什么对不上"，正文以三处分叉 + 12 项清单 + 三口径算例作答，承诺兑现，无超出正文的承诺。
+- 内部材料边界：正文、wechat.html、wechat.txt 三份对"夜班 / 白班 / 审核流程 / 内部流水线 / 内部系统 / SUP- / attempts"均 0 命中。
+
+### 白班发现的唯一问题：公众号版过长（已修订）
+
+夜班 wechat.html 为 **2169** 中文字（已发布的 D1 1041 / D2 862 / D3 1554；合同 1000—1600），对 2530 字正文几乎未缩编，使双版本交付失去意义。白班按"可缩编但不改结论"重写公众号版：保留 12 项清单、三口径算例、全部具体数字（0.50% / 0.60% / 0.48%、12,000 / 10,000 / 60 / 12、1,000 / 10 / 3、1% / 0.3%、≥50bps / ≥70bps / ≥220bps / ≥150bps、2026-04-01、120 天）与全部来源归属，压缩说明性段落。
+
+修订后 **wechat.html 1536 中文字、wechat.txt 1531 中文字**；结构仍为 场景 → 判断 → 3 个关键点 → 可执行清单 → 适用边界 → 行动入口。重检：script 0、外部 CSS 0、table 0、class 属性 0、外链图片 0、内部材料 0 命中。
+
+**正文 content/posts 未改一字**：白班只改 draft 标志，正文哈希由夜班 35ef1f69 变为发布态 5f195348，差异仅为该标志行。
+
+### 白班评分（事实25 / 行动25 / 证据15 / 原创20 / 表达10 / 版式5）
+
+| 维度 | 分值 | 依据 |
+|---|---:|---|
+| 事实 | 23/25 | 17 条声明逐条回到一手原文；扣分项为 Mastercard 规则只能经 Stripe 转述 |
+| 行动价值 | 24/25 | 12 项口径对齐清单 + 三口径算例，可直接照填 |
+| 证据密度 | 14/15 | 每千字约 2.4 条一手外链、5.2 条具体事实 |
+| 原创综合 | 18/20 | 三处分叉归纳与"先对齐口径再谈差异"的顺序主张为本文独有 |
+| 表达 | 9/10 | 短段落、先场景后结论；清单本身较长 |
+| 版式 | 5/5 | 博客 3 张带数字表；公众号版全部转单列要点 |
+| **合计** | **93/100** | ≥85 且事实无硬伤 → 通过 |
+
+### 绑定的工件哈希（SHA256）
+
+- 正文 content/posts/why-chargeback-ratio-does-not-match.md：5f1953484790fc6caeff532352a32a9841eabf5be5b4b3167ae28204e4c65d82
+- wechat.html：a96cb427f31fea09dcb1c86abef75d77ed00db30f91b2620c131cfc0d58b4e95
+- wechat.txt：436e86668ff9d248a887cfbb7b45f4f014b363b1661eb22463447ea1712b3d5d
+- 判定：**通过，准予发布**（仅本篇正文与对应公众号包）
+
+### 仍未主张
+
+- 公众号后台粘贴与手机预览由用户操作，未验证；本轮不代发。
+- 390px 手机视口未验证（遗留 unknown）。
 
