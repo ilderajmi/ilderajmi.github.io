@@ -20,13 +20,24 @@
     s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
     document.head.append(s);
   }
+  function clearAnalyticsCookies() {
+    for (const cookie of document.cookie.split(';')) {
+      const name = cookie.trim().split('=')[0];
+      if (name !== '_ga' && !name.startsWith('_ga_')) continue;
+      for (const domain of ['', '; Domain=blog.paymond.me', '; Domain=.paymond.me'])
+        document.cookie = `${name}=; Max-Age=0; Path=/${domain}; SameSite=Lax`;
+    }
+  }
   function choose(value) {
     enabled = value === 'granted';
     try { localStorage.setItem(key,value); } catch {}
     window['ga-disable-' + id] = !enabled;
     status.textContent = enabled ? ' 已同意 / Enabled' : ' 已拒绝 / Disabled';
     if (enabled) { start(); gtag('consent','update',{analytics_storage:'granted'}); }
-    else if (loaded) gtag('consent','update',{analytics_storage:'denied'});
+    else {
+      if (loaded) gtag('consent','update',{analytics_storage:'denied'});
+      clearAnalyticsCookies();
+    }
   }
   document.getElementById('analytics-accept').addEventListener('click',()=>choose('granted'));
   document.getElementById('analytics-reject').addEventListener('click',()=>choose('denied'));
