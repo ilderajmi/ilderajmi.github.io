@@ -1,88 +1,90 @@
-baseURL = 'https://blog.paymond.me/'
-languageCode = 'zh-cn'
-title = 'My Blog'
+baseURL = "https://blog.paymond.me/"
+languageCode = "zh-cn"
+title = "Jared 的技术博客"
+theme = "hugo-blog-awesome"
+ignoreFiles = ["content/drafts/"]
+enableRobotsTXT = true
+enableEmoji = true
 
-theme = 'paper'
+[services.googleAnalytics]
+  id = ""
 
-# 草稿/临时文件不参与构建。content/drafts 下曾放着一份纯文本草稿，
-# Hugo 会把它当成页面发布并写进 sitemap，而 robots.txt 又 Disallow /drafts/。
-ignoreFiles = ['content/drafts/']
-
-# SEO 配置
 [params]
-  color = 'linen'
-  avatar = ''
-  name = 'Jared'
-  bio = '分享技术、开发和生活中的思考'
-  mainSections = ['posts']
-
-  # SEO Meta
-  description = "Jared 的个人博客，分享编程开发、AI 工具、技术思考等内容"
-  keywords = ["博客", "编程", "开发", "AI", "技术", "Hugo", "GitHub Pages"]
-  author = "Jared"
-  authorUrl = "https://blog.paymond.me/"
-  
-  # 网站Logo（用于结构化数据）
-  logo = "/apple-touch-icon.png"
-
-  # Open Graph / Facebook
-  images = ['/apple-touch-icon.png']
-  ogLocale = "zh_CN"
-
-  # Twitter Cards
-  twitterSite = ""
-  twitterCreator = ""
-  
-  # 性能优化
+  sitename = "Jared 的技术博客"
+  defaultColor = "auto"
+  description = "Jared 的个人博客，分享编程开发、AI 工具、支付风控与技术思考。"
+  mainSections = ["posts"]
+  toc = true
+  tocOpen = false
+  goToTop = true
+  dateFormat = "2006年01月02日"
+  rssFeedDescription = "summary"
   env = "production"
-  
-  # Google Search Console 验证（添加你的验证码）
-  # googleSiteVerification = "your-verification-code"
+  disableHLJS = true
+  favicon = "favicon.ico"
+  appleTouchIcon = "apple-touch-icon.png"
+  ogimage = "/apple-touch-icon.png"
 
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+[params.author]
+  name = "Jared"
+  intro = "Jared"
+  description = "分享技术、开发和生活中的思考"
+
+[[params.socialIcons]]
+  name = "github"
+  url = "https://github.com/ilderajmi"
+
+[[params.socialIcons]]
+  name = "Rss"
+  url = "/index.xml"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.highlight]
+  noClasses = false
+
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 4
+  ordered = false
 
 [menu]
   [[menu.main]]
     identifier = "home"
-    name = "Home"
+    name = "首页"
     url = "/"
     weight = 1
+  [[menu.main]]
+    identifier = "posts"
+    name = "文章"
+    url = "/posts/"
+    weight = 2
+  [[menu.main]]
+    identifier = "tags"
+    name = "标签"
+    url = "/tags/"
+    weight = 3
+  [[menu.main]]
+    identifier = "policies"
+    name = "隐私与条款"
+    url = "/policies/privacy-policy/"
+    weight = 4
 
 [taxonomies]
   category = "categories"
   tag = "tags"
   series = "series"
 
-# sitemap 配置
 [sitemap]
-  changefreq = 'weekly'
-  filename = 'sitemap.xml'
+  changefreq = "weekly"
+  filename = "sitemap.xml"
   priority = 0.5
 
-# 性能优化 - 生产环境压缩
-[minify]
-  [minify.tdewolff]
-    [minify.tdewolff.html]
-      keepWhitespace = false
-    [minify.tdewolff.css]
-      precision = 2
-    [minify.tdewolff.js]
-      precision = 2
-
-# robots.txt 配置
-enableRobotsTXT = true
-
-# 首页输出 RSS 和动态 robots.txt。分类/标签只输出 HTML，
-# 不再生成 /tags/*/index.xml 这类低价值 feed（搜索引擎抓取后只会判为
-# 「已抓取 - 目前尚未收录」）。
 [outputs]
-  home = ['HTML', 'RSS', 'ROBOTS']
-  taxonomy = ['HTML']
-  term = ['HTML']
+  home = ["HTML", "RSS"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
 
-# Google Analytics (需要替换为实际的 Measurement ID)
-# [services.googleAnalytics]
-#   ID = 'G-XXXXXXXXXX'
+[minify.tdewolff.html]
+  keepWhitespace = false

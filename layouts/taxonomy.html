@@ -1,0 +1,12 @@
+{{- define "main" -}}
+<div class="wrapper list-page">
+  <header class="header"><h1 class="header-title center">{{ .Title }}</h1></header>
+  <main class="page-content" aria-label="Content">
+    {{- range .Data.Terms.ByCount }}
+    <p class="post-item"><a href="{{ .Page.Permalink }}">{{ .Page.LinkTitle }} <span>({{ .Count }})</span></a></p>
+    {{- else }}
+    <p>暂无内容。</p>
+    {{- end }}
+  </main>
+</div>
+{{- end -}}

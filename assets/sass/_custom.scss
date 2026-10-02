@@ -1,0 +1,141 @@
+.page-content {
+  overflow-wrap: anywhere;
+}
+
+.overflow-table {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+.overflow-table table {
+  min-width: 42rem;
+}
+
+.post-item-meta {
+  flex-shrink: 0;
+  margin-inline-start: 0.75rem;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 768px) {
+  .post-item {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .post-item-title {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .post-item-meta {
+    margin-inline-start: 0;
+    font-size: 0.8rem;
+  }
+}
+
+.page-content pre {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+.site-navbar {
+  padding-inline: 1rem;
+}
+
+.site-navbar .trigger-container {
+  flex-wrap: wrap;
+  gap: 0.35rem 0.7rem;
+}
+
+.site-navbar .menu-link {
+  white-space: nowrap;
+}
+
+.site-navbar .trigger {
+  display: flex;
+  align-items: center;
+  width: auto;
+  position: static;
+  visibility: visible;
+}
+
+.site-navbar #mode {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  min-height: 2.5rem;
+}
+
+.site-navbar #mode svg {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+@media screen and (max-width: 768px) {
+  .site-navbar .menu a#mode {
+    position: absolute;
+    left: 3.25rem;
+    top: 0.65rem;
+    z-index: 3;
+  }
+
+  .site-navbar .menu input[type="checkbox"]:not(:checked) ~ .trigger {
+    visibility: hidden;
+  }
+
+  .site-navbar .menu input[type="checkbox"]:checked ~ .trigger {
+    visibility: visible;
+  }
+}
+
+.site-title-heading {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.site-bridge,
+.analytics-choice {
+  width: 92%;
+  max-width: 52rem;
+  margin: 1.5rem auto;
+  line-height: 1.6;
+}
+
+.site-bridge a {
+  margin-inline-end: 0.35rem;
+}
+
+.analytics-choice {
+  padding: 1rem;
+  border: 1px solid #d7dbe2;
+  border-radius: 0.5rem;
+  background: rgba(127, 127, 127, 0.06);
+}
+
+.analytics-choice p {
+  margin: 0 0 0.75rem;
+}
+
+.analytics-choice button {
+  margin: 0 0.5rem 0.5rem 0;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid currentColor;
+  border-radius: 0.35rem;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+
+#analytics-status {
+  display: inline-block;
+  margin-inline-start: 0.5rem;
+}
+
+html.dark .analytics-choice {
+  border-color: #4a4d56;
+}

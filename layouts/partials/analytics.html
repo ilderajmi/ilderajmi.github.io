@@ -1,10 +1,19 @@
 {{ if hugo.IsProduction }}
-<p style="padding:1rem;max-width:65ch;margin:auto">SeQure：<a href="https://sequre.paymond.me/chargeback-cost-calculator/">拒付成本计算器</a> · <a href="https://wiki.sequre.paymond.me/zh/">支付机制与预警知识库</a></p>
-<aside id="analytics-choice" style="padding:1rem;max-width:65ch;margin:auto" aria-label="Analytics preferences">
-<p>访问统计 / Analytics：同意后向 Google Analytics 发送页面访问和 SeQure 链接点击；不发送 URL 查询参数。可随时更改。</p>
-<button type="button" id="analytics-accept">同意 / Accept</button>
-<button type="button" id="analytics-reject">拒绝 / Reject</button>
-<span id="analytics-status" role="status"></span>
+<footer class="site-bridge" aria-label="SeQure sites">
+  <a href="https://sequre.paymond.me/chargeback-cost-calculator/">SeQure 拒付成本计算器</a>
+  <span aria-hidden="true"> · </span>
+  <a href="https://wiki.sequre.paymond.me/zh/">支付机制与预警知识库</a>
+</footer>
+<aside id="analytics-choice" class="analytics-choice" aria-label="Analytics preferences">
+  <p>访问统计 / Analytics：同意后向 Google Analytics 发送页面访问和 SeQure 链接点击；不发送 URL 查询参数。可随时更改。</p>
+  <button type="button" id="analytics-accept">同意 / Accept</button>
+  <button type="button" id="analytics-reject">拒绝 / Reject</button>
+  <span id="analytics-status" role="status" aria-live="polite"></span>
 </aside>
-<script defer src="/analytics.js"></script>
+{{- with resources.Get "analytics.js" -}}
+  {{- $analytics := . | minify | fingerprint -}}
+  <script defer src="{{ $analytics.RelPermalink }}" integrity="{{ $analytics.Data.Integrity }}"></script>
+{{- else }}
+  {{ errorf "analytics.js was not found in assets" }}
+{{- end }}
 {{ end }}

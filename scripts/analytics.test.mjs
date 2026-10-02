@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import {readFileSync} from 'node:fs';
-const source=readFileSync(new URL('../static/analytics.js',import.meta.url),'utf8');
+const source=readFileSync(new URL('../assets/analytics.js',import.meta.url),'utf8');
 function browser(saved=null,cookies=[]){
  const handlers={}, elements={}, scripts=[], storage=new Map(saved?[['blog.analytics-consent.v1',saved]]:[]);
  const jar=new Map(cookies.map(c=>[`${c.name}|${c.domain||'host'}|${c.path||'/'}`,c.value]));

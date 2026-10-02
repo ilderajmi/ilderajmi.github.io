@@ -1,0 +1,12 @@
+{{ $main := slice (resources.Get "js/main.js") }}
+{{ if .Site.Params.goToTop }}
+  {{ $main = $main | append (resources.Get "js/goToTop.js") }}
+{{ end }}
+{{ if hugo.IsProduction }}
+  {{ $main = $main | resources.Concat "js/main.js" | resources.Minify | resources.Fingerprint }}
+  <script src="{{ $main.RelPermalink }}" integrity="{{ $main.Data.Integrity }}"></script>
+{{ else }}
+  {{ $main = $main | resources.Concat "js/main.js" }}
+  <script src="{{ $main.RelPermalink }}"></script>
+{{ end }}
+{{ partial "analytics.html" . }}

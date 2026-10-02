@@ -1,0 +1,21 @@
+{{- $title := .Title | default site.Title -}}
+{{- $description := .Description | default .Summary | plainify | htmlUnescape | strings.TrimSpace -}}
+{{- if not $description }}{{ $description = site.Params.description }}{{ end }}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ $title }} | {{ site.Title }}</title>
+  <meta name="description" content="{{ $description }}">
+  <meta name="author" content="{{ or .Params.author site.Params.author.name }}">
+  <link rel="canonical" href="{{ .Permalink }}">
+  {{- if .Params.noindex }}<meta name="robots" content="noindex, nofollow">{{ end }}
+  <style>
+    :root { color-scheme: light dark; }
+    .plain-page { font: 1rem/1.7 system-ui, sans-serif; max-width: 52rem; margin: 2.5rem auto; padding: 0 1.25rem; overflow-wrap: anywhere; }
+    h1, h2, h3 { line-height: 1.3; }
+    .overflow-table { max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; }
+    table { min-width: 42rem; max-width: 100%; }
+    pre { max-width: 100%; overflow-x: auto; padding: 1rem; background: #f2f3f5; }
+    @media (prefers-color-scheme: dark) { body { color: #eaeaea; background: #131418; } pre { background: #24262c; } }
+  </style>
+</head>

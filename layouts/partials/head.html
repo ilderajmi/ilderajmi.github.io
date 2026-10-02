@@ -1,144 +1,32 @@
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, shrink-to-fit=no"
-  />
-
-  <!-- title -->
-  <title>
-    {{- if not .IsHome -}}{{- .Title }} - {{ end -}}{{- site.Title -}}
-  </title>
-
-  <!-- meta -->
-  <meta name="theme-color" />
-
-  <!-- author & description -->
-  {{- $site_author := or site.Params.author site.Params.name site.Title -}}
-  {{- if eq .Kind "page" -}}
-  <meta name="description" content="{{- .Description | default .Summary -}}" />
-  <meta name="author" content="{{- or .Params.author $site_author -}}" />
-  {{- else -}}
-  <meta
-    name="description"
-    content="{{- site.Params.description | default (print `A personal blog`) -}}"
-  />
-  <meta name="author" content="{{- $site_author -}}" />
-  {{- end -}}
-
-  <!-- keywords -->
-  {{- if .Params.tags -}}
-  <meta name="keywords" content="{{- delimit .Params.tags ", " -}}" />
-  {{- else if site.Params.keywords -}}
-  <meta name="keywords" content="{{- delimit site.Params.keywords ", " -}}" />
-  {{- end -}}
-
-  <!-- css & js -->
-  {{- $main := resources.Get "main.css" -}}
-  {{- $custom := resources.Get "custom.css" -}}
-  {{- $css := slice $main $custom | resources.Concat "main.css" | minify -}}
-  <link rel="preload stylesheet" as="style" href="{{- $css.Permalink -}}" />
-
-  <!-- dark icon -->
-  {{- $dark_icon := "theme.png" -}}
-  {{- if site.Params.monoDarkIcon -}}{{- $dark_icon = "theme.svg" -}}{{- end -}}
-  <link rel="preload" as="image" href="{{- $dark_icon | absURL -}}" />
-
-  <!-- avatar -->
-  {{- $avatar_url := $.Scratch.Get "avatar_url" -}}
-  {{- if $avatar_url -}}
-  <link rel="preload" as="image" href="{{- $avatar_url -}}" />
-  {{- end -}}
-
-  <!-- social list -->
-  {{- range $.Scratch.Get "social_list" -}}
-  <link rel="preload" as="image" href="{{- printf `%s.svg` . | absURL -}}" />
-  {{- end -}}
-
-  <!-- highlight js -->
-  {{- if and .IsPage (not site.Params.disableHLJS) -}}
-  <script
-    defer
-    src="{{- `highlight.min.js` | absURL -}}"
-    onload="hljs.initHighlightingOnLoad();"
-  ></script>
-  {{- end -}}
-
-  <!-- math -->
-  {{- if or .Params.math site.Params.math -}}
-  {{- partial "math.html" . -}}
-  {{- end -}}
-
-  <!-- favicon -->
-  <link
-    rel="icon"
-    href="{{- site.Params.favicon | default `favicon.ico` | absURL -}}"
-  />
-  <link
-    rel="apple-touch-icon"
-    href="{{- site.Params.appleTouchIcon | default `apple-touch-icon.png` | absURL -}}"
-  />
-
-  <!-- generator -->
-  {{- hugo.Generator -}}
-
-  <!-- production -->
-  {{- if or hugo.IsProduction (eq site.Params.env "production") -}}
-  {{- $page_lang := or .Params.pageLang site.LanguageCode -}}
-  {{- $hreflang := $page_lang -}}
-  {{- if eq $page_lang "zh-cn" -}}{{- $hreflang = "zh-CN" -}}{{- end -}}
-
-  <!-- Google Analytics 4 -->
-  {{- if site.Params.googleAnalyticsID -}}
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{- site.Params.googleAnalyticsID -}}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '{{- site.Params.googleAnalyticsID -}}');
-  </script>
-  {{- end -}}
-
-  {{- template "_internal/google_analytics.html" . -}}
-  {{- template "_internal/schema.html" . -}}
-  {{- partial "opengraph.html" . -}}
-  {{- template "_internal/twitter_cards.html" . -}}
-
-  <!-- 自定义 JSON-LD 结构化数据 -->
-  {{- partial "seo_schema.html" . -}}
-
-  <!-- RSS -->
-  {{- range .AlternativeOutputFormats -}}
-  <link
-    rel="{{- .Rel -}}"
-    type="{{- .MediaType.Type -}}"
-    href="{{- .Permalink -}}"
-    title="{{- site.Title -}}"
-  />
-  {{- end -}}
-
-  <!-- canonical -->
-  <link rel="canonical" href="{{- .Permalink -}}" />
-  
-  <!-- 语言版本：声明了 alternates 就输出互指 hreflang，否则只输出自指 hreflang -->
-  {{- if .Params.alternates -}}
-    {{- range .Params.alternates -}}
-  <link rel="alternate" hreflang="{{- .lang -}}" href="{{- .url | absURL -}}" />
-    {{- end -}}
-  {{- else -}}
-  <link rel="alternate" hreflang="{{- $hreflang -}}" href="{{- .Permalink -}}" />
-  {{- end -}}
-  
-  <!-- robots meta -->
-  {{- if .Params.noindex -}}
-  <meta name="robots" content="noindex, nofollow" />
-  {{- else if and (eq .Kind "taxonomy") (not .Data.Terms) -}}
-  <!-- 分类/标签/系列总览页没有任何条目时是空白页，索引它只会产生「已抓取，尚未收录」 -->
-  <meta name="robots" content="noindex, follow" />
-  {{- else -}}
-  <meta name="robots" content="index, follow" />
-  {{- end -}}
-  
-  {{- end -}}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else if eq .Kind "404" }}404 | 页面不存在 | {{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
+  {{- $description := .Description | default .Summary | plainify | htmlUnescape | strings.TrimSpace -}}
+  {{- if not $description }}{{ $description = site.Params.description }}{{ end }}
+  <meta name="description" content="{{ $description }}">
+  <meta name="author" content="{{ or .Params.author site.Params.author.name }}">
+  <link rel="canonical" href="{{ .Permalink }}">
+  {{- range .AlternativeOutputFormats }}
+  <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ site.Title }}">
+  {{- end }}
+  {{- $manifestConfig := .Site.Params.webmanifest | default dict -}}
+  {{- $manifest := merge $manifestConfig (dict "name" ($manifestConfig.name | default site.Params.sitename | default site.Title) "short_name" ($manifestConfig.short_name | default site.Params.sitename | default site.Title) "start_url" ($manifestConfig.start_url | default site.Home.Permalink) "theme_color" ($manifestConfig.theme_color | default "#434648") "background_color" ($manifestConfig.background_color | default "#ffffff") "display" ($manifestConfig.display | default "standalone")) -}}
+  {{- $manifestAsset := resources.Get "icons/site.webmanifest" | resources.ExecuteAsTemplate "site.webmanifest" $manifest | resources.Copy "site.webmanifest" -}}
+  <link rel="manifest" href="{{ $manifestAsset.RelPermalink }}">
+  {{- $style := resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "style.scss" . | toCSS (dict "targetPath" "style.css") | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+  {{- $highlight := resources.Get "code-highlight.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $highlight.RelPermalink }}" integrity="{{ $highlight.Data.Integrity }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ (resources.Get "icons/apple-touch-icon.png").RelPermalink }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ (resources.Get "icons/favicon-32x32.png").RelPermalink }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ (resources.Get "icons/favicon-16x16.png").RelPermalink }}">
+  <link rel="mask-icon" href="{{ (resources.Get "icons/safari-pinned-tab.svg").RelPermalink }}">
+  <link rel="shortcut icon" href="{{ (resources.Get "icons/favicon.ico" | resources.Copy "favicon.ico").RelPermalink }}">
+  {{- partial "browserconfig.html" . -}}
+  <meta name="theme-color" content="{{ .Site.Params.webmanifest.theme_color | default "#434648" }}">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" type="image/svg+xml" href="{{ (resources.Get "icons/favicon.svg").RelPermalink }}">
+  {{- if or .Params.math .Site.Params.math }}{{ partial "helpers/katex.html" . }}{{ end }}
+  {{- partial "custom-head.html" . -}}
 </head>

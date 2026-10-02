@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ .Permalink }}</title>
+  <meta name="description" content="此旧地址已迁移至对应的规范页面。">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="{{ .Permalink }}">
+  <meta http-equiv="refresh" content="0; url={{ .Permalink }}">
+</head>
+<body>
+  <main><h1>此页面已迁移</h1><p>请前往<a href="{{ .Permalink }}">新地址</a>。</p></main>
+</body>
+</html>
