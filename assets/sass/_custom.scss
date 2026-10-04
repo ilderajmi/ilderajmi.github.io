@@ -98,8 +98,7 @@
   font-size: 1.1rem;
 }
 
-.site-bridge,
-.analytics-choice {
+.site-bridge {
   width: 92%;
   max-width: 52rem;
   margin: 1.5rem auto;
@@ -110,32 +109,113 @@
   margin-inline-end: 0.35rem;
 }
 
+.analytics-choice [hidden] {
+  display: none !important;
+}
+
 .analytics-choice {
-  padding: 1rem;
-  border: 1px solid #d7dbe2;
-  border-radius: 0.5rem;
-  background: rgba(127, 127, 127, 0.06);
+  width: 100%;
+  margin: 0;
+  padding: 0.35rem 1rem;
+  border: 0;
+  line-height: 1.4;
+  font-size: 0.875rem;
 }
 
-.analytics-choice p {
-  margin: 0 0 0.75rem;
+.analytics-choice-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.65rem;
 }
 
-.analytics-choice button {
-  margin: 0 0.5rem 0.5rem 0;
-  padding: 0.45rem 0.8rem;
+.analytics-label,
+#analytics-settings-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.analytics-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+#analytics-initial-actions[hidden] {
+  display: none;
+}
+
+
+.analytics-choice button,
+#analytics-settings {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2rem;
+  padding: 0.25rem 0.55rem;
   border: 1px solid currentColor;
-  border-radius: 0.35rem;
+  border-radius: 0.25rem;
   color: inherit;
   background: transparent;
+  font: inherit;
   cursor: pointer;
+  touch-action: manipulation;
+}
+
+.analytics-choice button:hover,
+#analytics-settings:hover {
+  background: rgba(127, 127, 127, 0.12);
+}
+
+.analytics-choice button:focus-visible,
+#analytics-settings:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+#analytics-details {
+  display: inline-block;
+}
+
+#analytics-details:not([open]) > #analytics-description[hidden] {
+  display: none;
+}
+
+#analytics-settings {
+  list-style: none;
+}
+
+#analytics-settings::-webkit-details-marker {
+  display: none;
+}
+
+#analytics-settings::after {
+  content: "▾";
+  margin-inline-start: 0.3rem;
+  font-size: 0.75em;
+}
+
+#analytics-details[open] #analytics-settings::after {
+  content: "▴";
+}
+
+#analytics-description {
+  max-width: 34rem;
+  width: calc(100vw - 2rem);
+  margin: 0.5rem auto;
+  text-align: start;
+}
+
+#analytics-description p {
+  margin: 0 0 0.5rem;
+}
+
+#analytics-description[hidden] {
+  display: none;
 }
 
 #analytics-status {
-  display: inline-block;
-  margin-inline-start: 0.5rem;
-}
-
-html.dark .analytics-choice {
-  border-color: #4a4d56;
+  color: inherit;
+  font-size: 0.8125rem;
 }

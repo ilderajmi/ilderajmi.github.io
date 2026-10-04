@@ -4,11 +4,25 @@
   <span aria-hidden="true"> · </span>
   <a href="https://wiki.sequre.paymond.me/zh/">支付机制与预警知识库</a>
 </footer>
-<aside id="analytics-choice" class="analytics-choice" aria-label="Analytics preferences">
-  <p>访问统计 / Analytics：同意后向 Google Analytics 发送页面访问和 SeQure 链接点击；不发送 URL 查询参数。可随时更改。</p>
-  <button type="button" id="analytics-accept">同意 / Accept</button>
-  <button type="button" id="analytics-reject">拒绝 / Reject</button>
-  <span id="analytics-status" role="status" aria-live="polite"></span>
+<aside id="analytics-choice" class="analytics-choice" data-consent="unset" aria-label="访问统计设置">
+  <div class="analytics-choice-row">
+    <span class="analytics-label">访问统计</span>
+    <div id="analytics-initial-actions" class="analytics-actions">
+      <button type="button" id="analytics-accept" data-analytics-consent="granted">允许</button>
+      <button type="button" id="analytics-reject" data-analytics-consent="denied">拒绝</button>
+    </div>
+    <details id="analytics-details">
+      <summary id="analytics-settings" aria-controls="analytics-description" aria-expanded="false"><span id="analytics-settings-label">说明</span></summary>
+      <div id="analytics-description" class="analytics-description" hidden>
+        <p>同意后，Google Analytics 会记录本博客的页面访问，以及点击前往 SeQure 主站和知识库的链接。发送的页面网址会移除查询参数和片段。此选择仅适用于本博客；其他站点会单独征求同意。若也在其他站点同意，共用的分析 Cookie 可能关联访问记录。</p>
+        <div class="analytics-actions">
+          <button type="button" id="analytics-accept-details" data-analytics-consent="granted">允许</button>
+          <button type="button" id="analytics-reject-details" data-analytics-consent="denied">拒绝</button>
+        </div>
+      </div>
+    </details>
+    <span id="analytics-status" role="status" aria-live="polite" aria-atomic="true"></span>
+  </div>
 </aside>
 {{- with resources.Get "analytics.js" -}}
   {{- $analytics := . | minify | fingerprint -}}
