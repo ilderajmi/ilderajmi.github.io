@@ -1,6 +1,6 @@
 # blog.paymond.me
 
-> Chinese-language technical blog focused on software engineering, AI tooling, and developer workflows.
+> Chinese-language technical blog by Jared, covering software engineering, AI tooling, developer workflows, and payment operations.
 
 ## Preferred canonical sources
 
@@ -8,6 +8,30 @@
 - Posts index: https://blog.paymond.me/posts/
 - Sitemap: https://blog.paymond.me/sitemap.xml
 - RSS: https://blog.paymond.me/index.xml
+
+## Topics
+
+### AI agents and developer tooling
+
+- [Stop Mixing Up Agent Frameworks: 6 Harness / Runtime Paths, Explained](https://blog.paymond.me/posts/6-layers-of-harness-en/) (English)
+- [别再把 Agent 框架混为一谈：6 种 Harness / Runtime 路线，一次看懂](https://blog.paymond.me/posts/6-layers-of-harness-zh/) (Chinese)
+- [Claude Code 创建者怎么用自己的工具：Boris Cherny 的 13 条实践](https://blog.paymond.me/posts/boris-claude-code-tips/)
+- [国产大模型的2025：Kimi、MiniMax、智谱的不同路径](https://blog.paymond.me/posts/chinese-llm-2025/)
+- [用 BMAD 打造你的 AI 开发团队](https://blog.paymond.me/posts/bmad-reference-manual/)
+- [Moltbook：77万AI agent建了个社交网络](https://blog.paymond.me/posts/moltbook-ai-society/)
+- [OpenClaw：一只龙虾让Cloudflare股价涨了14%](https://blog.paymond.me/posts/openclaw-review-zh/)
+
+### Developer workflows and automation
+
+- [把工作交给 agent 之前，先分清这三类任务](https://blog.paymond.me/posts/three-task-types-before-agent/)
+- [先问这 5 个问题，再决定要不要换 AI 工具](https://blog.paymond.me/posts/five-questions-before-switching-ai-tools/)
+- [定时任务设好了，为什么事情还是没完成？](https://blog.paymond.me/posts/why-scheduled-tasks-do-not-finish/)
+
+### Payments and chargebacks
+
+- [过了3DS，这笔拒付为什么还是回到你身上](https://blog.paymond.me/posts/3ds-chargeback-liability/)
+- [一笔 120 美元的拒付，最后花掉多少？](https://blog.paymond.me/posts/why-a-120-dollar-chargeback-costs-more/)
+- [为什么你的拒付比率和收单机构算出来的不一样？](https://blog.paymond.me/posts/why-chargeback-ratio-does-not-match/)
 
 ## Citation guidance
 
@@ -19,3 +43,5 @@
 
 - Author commentary and analysis.
 - Practical workflows, tooling notes, and technical reviews.
+- Payment and chargeback operations notes alongside the main AI and developer topics.
+- This is a personal blog, not the SeQure product site.
