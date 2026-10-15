@@ -1,0 +1,21 @@
+{{- /* 文章列表页（/posts/）与标签页（/tags/<tag>/）：同首页的按月列表，不分页。 */ -}}
+{{- define "main" -}}
+{{- $pages := .RegularPages.ByDate.Reverse -}}
+<main id="main" class="wrap">
+  <section class="b-intro solo">
+    {{- if eq .Kind "term" }}
+    <h1>标签：{{ .Title }}</h1>
+    <p class="count">{{ len $pages }} 篇文章 · <a href="{{ `/tags/` | relURL }}">全部标签</a></p>
+    {{- else }}
+    <h1>{{ .Title }}</h1>
+    {{- with .Description }}<p>{{ . }}</p>{{ end }}
+    {{- end }}
+  </section>
+  {{- if $pages }}
+  <div class="strands"><span class="k">{{ if eq .Kind "term" }}本标签{{ else }}全部{{ end }}</span><nav aria-label="列表"><a href="{{ .RelPermalink }}" aria-current="true">全部 <span>{{ len $pages }}</span></a></nav></div>
+  {{ partial "ff/log.html" (dict "pages" $pages) }}
+  {{- else }}
+  <p class="empty">暂无内容。</p>
+  {{- end }}
+</main>
+{{- end -}}

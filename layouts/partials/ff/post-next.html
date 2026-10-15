@@ -1,0 +1,39 @@
+{{- /*
+  文末导航。参数：page、all（全部文章，新到旧）。
+  第一格：上一篇（更早的一篇），没有时用下一篇。
+  第二格：同主题里离本篇最近、且不是第一格的那篇；没有时用 data/topics.yaml 的 related 链接。
+*/ -}}
+{{- $p := .page -}}
+{{- $all := .all -}}
+{{- $en := eq $p.Params.pageLang "en" -}}
+{{- $idx := 0 -}}
+{{- range $i, $x := $all -}}{{- if eq $x $p -}}{{- $idx = $i -}}{{- end -}}{{- end -}}
+{{- $first := dict -}}
+{{- if lt (add $idx 1) (len $all) -}}
+  {{- $first = dict "label" (cond $en "Previous" "上一篇") "page" (index $all (add $idx 1)) -}}
+{{- else if gt $idx 0 -}}
+  {{- $first = dict "label" (cond $en "Next" "下一篇") "page" (index $all (sub $idx 1)) -}}
+{{- end -}}
+{{- $topic := partial "ff/topic.html" $p -}}
+{{- $second := dict -}}
+{{- with $topic -}}
+  {{- $best := 0 -}}
+  {{- range $i, $x := $all -}}
+    {{- if and (ne $x $p) (or (not $first) (ne $x $first.page)) -}}
+      {{- $t := partial "ff/topic.html" $x -}}
+      {{- if and $t (eq $t.id $topic.id) -}}
+        {{- $dist := cond (gt $i $idx) (sub $i $idx) (sub $idx $i) -}}
+        {{- if or (eq $best 0) (lt $dist $best) -}}{{- $best = $dist -}}{{- $second = dict "label" (cond $en "Same topic" "同主题") "title" $x.Title "url" $x.RelPermalink -}}{{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if and (not $second) $topic.related -}}
+    {{- $second = dict "label" (cond $en "Same topic" "同主题") "title" $topic.related.title "url" $topic.related.url -}}
+  {{- end -}}
+{{- end -}}
+{{- if or $first $second }}
+<nav class="p-next" aria-label="{{ if $en }}Adjacent posts{{ else }}相邻文章{{ end }}">
+  {{- with $first }}<a href="{{ .page.RelPermalink }}"><span>{{ .label }}</span><b>{{ .page.Title }}</b></a>{{ end }}
+  {{- with $second }}<a href="{{ .url }}"><span>{{ .label }}</span><b>{{ .title }}</b></a>{{ end }}
+</nav>
+{{- end }}

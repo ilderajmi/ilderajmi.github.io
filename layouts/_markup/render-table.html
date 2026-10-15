@@ -1,27 +1,36 @@
-<div class="overflow-table" role="region" aria-label="Scrollable table" tabindex="0">
-<table
-  {{- range $key, $value := .Attributes -}}
-    {{- if $value -}}
-      {{- printf " %s=%q" $key $value | safeHTMLAttr -}}
-    {{- end -}}
-  {{- end }}>
+{{- /*
+  Markdown 表格 → 设计的 .num-table（外框、表头底色、行分隔线）。
+  Markdown 里右对齐的列按数字列处理（右对齐、不换行、等宽数字），其他列左对齐并可换行。
+  最后一行的首格以「净额 / 合计 / 总计 / Total」开头或结尾时，放进 <tfoot>，用 2px 的合计线。
+*/ -}}
+{{- $rows := .TBody -}}
+{{- $foot := slice -}}
+{{- with $rows -}}
+  {{- $last := index . (sub (len .) 1) -}}
+  {{- $first := (index $last 0).Text | plainify | strings.TrimSpace -}}
+  {{- if findRE `(现金)?净额|合计|总计|^(?i:total)` $first -}}
+    {{- $foot = slice $last -}}
+    {{- $rows = first (sub (len .) 1) . -}}
+  {{- end -}}
+{{- end -}}
+<div class="tw-b overflow-table" role="region" aria-label="Scrollable table" tabindex="0">
+<table class="num-table">
   <thead>
     {{- range .THead }}
-    <tr>
-      {{- range . }}
-      <th{{ with .Alignment }} style="text-align: {{ . }}"{{ end }}>{{ .Text }}</th>
-      {{- end }}
-    </tr>
+    <tr>{{ range $i, $c := . }}<th scope="col"{{ if and $i (ne $c.Alignment "right") }} class="l"{{ end }}>{{ $c.Text }}</th>{{ end }}</tr>
     {{- end }}
   </thead>
   <tbody>
-    {{- range .TBody }}
-    <tr>
-      {{- range . }}
-      <td{{ with .Alignment }} style="text-align: {{ . }}"{{ end }}>{{ .Text }}</td>
-      {{- end }}
-    </tr>
+    {{- range $rows }}
+    <tr>{{ range $i, $c := . }}<td{{ if and $i (ne $c.Alignment "right") }} class="l"{{ end }}>{{ $c.Text }}</td>{{ end }}</tr>
     {{- end }}
   </tbody>
+  {{- with $foot }}
+  <tfoot>
+    {{- range . }}
+    <tr>{{ range $i, $c := . }}<td{{ if and $i (ne $c.Alignment "right") }} class="l"{{ end }}>{{ $c.Text }}</td>{{ end }}</tr>
+    {{- end }}
+  </tfoot>
+  {{- end }}
 </table>
 </div>

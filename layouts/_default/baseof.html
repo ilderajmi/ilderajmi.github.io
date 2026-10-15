@@ -1,18 +1,16 @@
+{{- /*
+  Form & Figure：覆盖主题 _default/baseof.html。
+  <html lang> 沿用 pageLang，zh-cn 统一写成 BCP 47 的 zh-CN；不再加载主题的深浅色切换和菜单脚本，
+  页面样式全部在 assets/ff/blog.css。访问统计脚本由 footer.html 里的 analytics.html 输出。
+*/ -}}
+{{- $lang := or .Params.pageLang .Site.LanguageCode -}}
+{{- if eq (lower $lang) "zh-cn" -}}{{- $lang = "zh-CN" -}}{{- end -}}
 <!DOCTYPE html>
-{{- $defaultColor := .Site.Params.defaultColor | default "auto" -}}
-{{- if eq $defaultColor "dark" -}}
-<html lang="{{ or .Params.pageLang .Site.LanguageCode }}" class="dark">
-{{- else if eq $defaultColor "light" -}}
-<html lang="{{ or .Params.pageLang .Site.LanguageCode }}" class="light">
-{{- else -}}
-<html lang="{{ or .Params.pageLang .Site.LanguageCode }}">
-{{- end -}}
+<html lang="{{ $lang }}">
 {{- partial "head.html" . -}}
-<body data-theme="{{ $defaultColor }}" class="notransition">
-  {{- partial "scriptsBodyStart.html" . -}}
+<body class="b">
   {{- partial "header.html" . -}}
   {{- block "main" . }}{{- end }}
   {{- partial "footer.html" . -}}
-  {{- partial "scriptsBodyEnd.html" . -}}
 </body>
 </html>

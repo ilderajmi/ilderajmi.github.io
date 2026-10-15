@@ -1,0 +1,17 @@
+{{- /*
+  博客页脚。站点链接沿用线上的两个目标：SeQure 拒付成本计算器、支付机制与预警知识库；
+  知识库链接按页面语言选 /zh/ 或 /（英文文章指向英文首页）。
+  「隐私与统计」指向本页底部的访问统计选择（只在生产构建里输出）。
+*/ -}}
+{{- $wiki := "https://wiki.sequre.paymond.me/zh/" -}}
+{{- if or (eq .Layout "plain") (hasPrefix (lower (or .Params.pageLang "")) "en") -}}{{- $wiki = "https://wiki.sequre.paymond.me/" -}}{{- end -}}
+<footer class="b-foot">
+  <div class="wrap">
+    <div class="row">
+      <span>© {{ now.Year }} {{ site.Params.author.name }}</span>
+      <span>文中引用的费率、规则与价格以来源页面为准，算例为合成数据。</span>
+      <nav aria-label="SeQure sites"><a href="https://sequre.paymond.me/chargeback-cost-calculator/" title="SeQure 拒付成本计算器">SeQure</a><a href="{{ $wiki }}" title="支付机制与预警知识库">参考库</a>{{ if hugo.IsProduction }}<a href="#analytics-choice">隐私与统计</a>{{ end }}</nav>
+    </div>
+    {{- partial "analytics.html" . }}
+  </div>
+</footer>

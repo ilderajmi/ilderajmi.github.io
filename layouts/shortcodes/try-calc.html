@@ -1,0 +1,29 @@
+{{- /*
+  「用 SeQure 计算器照填这一笔」卡片（Form & Figure 设计）。纯静态，无需 JS。
+  估算式与主站方法页一致：笔数 ×（平均争议金额 + 每笔费用 + 每笔人工）。
+
+  参数（都可省略）：
+    count  笔数，默认 1
+    amount 平均争议金额（美元），默认 120
+    fee    每笔费用（美元，可改的假设），默认 15
+    labor  每笔人工（美元，可改的假设），默认 10
+    note   卡片底部的说明文字
+    href   按钮链接，默认主站计算器
+
+  用法：{{< try-calc count="1" amount="120" fee="15" labor="10" note="……" >}}
+*/ -}}
+{{- $count := .Get "count" | default "1" | float -}}
+{{- $amount := .Get "amount" | default "120" | float -}}
+{{- $fee := .Get "fee" | default "15" | float -}}
+{{- $labor := .Get "labor" | default "10" | float -}}
+{{- $href := .Get "href" | default "https://sequre.paymond.me/chargeback-cost-calculator/" -}}
+{{- $total := mul $count (add $amount $fee $labor) -}}
+{{- $fmt := "%.0f" -}}
+{{- $id := printf "try-h-%d" .Ordinal -}}
+<section class="try" aria-labelledby="{{ $id }}">
+  <div class="try-head"><b id="{{ $id }}">用 SeQure 计算器照填这一笔</b><span>虚线为可改的假设</span></div>
+  <div class="try-eq" aria-label="{{ printf $fmt $count }} 乘以 {{ printf $fmt $amount }} 加 {{ printf $fmt $fee }} 加 {{ printf $fmt $labor }}，约 {{ printf $fmt $total }} 美元">
+    <span class="f">{{ printf $fmt $count }}</span><span class="o">×</span><span class="o">(</span><span class="f">${{ printf $fmt $amount }}</span><span class="o">+</span><span class="f a">${{ printf $fmt $fee }}</span><span class="o">+</span><span class="f a">${{ printf $fmt $labor }}</span><span class="o">)</span><span class="o">=</span><span class="r">约 ${{ printf $fmt $total }}</span>
+  </div>
+  <div class="try-foot"><span>{{ with .Get "note" }}{{ . }}{{ else }}换成你自己的笔数和金额再算一次。{{ end }}</span><a class="btn btn-primary btn-sm" href="{{ $href }}">打开计算器</a></div>
+</section>

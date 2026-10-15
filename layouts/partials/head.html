@@ -3,7 +3,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ if .IsHome }}{{ site.Title }}{{ else if eq .Kind "404" }}404 | 页面不存在 | {{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
   {{- $description := .Description | default .Summary | plainify | htmlUnescape | strings.TrimSpace -}}
-  {{- if not $description }}{{ $description = site.Params.description }}{{ end }}
+  {{- if .IsHome }}{{ $description = site.Params.description }}{{ end -}}
+{{- if not $description }}{{ $description = site.Params.description }}{{ end }}
   <meta name="description" content="{{ $description }}">
   <meta name="author" content="{{ or .Params.author site.Params.author.name }}">
   <link rel="canonical" href="{{ .Permalink }}">
@@ -14,7 +15,8 @@
   {{- $manifest := merge $manifestConfig (dict "name" ($manifestConfig.name | default site.Params.sitename | default site.Title) "short_name" ($manifestConfig.short_name | default site.Params.sitename | default site.Title) "start_url" ($manifestConfig.start_url | default site.Home.Permalink) "theme_color" ($manifestConfig.theme_color | default "#434648") "background_color" ($manifestConfig.background_color | default "#ffffff") "display" ($manifestConfig.display | default "standalone")) -}}
   {{- $manifestAsset := resources.Get "icons/site.webmanifest" | resources.ExecuteAsTemplate "site.webmanifest" $manifest | resources.Copy "site.webmanifest" -}}
   <link rel="manifest" href="{{ $manifestAsset.RelPermalink }}">
-  {{- $style := resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "style.scss" . | toCSS (dict "targetPath" "style.css") | minify | fingerprint }}
+  {{- $style := resources.Get "ff/blog.css" | fingerprint }}
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/schibsted-grotesk-latin-400-normal.woff2" crossorigin>
   <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
   {{- $highlight := resources.Get "code-highlight.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $highlight.RelPermalink }}" integrity="{{ $highlight.Data.Integrity }}">
@@ -25,7 +27,7 @@
   <link rel="shortcut icon" href="{{ (resources.Get "icons/favicon.ico" | resources.Copy "favicon.ico").RelPermalink }}">
   {{- partial "browserconfig.html" . -}}
   <meta name="theme-color" content="{{ .Site.Params.webmanifest.theme_color | default "#434648" }}">
-  <meta name="color-scheme" content="light dark">
+  <meta name="color-scheme" content="light">
   <link rel="icon" type="image/svg+xml" href="{{ (resources.Get "icons/favicon.svg").RelPermalink }}">
   {{- if or .Params.math .Site.Params.math }}{{ partial "helpers/katex.html" . }}{{ end }}
   {{- partial "custom-head.html" . -}}

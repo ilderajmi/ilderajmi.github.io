@@ -1,33 +1,17 @@
-<!DOCTYPE html>
-{{- $defaultColor := .Site.Params.defaultColor | default "auto" -}}
-{{- if eq $defaultColor "dark" -}}
-<html lang="{{ .Site.LanguageCode }}" class="dark">
-{{- else if eq $defaultColor "light" -}}
-<html lang="{{ .Site.LanguageCode }}" class="light">
-{{- else -}}
-<html lang="{{ .Site.LanguageCode }}">
+{{- /*
+  首页：简介 + 关于我 + 按主题切换 + 按月分组的全部文章（不分页）。
+  主题切换不依赖 JS：每个标签是指向 #t-<id> 的普通链接，blog.css 用 :target
+  隐藏不属于该主题的文章；底部的小脚本只把 aria-current 同步到当前标签。
+*/ -}}
+{{- define "main" -}}
+{{- $pages := (where site.RegularPages "Type" "in" site.Params.mainSections).ByDate.Reverse -}}
+<main id="main" class="wrap">
+  <section class="b-intro">
+    <h1>把工具用明白，把账算清楚</h1>
+    <p>写 AI agent 与开发工具的实际用法，也写跨境支付里那些对不上的数字。每篇尽量给出可以照做的清单或能自己填的算例。</p>
+    <aside class="about-card" id="about"><b>关于我</b><br>做支付风控相关的工作，也在做 <a href="https://sequre.paymond.me/">SeQure</a>：一个拒付成本计算器和一份<a href="https://wiki.sequre.paymond.me/zh/">拒付与预警参考库</a>。</aside>
+  </section>
+  {{ partial "ff/strands.html" (dict "pages" $pages) }}
+  {{ partial "ff/log.html" (dict "pages" $pages) }}
+</main>
 {{- end -}}
-{{- partial "head.html" . -}}
-<body data-theme="{{ $defaultColor }}" class="notransition">
-  {{- partial "scriptsBodyStart.html" . -}}
-  {{- partial "header.html" . -}}
-  <div class="wrapper">
-    {{ partial "bio.html" . }}
-    <main aria-label="Content">
-      <h1 class="posts-item-note" aria-label="Recent Posts">{{ T "home.recent_posts" }}</h1>
-      {{- $pagesToShow := where .Site.RegularPages "Type" "in" site.Params.mainSections -}}
-      {{- $posts := $pagesToShow.ByDate.Reverse -}}
-      {{- range first 5 $posts }}
-        {{ partial "postCard.html" . }}
-      {{- end }}
-      {{- if gt (len $posts) 5 }}
-        {{- range $firstSection := (where .Site.Sections "Section" "in" (first 1 (.Site.Params.mainSections))) }}
-      <p><a href="{{ $firstSection.Permalink }}">{{ T "home.see_all_posts" }}</a></p>
-        {{- end }}
-      {{- end }}
-    </main>
-  </div>
-  {{- partial "footer.html" . -}}
-  {{- partial "scriptsBodyEnd.html" . -}}
-</body>
-</html>

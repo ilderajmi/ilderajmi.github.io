@@ -1,23 +1,48 @@
+{{- /*
+  文章页：左侧信息栏（发布 / 阅读 / 主题），正文（标题、导语、正文），右侧本文目录。
+  目录只列 h2，至少两个 h2 才输出；当前小节由底部脚本标出（无 JS 时目录仍是普通锚点链接）。
+*/ -}}
 {{- define "main" -}}
-<div class="wrapper post">
-  <main class="page-content" aria-label="Content">
-    <article>
-      <header class="header">
-        <h1 class="header-title">{{ .Title }}</h1>
-        {{- with .Date }}
-          {{- $dateFormat := $.Site.Params.dateFormat | default ":date_medium" -}}
-          {{- $isoTime := .Format "2006-01-02T15:04:05-07:00" -}}
-          <div class="post-meta"><time datetime="{{ $isoTime }}">{{ . | time.Format $dateFormat }}</time></div>
-        {{- end }}
-      </header>
-      {{- partial "toc.html" . }}
-      {{- $content := .Content -}}
-      {{- if and (eq .Section "posts") (eq .Kind "page") -}}
-        {{- $content = replaceRE `(?s)^\s*<h1[^>]*>.*?</h1>\s*` "" $content -}}
+{{- $en := eq .Params.pageLang "en" -}}
+{{- $all := (where site.RegularPages "Type" "in" site.Params.mainSections).ByDate.Reverse -}}
+{{- $inLog := in $all . -}}
+
+{{- /* 阅读时间：中文按每分钟 500 字计（.ReadingTime 按空格分词，对中文偏低），英文用 .ReadingTime */ -}}
+{{- $minutes := .ReadingTime -}}
+{{- if not $en -}}{{- $minutes = math.Ceil (div (float (strings.RuneCount .Plain)) 500) | int -}}{{- end -}}
+{{- if lt $minutes 1 -}}{{- $minutes = 1 -}}{{- end -}}
+
+<main id="main" class="wrap p-grid">
+  <aside class="p-meta" aria-label="{{ if $en }}Article details{{ else }}文章信息{{ end }}">
+    <dl>
+      <div><dt>{{ if $en }}Published{{ else }}发布{{ end }}</dt><dd><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time></dd></div>
+      <div><dt>{{ if $en }}Reading{{ else }}阅读{{ end }}</dt><dd>{{ if $en }}{{ $minutes }} min{{ else }}约 {{ $minutes }} 分钟{{ end }}</dd></div>
+      {{- with .Params.tags }}
+      <div><dt>{{ if $en }}Topics{{ else }}主题{{ end }}</dt><dd class="tags">{{ partial "ff/pills.html" (dict "page" $ "limit" 0 "link" true) }}</dd></div>
       {{- end }}
-      <div class="page-content">{{ $content | safeHTML }}</div>
-    </article>
-    {{- partial "comments.html" . }}
-  </main>
-</div>
+    </dl>
+  </aside>
+
+  <article class="p-body">
+    <header class="p-head">
+      <a class="p-back" href="{{ `/` | relURL }}">{{ if $en }}All posts{{ else }}全部文章{{ end }}</a>
+      <h1>{{ .Title }}</h1>
+      {{- with .Description }}
+      <p class="p-dek">{{ . }}</p>
+      {{- end }}
+    </header>
+    <div class="zh">
+      {{- $content := .Content -}}
+      {{- if eq .Section "posts" }}{{ $content = replaceRE `(?s)^\s*<h1[^>]*>.*?</h1>\s*` "" $content }}{{ end -}}
+      {{- /* D5 summary: presentation-only callout; capture and preserve the original text. */ -}}
+      {{- if eq .RelPermalink "/posts/why-a-120-dollar-chargeback-costs-more/" -}}
+        {{- $content = replaceRE `<p><strong>(一笔拒付的成本分三层：[^<]+)</strong>\s*([^<]+)</p>` `<div class="keyline"><p>${1}</p></div><p>${2}</p>` $content -}}
+      {{- end -}}
+      {{ $content | safeHTML }}
+      {{- if $inLog }}{{ partial "ff/post-next.html" (dict "page" . "all" $all) }}{{ end }}
+    </div>
+  </article>
+
+  {{ partial "toc.html" . }}
+</main>
 {{- end -}}

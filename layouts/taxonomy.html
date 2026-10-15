@@ -1,12 +1,38 @@
+{{- /*
+  分类/标签/系列总览页模板。
+
+  主题自带的 _default/list.html 不渲染 .Data.Terms，所以 /tags/、/categories/、
+  /series/ 曾经是只带页头和页脚的空白页，Google 一直报「URL is unknown to Google」。
+  这里渲染成可点击的索引，给标签页提供一条站内链接路径；按 data/topics.yaml 的主题线分组。
+*/ -}}
 {{- define "main" -}}
-<div class="wrapper list-page">
-  <header class="header"><h1 class="header-title center">{{ .Title }}</h1></header>
-  <main class="page-content" aria-label="Content">
-    {{- range .Data.Terms.ByCount }}
-    <p class="post-item"><a href="{{ .Page.Permalink }}">{{ .Page.LinkTitle }} <span>({{ .Count }})</span></a></p>
-    {{- else }}
-    <p>暂无内容。</p>
+{{- $terms := .Data.Terms.ByCount -}}
+<main id="main" class="wrap">
+  <section class="b-intro solo">
+    <h1>{{ if eq .Type "tags" }}标签{{ else }}{{ .Title }}{{ end }}</h1>
+    {{- with $terms }}<p class="count">{{ len . }} 个{{ if eq $.Type "tags" }}标签{{ else }}条目{{ end }}</p>{{ end }}
+  </section>
+  {{- with $terms }}
+    {{- $done := slice -}}
+    {{- range site.Data.topics.lines }}
+      {{- $line := . -}}
+      {{- $in := slice -}}
+      {{- range $terms }}{{ if in $line.tags .Page.Title }}{{ $in = $in | append . }}{{ end }}{{ end -}}
+      {{- with $in }}
+  <section class="tag-index" aria-labelledby="ti-{{ $line.id }}"><h2 id="ti-{{ $line.id }}">{{ $line.name }}</h2><ul>
+        {{- range . }}<li><a class="tag{{ if eq $line.id "pay" }} pay{{ end }}" href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }} <span>{{ .Count }}</span></a></li>{{ $done = $done | append .Page.Title }}{{ end -}}
+  </ul></section>
+      {{- end }}
     {{- end }}
-  </main>
-</div>
+    {{- $rest := slice -}}
+    {{- range $terms }}{{ if not (in $done .Page.Title) }}{{ $rest = $rest | append . }}{{ end }}{{ end -}}
+    {{- with $rest }}
+  <section class="tag-index" aria-labelledby="ti-other"><h2 id="ti-other">其他</h2><ul>
+      {{- range . }}<li><a class="tag" href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }} <span>{{ .Count }}</span></a></li>{{ end -}}
+  </ul></section>
+    {{- end }}
+  {{- else }}
+  <p class="empty">暂无内容。</p>
+  {{- end }}
+</main>
 {{- end -}}

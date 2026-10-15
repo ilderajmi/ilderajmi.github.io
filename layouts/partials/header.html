@@ -1,30 +1,13 @@
-<header class="navbar site-navbar" role="navigation">
-  <nav class="menu" aria-label="Main Navigation">
-    <a class="logo" href="{{ .Site.Home.Permalink }}" aria-label="{{ site.Title }}">
-      {{ partial "svgs/home.svg" (dict "height" 25 "width" 25) . }}
-    </a>
-    <a id="mode" href="javascript:void(0)" aria-label="切换深浅主题" class="theme-switch">
-      {{ partial "svgs/sun.svg" (dict "height" 21 "width" 21 "class" "mode-sunny" "title" "LIGHT") . }}
-      {{ partial "svgs/sun.svg" (dict "height" 21 "width" 21 "class" "mode-moon" "title" "DARK") . }}
-    </a>
-    <input type="checkbox" id="menu-trigger" class="menu-trigger">
-    <label for="menu-trigger" aria-label="菜单"><span class="menu-icon">{{ partial "svgs/menu.svg" (dict "height" 25 "width" 25) . }}</span></label>
-    <div class="trigger">
-      <ul class="trigger-container">
-        {{- $currentPage := . -}}
-        {{- range .Site.Menus.main }}
-        <li><a class="menu-link {{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
-          {{- if .HasChildren }}<ul>{{ range .Children }}<li><a class="menu-link" href="{{ .URL }}">{{ .Name }}</a></li>{{ end }}</ul>{{ end }}
-        </li>
-        {{- end }}
-        <li class="menu-separator"><span aria-hidden="true">|</span></li>
-        {{- if .IsTranslated }}
-        <li><select aria-label="Select Language" class="lang-list" id="select-language" onchange="location = this.value;">
-          {{- range .Page.AllTranslations }}<option value="{{ .Permalink }}" {{ if eq .Lang $.Page.Lang }}selected{{ end }}>{{ .Language.LanguageCode | upper }}</option>{{ end }}
-        </select></li>
-        <li class="menu-separator"><span aria-hidden="true">|</span></li>
-        {{- end }}
-      </ul>
-    </div>
-  </nav>
+{{- /* 博客页头：名字 + 简介，导航来自 hugo.toml 的 [menu]（文章 / 标签 / 关于 / RSS），当前栏目用 aria-current 标出。 */ -}}
+{{- $onPosts := or .IsHome (and (eq .Kind "section") (eq .Section "posts")) -}}
+{{- $onTags := eq .Type "tags" -}}
+<header class="b-head">
+  <div class="wrap head-row">
+    <a class="b-name" href="{{ site.Home.RelPermalink }}">{{ site.Params.author.name }}{{ with site.Params.tagline }}<span>{{ . }}</span>{{ end }}</a>
+    <nav class="b-nav" aria-label="Main Navigation">
+      {{- range site.Menus.main }}
+      <a href="{{ .URL }}"{{ if or (and (eq .Identifier "posts") $onPosts) (and (eq .Identifier "tags") $onTags) }} aria-current="page"{{ end }}>{{ .Name }}</a>
+      {{- end }}
+    </nav>
+  </div>
 </header>

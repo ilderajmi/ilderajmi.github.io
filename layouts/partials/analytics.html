@@ -1,9 +1,5 @@
+{{- /* 访问统计选择：assets/analytics.js 依赖下面的 id 和 data-analytics-consent；只在生产构建里输出。样式在 assets/ff/blog.css 的 .analytics-choice。 */ -}}
 {{ if hugo.IsProduction }}
-<footer class="site-bridge" aria-label="SeQure sites">
-  <a href="https://sequre.paymond.me/chargeback-cost-calculator/">SeQure 拒付成本计算器</a>
-  <span aria-hidden="true"> · </span>
-  <a href="https://wiki.sequre.paymond.me/zh/">支付机制与预警知识库</a>
-</footer>
 <aside id="analytics-choice" class="analytics-choice" data-consent="unset" aria-label="访问统计设置">
   <div class="analytics-choice-row">
     <span class="analytics-label">访问统计</span>

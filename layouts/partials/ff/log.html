@@ -1,0 +1,10 @@
+{{- /* 按月分组的文章列表。参数：pages。 */ -}}
+{{- range .pages.GroupByDate "2006-01" -}}
+{{- $d := (index .Pages 0).Date -}}
+{{- $id := printf "m-%s" ($d.Format "0601") -}}
+<section class="month" aria-labelledby="{{ $id }}"><h2 id="{{ $id }}">{{ $d.Year }} 年 {{ int ($d.Format "1") }} 月</h2><ol>
+{{- range .Pages }}
+{{ partial "postCard.html" . }}
+{{- end }}
+</ol></section>
+{{- end -}}

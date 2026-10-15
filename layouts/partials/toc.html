@@ -1,0 +1,18 @@
+{{- $en := eq .Params.pageLang "en" -}}
+{{- /* 目录：收集 h2 */ -}}
+{{- $toc := slice -}}
+{{- range .Fragments.Headings -}}
+  {{- if eq .Level 2 -}}{{- $toc = $toc | append . -}}
+  {{- else if lt .Level 2 -}}{{- range .Headings -}}{{- if eq .Level 2 -}}{{- $toc = $toc | append . -}}{{- end -}}{{- end -}}{{- end -}}
+{{- end -}}
+
+  <aside class="p-toc">
+    {{- if ge (len $toc) 2 }}
+    <nav aria-labelledby="ptoc-h"><h2 id="ptoc-h">{{ if $en }}Contents{{ else }}本文目录{{ end }}</h2><ol>
+      {{- range $toc }}<li><a href="#{{ .ID }}">{{ .Title | plainify }}</a></li>{{ end -}}
+    </ol></nav>
+    <script>
+(()=>{const links=[...document.querySelectorAll('.p-toc a[href^="#"]')];const hs=links.map(a=>document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))));const set=()=>{let i=0;const y=innerHeight*0.3;hs.forEach((h,k)=>{if(h&&h.getBoundingClientRect().top<=y)i=k;});links.forEach((a,k)=>k===i?a.setAttribute('aria-current','true'):a.removeAttribute('aria-current'));};addEventListener('scroll',set,{passive:true});addEventListener('resize',set);set();})();
+    </script>
+    {{- end }}
+  </aside>

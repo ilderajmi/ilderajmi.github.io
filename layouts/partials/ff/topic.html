@@ -1,0 +1,7 @@
+{{- /* 返回文章所属的主题线（data/topics.yaml），没有命中时返回空 dict。 */ -}}
+{{- $found := dict -}}
+{{- $tags := .Params.tags | default slice -}}
+{{- range site.Data.topics.lines -}}
+  {{- if and (not $found) (intersect $tags .tags) -}}{{- $found = . -}}{{- end -}}
+{{- end -}}
+{{- return $found -}}

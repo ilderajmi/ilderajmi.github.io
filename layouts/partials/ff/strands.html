@@ -1,0 +1,18 @@
+{{- /* 主题切换。参数：pages。锚点 span 必须和 .month 是兄弟节点（见 blog.css 的 :target 规则）。 */ -}}
+{{- $pages := .pages -}}
+<span class="t-anchor" id="t-all"></span>
+{{- range site.Data.topics.lines }}<span class="t-anchor" id="t-{{ .id }}"></span>{{ end }}
+<div class="strands">
+  <span class="k">按主题</span>
+  <nav aria-label="按主题筛选"><a href="#t-all" aria-current="true">全部 <span>{{ len $pages }}</span></a>
+  {{- range site.Data.topics.lines -}}
+    {{- $line := . -}}
+    {{- $n := 0 -}}
+    {{- range $pages -}}{{- $t := partial "ff/topic.html" . -}}{{- if and $t (eq $t.id $line.id) -}}{{- $n = add $n 1 -}}{{- end -}}{{- end -}}
+    <a href="#t-{{ .id }}">{{ .name }} <span>{{ $n }}</span></a>
+  {{- end -}}
+  </nav>
+</div>
+<script>
+(()=>{const nav=document.currentScript.previousElementSibling.querySelector('nav');const sync=()=>{const h=location.hash;const ok=[...nav.querySelectorAll('a')].some(a=>a.getAttribute('href')===h);nav.querySelectorAll('a').forEach(a=>{const on=ok?a.getAttribute('href')===h:a.getAttribute('href')==='#t-all';on?a.setAttribute('aria-current','true'):a.removeAttribute('aria-current')});};addEventListener('hashchange',sync);sync();})();
+</script>

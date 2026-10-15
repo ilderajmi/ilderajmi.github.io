@@ -1,0 +1,21 @@
+# Topic lines for the home page tabs (Form & Figure redesign).
+#
+# Front matter has no categories or series, so a post's topic line is derived
+# from its tags here. A post belongs to the first line (in this order) whose
+# tags it carries; a post with none of these tags only appears under 全部.
+# Tags under `pay` also get the dark-outlined pill (.tag.pay).
+#
+# Adding a post with a new tag: add the tag to one line below, or the post
+# will only be listed under 全部.
+lines:
+  - id: ai
+    name: AI 与工作方法
+    tags: [AI代理, AI Agents, 开发工具, Developer Tools, 工作方法, 自动化, 大模型, Harness, Runtime, Claude Code, BMAD, Moltbook]
+  - id: pay
+    name: 拒付与支付
+    tags: [拒付与争议, 跨境支付, 支付风控, 拒付, 3DS]
+    # Shown as the "同主题" link on a post page when no other post in this
+    # line remains after the "上一篇" link.
+    related:
+      title: 参考库：拒付的生命周期与应答时限
+      url: https://wiki.sequre.paymond.me/zh/chargebacks/lifecycle/

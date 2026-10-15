@@ -1,0 +1,19 @@
+{{- /*
+  标签胶囊。参数：page、limit（0 = 全部）、link（true 时输出指向标签页的链接）。
+  英文文章在前面加一个 English 胶囊（来自 pageLang，不是标签）。
+*/ -}}
+{{- $p := .page -}}
+{{- $pay := slice -}}
+{{- range site.Data.topics.lines -}}{{- if eq .id "pay" -}}{{- $pay = .tags -}}{{- end -}}{{- end -}}
+{{- $items := slice -}}
+{{- if eq $p.Params.pageLang "en" -}}{{- $items = $items | append (dict "name" "English") -}}{{- end -}}
+{{- range $p.Params.tags -}}{{- $items = $items | append (dict "name" . "tag" true) -}}{{- end -}}
+{{- if gt .limit 0 -}}{{- $items = first .limit $items -}}{{- end -}}
+{{- $link := .link -}}
+{{- range $items -}}
+  {{- $cls := cond (in $pay .name) "tag pay" "tag" -}}
+  {{- if and $link .tag -}}
+    {{- $n := .name -}}
+    {{- range $p.GetTerms "tags" -}}{{- if eq .Title $n -}}<a class="{{ $cls }}" href="{{ .RelPermalink }}">{{ .Title }}</a>{{- end -}}{{- end -}}
+  {{- else -}}<span class="{{ $cls }}">{{ .name }}</span>{{- end -}}
+{{- end -}}

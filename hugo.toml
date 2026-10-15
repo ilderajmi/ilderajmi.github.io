@@ -1,5 +1,6 @@
 baseURL = "https://blog.paymond.me/"
-languageCode = "zh-cn"
+languageCode = "zh-CN"
+hasCJKLanguage = true
 title = "Jared 的技术博客"
 theme = "hugo-blog-awesome"
 ignoreFiles = ["content/drafts/"]
@@ -24,6 +25,10 @@ enableEmoji = true
   favicon = "favicon.ico"
   appleTouchIcon = "apple-touch-icon.png"
   ogimage = "/apple-touch-icon.png"
+  ogimageWidth = 180
+  ogimageHeight = 180
+  ogimageAlt = "Jared 的技术博客"
+  tagline = "技术、AI 工具与跨境支付"
 
 [params.author]
   name = "Jared"
@@ -51,20 +56,25 @@ enableEmoji = true
 
 [menu]
   [[menu.main]]
-    identifier = "home"
-    name = "首页"
-    url = "/"
-    weight = 1
-  [[menu.main]]
     identifier = "posts"
     name = "文章"
     url = "/posts/"
-    weight = 2
+    weight = 1
   [[menu.main]]
     identifier = "tags"
     name = "标签"
     url = "/tags/"
+    weight = 2
+  [[menu.main]]
+    identifier = "about"
+    name = "关于"
+    url = "/#about"
     weight = 3
+  [[menu.main]]
+    identifier = "rss"
+    name = "RSS"
+    url = "/index.xml"
+    weight = 4
 
 [taxonomies]
   category = "categories"
